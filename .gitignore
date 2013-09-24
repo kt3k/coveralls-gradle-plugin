@@ -1,0 +1,5 @@
+# gradle build dir
+build
+
+# gradle local dir
+.gradle
