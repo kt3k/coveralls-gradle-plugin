@@ -1,4 +1,6 @@
+
 apply plugin: 'groovy'
+apply plugin: 'maven'
 
 repositories {
     mavenCentral()
@@ -7,4 +9,12 @@ repositories {
 dependencies {
     compile localGroovy()
     compile gradleApi()
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: 'file://' + System.getenv('LOCAL_MVN_REPO')
+        }
+    }
 }
