@@ -1,6 +1,7 @@
 
 apply plugin: 'groovy'
 apply plugin: 'maven'
+apply plugin: 'eclipse'
 
 repositories {
     mavenCentral()

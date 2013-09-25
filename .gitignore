@@ -3,3 +3,8 @@ build
 
 # gradle local dir
 .gradle
+
+# eclipse setting files
+.settings
+.classpath
+.project
