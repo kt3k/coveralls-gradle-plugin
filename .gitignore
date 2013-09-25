@@ -4,7 +4,8 @@ build
 # gradle local dir
 .gradle
 
-# eclipse setting files
+# eclipse files
 .settings
 .classpath
 .project
+bin
