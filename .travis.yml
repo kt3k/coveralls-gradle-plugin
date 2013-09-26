@@ -1,0 +1,10 @@
+# .travis.yml of coveralls-gradle-plugin
+
+language: java
+
+jdk:
+- oraclejdk7
+
+after_success:
+- gradle -q cobertura
+- ./coveralls.groovy
