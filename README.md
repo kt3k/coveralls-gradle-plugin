@@ -44,3 +44,8 @@ after_success:
 - gradle -q cobertura
 - gradle -q coveralls
 ```
+
+Example
+-------
+
+see https://github.com/kt3k/straw-android-plugin
