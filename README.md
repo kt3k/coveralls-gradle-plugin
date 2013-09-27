@@ -41,8 +41,8 @@ jdk:
 - oraclejdk7
 
 after_success:
-- gradle -q cobertura
-- gradle -q coveralls
+- TERM=dumb gradle cobertura
+- TERM=dumb gradle coveralls
 ```
 
 Example

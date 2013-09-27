@@ -9,5 +9,5 @@ script:
 - TERM=dumb gradle check
 
 after_success:
-- TERM=dumb gradle -q cobertura
+- TERM=dumb gradle cobertura
 - ./coveralls.groovy
