@@ -32,7 +32,7 @@ cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml f
 
 And run `gradle coveralls` after `gradle cobertura`
 
-This plugin is now supporting travis-ci only. Sample `.travis.yml` look like following:
+This plugin is now supporting Travis-CI only. Sample `.travis.yml` looks like following:
 
 ```yaml
 language: java
