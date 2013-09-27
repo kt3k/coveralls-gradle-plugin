@@ -1,4 +1,4 @@
-coveralls-gradle-plugin [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.png?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/groovy-coveralls-post/badge.png)](https://coveralls.io/r/kt3k/groovy-coveralls-post)
+coveralls-gradle-plugin [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.png?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.png)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 =======================
 
 Convert Cobertura data and post to coveralls.io.
