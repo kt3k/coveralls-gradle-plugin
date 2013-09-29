@@ -8,9 +8,6 @@ class Report {
     String service_name;
     List<SourceReport> source_files;
 
-    public Report() {
-    }
-
     public Report(String serviceName, String serviceJobId, List<SourceReport> sourceFiles) {
         this.service_name = serviceName;
         this.service_job_id = serviceJobId;
