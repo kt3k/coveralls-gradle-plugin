@@ -9,3 +9,9 @@ build
 .classpath
 .project
 bin
+
+# idea files
+*.iml
+*.ipr
+*.iws
+.idea
