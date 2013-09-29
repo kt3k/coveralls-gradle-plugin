@@ -41,3 +41,6 @@ uploadArchives {
         }
     }
 }
+
+
+cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs

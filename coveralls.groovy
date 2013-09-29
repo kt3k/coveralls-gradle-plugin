@@ -57,7 +57,7 @@ class SourceReportFactory {
 
     public static List<SourceReport> createFromCoberturaXML(File file) {
         Node coverage = new XmlParser().parse(file)
-        String sourceDir = coverage.sources.source.text().replaceFirst('java$') { 'groovy' } + '/'
+        String sourceDir = coverage.sources.source.text() + '/'
 
         Map a = [:]
 
