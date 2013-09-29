@@ -1,12 +1,11 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
-
 class ServiceInfoFactory {
 
-    public static createFromEnvVar() {
+    public static createFromEnvVar(Map env) {
 
-        if (System.getenv('TRAVIS') == 'true') {
-            return new ServiceInfo('travis-ci', System.getenv('TRAVIS_JOB_ID'))
+        if (env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null) {
+            return new ServiceInfo('travis-ci', env.get('TRAVIS_JOB_ID'))
         }
 
         // cannot create service info from env var

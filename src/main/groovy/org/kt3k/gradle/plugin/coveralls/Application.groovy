@@ -41,7 +41,7 @@ class Application {
 	}
 
 	static void main() {
-		ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar()
+		ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(System.getenv())
 
 		if (serviceInfo == null) {
 			println 'no available service'
