@@ -42,15 +42,35 @@ class ApplicationTest {
 		stubFor(post(urlEqualTo("/abc"))
 				.willReturn(aResponse()
 				.withStatus(200)
-				.withHeader("Content-Type", "text/xml")
-				.withBody("<response>Some content</response>")))
+				.withHeader("Content-Type", "text/plain")
+				.withBody("Some content")))
 
 		Logger logger = mock Logger
 
 		Application.postJsonToUrl '{}', 'http://localhost:8089/abc', logger
 
 		verify(logger).info 'HTTP/1.1 200 OK'
-		verify(logger).info '[Content-Type: text/xml, Content-Length: 33, Server: Jetty(6.1.25)]'
+		verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+
+		WireMock.verify(postRequestedFor(urlMatching('/abc')))
+
+	}
+
+	@Test
+	void testPostJsonToUrlFailure() {
+
+		stubFor(post(urlEqualTo("/abc"))
+				.willReturn(aResponse()
+				.withStatus(404)
+				.withHeader("Content-Type", "text/plain")
+				.withBody('Not Found')))
+
+		Logger logger = mock Logger
+
+		Application.postJsonToUrl '{}', 'http://localhost:8089/abc', logger
+
+		verify(logger).error 'HTTP/1.1 404 Not Found'
+		verify(logger).error '[Content-Type: text/plain, Content-Length: 9, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')))
 
