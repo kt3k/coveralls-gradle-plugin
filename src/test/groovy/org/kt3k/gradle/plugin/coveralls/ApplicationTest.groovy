@@ -76,4 +76,24 @@ class ApplicationTest {
 
 	}
 
+	@Test
+	void testMain() {
+
+		stubFor(post(urlEqualTo("/abc"))
+				.willReturn(aResponse()
+				.withStatus(200)
+				.withHeader("Content-Type", "text/plain")
+				.withBody("Some content")))
+
+		Logger logger = mock Logger
+
+		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123'], 'http://localhost:8089/abc', 'src/test/fixture/coverage.xml', logger)
+
+		verify(logger).info 'HTTP/1.1 200 OK'
+		verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+
+		WireMock.verify(postRequestedFor(urlMatching('/abc')))
+
+	}
+
 }
