@@ -6,10 +6,14 @@ import org.kt3k.gradle.plugin.coveralls.Application
 
 class CoverallsPlugin implements Plugin<Project> {
 
-    void apply(Project project) {
-        project.task('coveralls') << {
-            Application.main(System.getenv())
-        }
-    }
+	static String API_ENDPOINT = 'https://coveralls.io/api/v1/jobs'
+
+	static String COBERTURA_REPORT_PATH = 'build/reports/cobertura/coverage.xml'
+
+	void apply(Project project) {
+		project.task('coveralls') << {
+			Application.main(System.getenv(), API_ENDPOINT, COBERTURA_REPORT_PATH)
+		}
+	}
 
 }

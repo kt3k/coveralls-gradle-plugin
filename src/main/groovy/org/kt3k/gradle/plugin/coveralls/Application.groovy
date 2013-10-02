@@ -12,13 +12,9 @@ import org.kt3k.gradle.plugin.coveralls.domain.*
 
 class Application {
 
-	static String API_ENDPOINT = 'https://coveralls.io/api/v1/jobs'
+	static void postJsonToUrl(String json, String url) {
 
-	static String COBERTURA_REPORT_PATH = 'build/reports/cobertura/coverage.xml'
-
-	static void postToCoveralls(String json) {
-
-		HTTPBuilder http = new HTTPBuilder(API_ENDPOINT)
+		HTTPBuilder http = new HTTPBuilder(url)
 
 		http.request(POST) { req ->
 
@@ -40,7 +36,9 @@ class Application {
 		}
 	}
 
-	static void main(Map env) {
+	static void main(Map env, String apiEndpoint, String coverageFilePath) {
+
+		// create service info from environmental variable
 		ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(env)
 
 		if (serviceInfo == null) {
@@ -52,7 +50,7 @@ class Application {
 		println 'service name: ' + serviceInfo.serviceName
 		println 'service job id: ' + serviceInfo.serviceJobId
 
-		File file = new File(COBERTURA_REPORT_PATH)
+		File file = new File(coverageFilePath)
 
 		if (!file.exists()) {
 			println 'covertura report not available: ' + file.absolutePath
@@ -68,7 +66,7 @@ class Application {
 
 		println rep.toJson()
 
-		postToCoveralls rep.toJson()
+		postJsonToUrl rep.toJson(), apiEndpoint
 	}
 
 }
