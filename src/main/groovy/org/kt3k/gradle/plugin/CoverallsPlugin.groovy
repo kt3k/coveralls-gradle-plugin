@@ -8,7 +8,7 @@ class CoverallsPlugin implements Plugin<Project> {
 
     void apply(Project project) {
         project.task('coveralls') << {
-            Application.main()
+            Application.main(System.getenv())
         }
     }
 
