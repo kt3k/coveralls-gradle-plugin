@@ -3,7 +3,7 @@
 
 <coverage line-rate="0.3170731707317073" branch-rate="0.4642857142857143" lines-covered="26" lines-valid="82" branches-covered="13" branches-valid="28" complexity="0.0" version="1.9.4.1" timestamp="1380706914266">
 	<sources>
-		<source>/Users/kt3k/Dropbox/workdir/Android/whatsmyip-workspace/coveralls-gradle-plugin/src/main/groovy</source>
+		<source>src/test/fixture</source>
 	</sources>
 	<packages>
 		<package name="org.kt3k.gradle.plugin" line-rate="0.5" branch-rate="1.0" complexity="0.0">
