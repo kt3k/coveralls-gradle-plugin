@@ -4,6 +4,7 @@ import org.junit.Test
 import static org.junit.Assert.*
 
 import static org.mockito.Mockito.*
+import org.mockito.ArgumentCaptor
 
 import org.gradle.api.Project
 import org.gradle.api.Plugin
@@ -13,6 +14,7 @@ class CoverallsPluginTest {
 
 	@Test
 	void testApply() {
+		ArgumentCaptor<Closure> captor = ArgumentCaptor.forClass Closure
 		Task task = mock(Task.class)
 
 		Project project = mock(Project.class)
@@ -23,7 +25,9 @@ class CoverallsPluginTest {
 
 		// verify coveralls task is registered
 		verify(project).task('coveralls')
-		verify(task).leftShift(any(Closure))
+		verify(task).leftShift(captor.capture())
+
+		captor.getValue().call()
 	}
 
 }

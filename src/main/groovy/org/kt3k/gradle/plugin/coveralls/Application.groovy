@@ -7,7 +7,7 @@ import static groovyx.net.http.Method.POST
 import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.apache.http.entity.ContentType
 
-import org.gradle.api.logging.Logger
+import org.slf4j.Logger
 
 import org.kt3k.gradle.plugin.coveralls.domain.*
 
