@@ -45,7 +45,7 @@ after_success:
 - TERM=dumb gradle coveralls
 ```
 
-For groovy project, add a following line to build.gradle:
+For groovy projects, add a following line to build.gradle:
 
 ```groovy
 cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
