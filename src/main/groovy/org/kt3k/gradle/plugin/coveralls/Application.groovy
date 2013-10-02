@@ -42,7 +42,7 @@ class Application {
 		ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(env)
 
 		if (serviceInfo == null) {
-			logger.error 'no available service'
+			logger.error 'no available CI service'
 
 			return
 		}
