@@ -23,14 +23,14 @@ class Application {
 			req.entity = MultipartEntityBuilder.create().addBinaryBody('json_file', json.getBytes('UTF-8'), ContentType.APPLICATION_JSON, 'json_file').build()
 
 			response.success = { resp, reader ->
-				logger.info resp.statusLine
-				logger.info resp.getAllHeaders()
+				logger.info resp.statusLine.toString()
+				logger.info resp.getAllHeaders().toString()
 				System.out << reader
 			}
 
 			response.failure = { resp, reader ->
-				logger.error resp.statusLine
-				logger.error resp.getAllHeaders()
+				logger.error resp.statusLine.toString()
+				logger.error resp.getAllHeaders().toString()
 				System.out << reader
 			}
 		}
