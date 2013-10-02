@@ -21,6 +21,7 @@ class CoverallsPluginTest {
 		Plugin plugin = new CoverallsPlugin()
 		plugin.apply(project)
 
+		// verify coveralls task is registered
 		verify(project).task('coveralls')
 		verify(task).leftShift(any(Closure))
 	}
