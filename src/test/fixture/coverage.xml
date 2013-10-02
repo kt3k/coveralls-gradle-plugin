@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.3170731707317073" branch-rate="0.4642857142857143" lines-covered="26" lines-valid="82" branches-covered="13" branches-valid="28" complexity="0.0" version="1.9.4.1" timestamp="1380706914266">
+	<sources>
+		<source>/Users/kt3k/Dropbox/workdir/Android/whatsmyip-workspace/coveralls-gradle-plugin/src/main/groovy</source>
+	</sources>
+	<packages>
+		<package name="org.kt3k.gradle.plugin" line-rate="0.5" branch-rate="1.0" complexity="0.0">
+			<classes>
+				<class name="org.kt3k.gradle.plugin.CoverallsPlugin" filename="org/kt3k/gradle/plugin/CoverallsPlugin.groovy" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="apply" signature="(Lorg/gradle/api/Project;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="10" hits="2" branch="false"/>
+								<line number="14" hits="1" branch="false"/>
+								<line number="16" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="2" branch="false"/>
+						<line number="14" hits="1" branch="false"/>
+						<line number="16" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.CoverallsPlugin$_apply_closure1" filename="org/kt3k/gradle/plugin/CoverallsPlugin.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="11" hits="0" branch="false"/>
+								<line number="15" hits="0" branch="false"/>
+								<line number="17" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="11" hits="0" branch="false"/>
+						<line number="15" hits="0" branch="false"/>
+						<line number="17" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.kt3k.gradle.plugin.coveralls" line-rate="0.20833333333333334" branch-rate="0.3181818181818182" complexity="0.0">
+			<classes>
+				<class name="org.kt3k.gradle.plugin.coveralls.Application" filename="org/kt3k/gradle/plugin/coveralls/Application.groovy" line-rate="0.4166666666666667" branch-rate="0.3181818181818182" complexity="0.0">
+					<methods>
+						<method name="main" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="main" signature="(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Lorg/gradle/api/logging/Logger;)V" line-rate="0.47619047619047616" branch-rate="0.3181818181818182">
+							<lines>
+								<line number="42" hits="2" branch="true" condition-coverage="50% (3/6)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+										<condition number="2" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="44" hits="2" branch="true" condition-coverage="33% (2/6)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+										<condition number="2" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="45" hits="1" branch="false"/>
+								<line number="46" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="47" hits="1" branch="false"/>
+								<line number="49" hits="0" branch="false"/>
+								<line number="50" hits="1" branch="false"/>
+								<line number="51" hits="1" branch="false"/>
+								<line number="52" hits="0" branch="false"/>
+								<line number="53" hits="1" branch="false"/>
+								<line number="55" hits="1" branch="true" condition-coverage="50% (2/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="56" hits="1" branch="false"/>
+								<line number="57" hits="0" branch="true" condition-coverage="0% (0/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="58" hits="1" branch="false"/>
+								<line number="60" hits="0" branch="false"/>
+								<line number="61" hits="0" branch="false"/>
+								<line number="63" hits="0" branch="false"/>
+								<line number="65" hits="0" branch="false"/>
+								<line number="67" hits="0" branch="false"/>
+								<line number="69" hits="0" branch="false"/>
+								<line number="71" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="postJsonToUrl" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="postJsonToUrl" signature="(Ljava/lang/String;Ljava/lang/String;Lorg/gradle/api/logging/Logger;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="19" hits="0" branch="false"/>
+								<line number="21" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="postToCoveralls" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="19" hits="0" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="23" hits="0" branch="false"/>
+						<line number="42" hits="2" branch="true" condition-coverage="50% (3/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+								<condition number="2" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="44" hits="2" branch="true" condition-coverage="33% (2/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+								<condition number="2" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="45" hits="1" branch="false"/>
+						<line number="46" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="47" hits="1" branch="false"/>
+						<line number="49" hits="0" branch="false"/>
+						<line number="50" hits="1" branch="false"/>
+						<line number="51" hits="1" branch="false"/>
+						<line number="52" hits="0" branch="false"/>
+						<line number="53" hits="1" branch="false"/>
+						<line number="55" hits="1" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="56" hits="1" branch="false"/>
+						<line number="57" hits="0" branch="true" condition-coverage="0% (0/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="58" hits="1" branch="false"/>
+						<line number="60" hits="0" branch="false"/>
+						<line number="61" hits="0" branch="false"/>
+						<line number="63" hits="0" branch="false"/>
+						<line number="65" hits="0" branch="false"/>
+						<line number="67" hits="0" branch="false"/>
+						<line number="69" hits="0" branch="false"/>
+						<line number="71" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.Application$_postJsonToUrl_closure1" filename="org/kt3k/gradle/plugin/coveralls/Application.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="0" branch="false"/>
+								<line number="25" hits="0" branch="false"/>
+								<line number="31" hits="0" branch="false"/>
+								<line number="32" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="23" hits="0" branch="false"/>
+						<line number="25" hits="0" branch="false"/>
+						<line number="31" hits="0" branch="false"/>
+						<line number="32" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.Application$_postJsonToUrl_closure1_closure2" filename="org/kt3k/gradle/plugin/coveralls/Application.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="0" branch="false"/>
+								<line number="27" hits="0" branch="false"/>
+								<line number="28" hits="0" branch="false"/>
+								<line number="29" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="26" hits="0" branch="false"/>
+						<line number="27" hits="0" branch="false"/>
+						<line number="28" hits="0" branch="false"/>
+						<line number="29" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.Application$_postJsonToUrl_closure1_closure3" filename="org/kt3k/gradle/plugin/coveralls/Application.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="32" hits="0" branch="false"/>
+								<line number="33" hits="0" branch="false"/>
+								<line number="34" hits="0" branch="false"/>
+								<line number="35" hits="0" branch="false"/>
+								<line number="36" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="32" hits="0" branch="false"/>
+						<line number="33" hits="0" branch="false"/>
+						<line number="34" hits="0" branch="false"/>
+						<line number="35" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.Application$_postToCoveralls_closure1" filename="org/kt3k/gradle/plugin/coveralls/Application.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="25" hits="0" branch="false"/>
+								<line number="27" hits="0" branch="false"/>
+								<line number="34" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="25" hits="0" branch="false"/>
+						<line number="27" hits="0" branch="false"/>
+						<line number="34" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.Application$_postToCoveralls_closure1_closure2" filename="org/kt3k/gradle/plugin/coveralls/Application.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="28" hits="0" branch="false"/>
+								<line number="29" hits="0" branch="false"/>
+								<line number="30" hits="0" branch="false"/>
+								<line number="31" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="28" hits="0" branch="false"/>
+						<line number="29" hits="0" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
+						<line number="31" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.Application$_postToCoveralls_closure1_closure3" filename="org/kt3k/gradle/plugin/coveralls/Application.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="35" hits="0" branch="false"/>
+								<line number="36" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="35" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.kt3k.gradle.plugin.coveralls.domain" line-rate="0.4642857142857143" branch-rate="1.0" complexity="0.0">
+			<classes>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.Report" filename="org/kt3k/gradle/plugin/coveralls/domain/Report.groovy" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="12" hits="10" branch="false"/>
+								<line number="13" hits="10" branch="false"/>
+								<line number="14" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="toJson" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="18" hits="5" branch="false"/>
+								<line number="19" hits="5" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="12" hits="10" branch="false"/>
+						<line number="13" hits="10" branch="false"/>
+						<line number="14" hits="10" branch="false"/>
+						<line number="18" hits="5" branch="false"/>
+						<line number="19" hits="5" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.ServiceInfo" filename="org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo.groovy" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="9" hits="11" branch="false"/>
+								<line number="10" hits="11" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="11" branch="false"/>
+						<line number="10" hits="11" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.ServiceInfoFactory" filename="org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory.groovy" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="createFromEnvVar" signature="(Ljava/util/Map;)Ljava/lang/Object;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="7" hits="17" branch="true" condition-coverage="100% (6/6)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="100%"/>
+										<condition number="2" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="8" hits="6" branch="false"/>
+								<line number="12" hits="11" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="7" hits="17" branch="true" condition-coverage="100% (6/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+								<condition number="2" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="8" hits="6" branch="false"/>
+						<line number="12" hits="11" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.SourceReport" filename="org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="10" hits="15" branch="false"/>
+								<line number="11" hits="15" branch="false"/>
+								<line number="12" hits="15" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="15" branch="false"/>
+						<line number="11" hits="15" branch="false"/>
+						<line number="12" hits="15" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory" filename="org/kt3k/gradle/plugin/coveralls/domain/SourceReportFactory.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="createFromCoberturaXML" signature="(Ljava/io/File;)Ljava/util/List;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="6" hits="0" branch="false"/>
+								<line number="7" hits="0" branch="false"/>
+								<line number="9" hits="0" branch="false"/>
+								<line number="11" hits="0" branch="false"/>
+								<line number="19" hits="0" branch="false"/>
+								<line number="21" hits="0" branch="false"/>
+								<line number="32" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="6" hits="0" branch="false"/>
+						<line number="7" hits="0" branch="false"/>
+						<line number="9" hits="0" branch="false"/>
+						<line number="11" hits="0" branch="false"/>
+						<line number="19" hits="0" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="32" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory$_createFromCoberturaXML_closure1" filename="org/kt3k/gradle/plugin/coveralls/domain/SourceReportFactory.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="12" hits="0" branch="false"/>
+								<line number="14" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="12" hits="0" branch="false"/>
+						<line number="14" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory$_createFromCoberturaXML_closure1_closure3" filename="org/kt3k/gradle/plugin/coveralls/domain/SourceReportFactory.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Object;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="15" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="15" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory$_createFromCoberturaXML_closure2" filename="org/kt3k/gradle/plugin/coveralls/domain/SourceReportFactory.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="22" hits="0" branch="false"/>
+								<line number="24" hits="0" branch="false"/>
+								<line number="25" hits="0" branch="false"/>
+								<line number="29" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="22" hits="0" branch="false"/>
+						<line number="24" hits="0" branch="false"/>
+						<line number="25" hits="0" branch="false"/>
+						<line number="29" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory$_createFromCoberturaXML_closure2_closure4" filename="org/kt3k/gradle/plugin/coveralls/domain/SourceReportFactory.groovy" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="doCall" signature="(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="26" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
