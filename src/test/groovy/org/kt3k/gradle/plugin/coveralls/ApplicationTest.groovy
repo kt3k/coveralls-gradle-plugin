@@ -52,7 +52,7 @@ class ApplicationTest {
 		verify(logger).info 'HTTP/1.1 200 OK'
 		verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
-		WireMock.verify(postRequestedFor(urlMatching('/abc')))
+		WireMock.verify(postRequestedFor(urlMatching('/abc')).withRequestBody(matching('^.*$')))
 
 	}
 
@@ -72,7 +72,7 @@ class ApplicationTest {
 		verify(logger).error 'HTTP/1.1 404 Not Found'
 		verify(logger).error '[Content-Type: text/plain, Content-Length: 9, Server: Jetty(6.1.25)]'
 
-		WireMock.verify(postRequestedFor(urlMatching('/abc')))
+		WireMock.verify(postRequestedFor(urlMatching('/abc')).withRequestBody(matching('.*')))
 
 	}
 
