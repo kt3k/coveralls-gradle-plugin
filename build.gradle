@@ -31,11 +31,10 @@ buildscript {
     }
 
     dependencies {
-        classpath 'net.saliman:gradle-cobertura-plugin:1.1.2'
+        classpath 'net.saliman:gradle-cobertura-plugin:2.0.0'
     }
 }
 
-cobertura.coverageFormats = ['html', 'xml']
 
 uploadArchives {
     repositories {
@@ -45,5 +44,5 @@ uploadArchives {
     }
 }
 
-
+cobertura.coverageFormats = ['html', 'xml']
 cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
