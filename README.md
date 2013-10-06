@@ -20,7 +20,7 @@ buildscript {
 
     dependencies {
         classpath 'net.saliman:gradle-cobertura-plugin:1.1.2' // coveralls plugin depends on cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.1.0'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.1.2'
     }   
 }
 
