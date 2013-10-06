@@ -40,9 +40,12 @@ language: java
 jdk:
 - oraclejdk7
 
+env:
+- TERM=dumb
+
 after_success:
-- TERM=dumb gradle cobertura
-- TERM=dumb gradle coveralls
+- gradle cobertura
+- gradle coveralls
 ```
 
 For groovy projects, add a following line to build.gradle:

@@ -5,9 +5,9 @@ language: java
 jdk:
 - oraclejdk7
 
-script:
-- TERM=dumb gradle check
+env:
+- TERM=dumb
 
 after_success:
-- TERM=dumb gradle cobertura
+- gradle cobertura
 - ./coveralls.groovy
