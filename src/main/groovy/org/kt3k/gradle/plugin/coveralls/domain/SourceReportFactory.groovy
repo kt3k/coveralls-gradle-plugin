@@ -8,10 +8,10 @@ class SourceReportFactory {
 
         Map a = [:]
 
-        coverage.packages.package.classes.class.each() {
-            Map cov = a.get(it.'@filename', [:])
+        coverage.packages.package.classes.class.each() { cls ->
+            Map cov = a.get(cls.'@filename', [:])
 
-            it.lines.line.each() {
+            cls.lines.line.each() {
 				Integer hits = cov.get(it.'@number'.toInteger() - 1, 0)
                 cov[it.'@number'.toInteger() - 1] = hits + it.'@hits'.toInteger()
             }

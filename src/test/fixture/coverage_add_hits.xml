@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage>
+	<sources>
+		<source>src/test/fixture</source>
+	</sources>
+	<packages>
+		<package name="org.kt3k.gradle.plugin">
+			<classes>
+				<class name="org.kt3k.gradle.plugin.CoverallsPlugin" filename="org/kt3k/gradle/plugin/CoverallsPlugin.groovy">
+					<lines>
+						<line number="10" hits="2" />
+						<line number="14" hits="4" />
+						<line number="16" hits="6" />
+					</lines>
+				</class>
+				<class name="org.kt3k.gradle.plugin.CoverallsPlugin$_apply_closure1" filename="org/kt3k/gradle/plugin/CoverallsPlugin.groovy">
+					<lines>
+						<line number="10" hits="9" />
+						<line number="14" hits="5" />
+						<line number="16" hits="3" />
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
