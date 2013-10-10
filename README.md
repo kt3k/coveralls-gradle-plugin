@@ -19,7 +19,7 @@ buildscript {
     }   
 
     dependencies {
-        classpath 'net.saliman:gradle-cobertura-plugin:1.1.2' // coveralls plugin depends on cobertura plugin
+        classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // coveralls plugin depends on cobertura plugin
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.1.4'
     }   
 }
@@ -42,6 +42,13 @@ jdk:
 
 env:
 - TERM=dumb
+
+before_install:
+# use Gradle 1.7 
+- wget http://services.gradle.org/distributions/gradle-1.7-bin.zip
+- unzip gradle-1.7-bin.zip
+- export GRADLE_HOME=$PWD/gradle-1.7
+- export PATH=$GRADLE_HOME/bin:$PATH
 
 after_success:
 - gradle cobertura
