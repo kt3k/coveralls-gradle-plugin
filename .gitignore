@@ -3,6 +3,7 @@ build
 
 # gradle local dir
 .gradle
+.gradletasknamecache
 
 # eclipse files
 .settings
