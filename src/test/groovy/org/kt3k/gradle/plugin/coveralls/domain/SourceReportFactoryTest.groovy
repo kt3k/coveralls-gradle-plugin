@@ -23,6 +23,23 @@ class SourceReportFactoryTest {
 	}
 
 	@Test
+	void testCreateFromCoberturaWithMultipleSourcesIncludingWrongOneXML() {
+
+		List<SourceReport> reports = SourceReportFactory.createFromCoberturaXML new File('src/test/fixture/coverage_with_multiple_sources_including_wrong_ones.xml')
+
+		assertNotNull reports
+		assertEquals 7, reports.size()
+
+		assertEquals 'org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/Application.groovy', reports[1].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/Report.groovy', reports[2].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo.groovy', reports[3].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory.groovy', reports[4].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[5].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/SourceReportFactory.groovy', reports[6].name
+	}
+
+	@Test
 	void testLineHitsAddition() {
 
 		// test line hits addition
