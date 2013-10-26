@@ -4,7 +4,7 @@ class SourceReportFactory {
 
     public static List<SourceReport> createFromCoberturaXML(File file) {
         Node coverage = new XmlParser().parse(file)
-        String sourceDir = coverage.sources.source.text() + '/'
+        List<String> sourceDirectories = coverage.sources.source*.text()
 
         Map a = [:]
 
@@ -19,8 +19,8 @@ class SourceReportFactory {
 
         List<SourceReport> reports = new ArrayList<SourceReport>()
 
-        a.each { String filename, Map cov ->
-            String source = new File(sourceDir + filename).text
+        a.each { String filename, Map<Integer, Integer> cov ->
+            String source = actualSourceFile(sourceDirectories, filename).text
 
             List r = [null] * source.readLines().size()
             cov.each { Integer line, Integer hits ->
@@ -32,5 +32,9 @@ class SourceReportFactory {
 
         return reports
 
+    }
+
+    private static File actualSourceFile(List<String> sourceDirs, String filename) {
+        sourceDirs.collect { new File(it + '/' + filename) }.find { it.exists() }
     }
 }
