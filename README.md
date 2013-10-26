@@ -64,4 +64,4 @@ cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
 Example
 -------
 
-see https://github.com/kt3k/straw-android-plugin
+see https://github.com/strawjs/straw-android-plugin
