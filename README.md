@@ -3,8 +3,7 @@ coveralls-gradle-plugin [![Build Status](https://travis-ci.org/kt3k/coveralls-gr
 
 Post Cobertura coverage data to coveralls.io.
 
-Usage
------
+## Usage
 
 Add followings to build.gradle:
 
@@ -20,7 +19,7 @@ buildscript {
 
     dependencies {
         classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // coveralls plugin depends on cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.1.4'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.1.5'
     }   
 }
 
@@ -61,7 +60,12 @@ For groovy projects, add a following line to build.gradle:
 cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
 ```
 
-Example
--------
+## Example
 
 see https://github.com/strawjs/straw-android-plugin
+
+
+
+## Release History
+
+ * 2013-08-02   v0.1.5   Fixed the case of multiple `<source>` tags.
