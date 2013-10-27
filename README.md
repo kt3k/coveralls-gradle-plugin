@@ -68,4 +68,4 @@ see https://github.com/strawjs/straw-android-plugin
 
 ## Release History
 
- * 2013-08-02   v0.1.5   Fixed the case of multiple `<source>` tags.
+ * 2013-10-27   v0.1.5   Fixed the case of multiple `<source>` tags.
