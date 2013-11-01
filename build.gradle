@@ -37,10 +37,57 @@ buildscript {
 }
 
 
+task groovydocJar(type: Jar, dependsOn: groovydoc) {
+    classifier = 'javadoc'
+    from 'build/docs/groovydoc'
+}
+
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+
+artifacts {
+    archives jar
+
+    archives groovydocJar
+    archives sourcesJar
+}
+
+
 uploadArchives {
     repositories {
         mavenDeployer {
             repository url: 'file://' + System.getenv('LOCAL_MVN_REPO')
+
+            pom.project {
+                name 'Gradle Coveralls Plugin'
+                description 'This plugin helps to upload coverage data to Coveralls'
+                url 'https://github.com/kt3k/coveralls-gradle-plugin'
+
+                scm {
+                    url 'scm:git@github.com:kt3k/coveralls-gradle-plugin.git'
+                    connection 'scm:git@github.com:kt3k/coveralls-gradle-plugin.git'
+                    developerConnection 'scm:git@github.com:kt3k/coveralls-gradle-plugin.git'
+                }
+
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'https://raw.github.com/kt3k/coveralls-gradle-plugin/master/LICENSE'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'kt3k'
+                        name 'Yoshiya Hinosawa'
+                    }
+                }
+            }
         }
     }
 }
