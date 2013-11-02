@@ -74,7 +74,7 @@ uploadArchives {
             }
 
             repository(url: System.getenv('MVN_REPO')) {
-                if (hasProperty('repoUser')) {
+                if (project.hasProperty('repoUser')) {
                     authentication userName: repoUser, password: repoPassword
                 }
             }
