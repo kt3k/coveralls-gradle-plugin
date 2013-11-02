@@ -1,3 +1,4 @@
+// build file
 
 apply plugin: 'groovy'
 apply plugin: 'maven'
@@ -72,7 +73,11 @@ uploadArchives {
                 }
             }
 
-            repository url: 'file://' + System.getenv('LOCAL_MVN_REPO')
+            repository(url: System.getenv('MVN_REPO')) {
+                if (hasProperty('repoUser')) {
+                    authentication userName: repoUser, password: repoPassword
+                }
+            }
 
             pom.project {
                 name 'Gradle Coveralls Plugin'
