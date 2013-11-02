@@ -19,7 +19,7 @@ buildscript {
 
     dependencies {
         classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // coveralls plugin depends on cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.1.5'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.1.6'
     }   
 }
 
@@ -31,7 +31,7 @@ cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml f
 
 And run `gradle coveralls` after `gradle cobertura`
 
-This plugin is now supporting Travis-CI only. Sample `.travis.yml` looks like following:
+This plugin now supports Travis-CI only. Sample `.travis.yml` looks like following:
 
 ```yaml
 language: java
@@ -72,4 +72,5 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2013-11-02   v0.1.6   Changed distribution repository from Github to Maven central.
  * 2013-10-27   v0.1.5   Fixed the case of multiple `<source>` tags.
