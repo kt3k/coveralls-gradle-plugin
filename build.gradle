@@ -58,8 +58,13 @@ artifacts {
 }
 
 
-signing {
-    sign configurations.archives
+// sign archives if signatory exists
+if (signing.signatory) {
+
+    signing {
+        sign configurations.archives
+    }
+
 }
 
 
@@ -67,6 +72,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
 
+            // sign pom if signatory exists
             if (signing.signatory) {
                 beforeDeployment {
                     signing.signPom(it)
@@ -74,12 +80,16 @@ uploadArchives {
             }
 
             repository(url: System.getenv('MVN_REPO')) {
+
+                // set authentication info if repoUser property is set
                 if (project.hasProperty('repoUser')) {
                     authentication userName: repoUser, password: repoPassword
                 }
             }
 
+            // additional pom settings (for maven central requirement)
             pom.project {
+
                 name 'Gradle Coveralls Plugin'
                 description 'This plugin helps to upload coverage data to Coveralls'
                 url 'https://github.com/kt3k/coveralls-gradle-plugin'
