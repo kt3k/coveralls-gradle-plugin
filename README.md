@@ -11,10 +11,6 @@ Add followings to build.gradle:
 buildscript {
     repositories {
         mavenCentral()
-
-        maven {
-            url 'http://kt3k.github.io/repository/maven/release' // coveralls plugin is hosted on github.io.
-        }   
     }   
 
     dependencies {
