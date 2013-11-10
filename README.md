@@ -8,6 +8,9 @@ Post Cobertura coverage data to coveralls.io.
 Add followings to build.gradle:
 
 ```groovy
+apply plugin: 'cobertura'
+apply plugin: 'coveralls'
+
 buildscript {
     repositories {
         mavenCentral()
@@ -18,9 +21,6 @@ buildscript {
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.1.6'
     }   
 }
-
-apply plugin: 'cobertura'
-apply plugin: 'coveralls'
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
 ```
@@ -58,7 +58,9 @@ cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
 
 ## Example
 
-see https://github.com/strawjs/straw-android-plugin
+- https://github.com/mockito/mockito
+- https://github.com/gesellix/gradle-debian-plugin
+- https://github.com/strawjs/straw-android-plugin
 
 
 ## License
