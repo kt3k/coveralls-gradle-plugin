@@ -1,15 +1,16 @@
 package org.kt3k.gradle.plugin.coveralls
-
-import org.junit.Test
-import org.junit.Rule
-
-import static org.mockito.Mockito.*
-
-import org.gradle.api.logging.Logger
-
-import static com.github.tomakehurst.wiremock.client.WireMock.*
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.junit.WireMockRule
+import org.gradle.api.Project
+import org.gradle.api.logging.Logger
+import org.junit.Rule
+import org.junit.Test
+import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
+import org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*
+import static org.mockito.Mockito.mock
+import static org.mockito.Mockito.verify
 
 class ApplicationTest {
 
@@ -17,8 +18,9 @@ class ApplicationTest {
 	void testMainNoService() {
 
 		Logger logger = mock Logger
+		Project project = mock Project
 
-		Application.main [:], "", "", logger
+		Application.main [:], project, "", [:], logger
 
 		verify(logger).error 'no available CI service'
 	}
@@ -27,10 +29,14 @@ class ApplicationTest {
 	void testMainNoFile() {
 
 		Logger logger = mock Logger
+		Project project = mock Project
+		Map<File, SourceReportFactory> sourceReportFactoryMap = [:]
+		sourceReportFactoryMap[new File('hoge/fuga')] = new CoberturaSourceReportFactory();
+		sourceReportFactoryMap[new File('foo/bar')] = new CoberturaSourceReportFactory();
 
-		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123'], "", "nonexistent-path", logger)
+		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123'], project, "", sourceReportFactoryMap, logger)
 
-		verify(logger).error 'covertura report not available: ' + (new File('nonexistent-path').absolutePath)
+		verify(logger).error 'No report file available: ' + ['hoge/fuga', 'foo/bar']
 	}
 
 	@Rule
@@ -85,9 +91,11 @@ class ApplicationTest {
 				.withHeader("Content-Type", "text/plain")
 				.withBody("Some content")))
 
+		Project project = mock Project
 		Logger logger = mock Logger
-
-		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123'], 'http://localhost:8089/abc', 'src/test/fixture/coverage.xml', logger)
+		Map<File, SourceReportFactory> sourceReportFactoryMap = [:]
+		sourceReportFactoryMap[new File('src/test/fixture/coverage.xml')] = new CoberturaSourceReportFactory()
+		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123'], project, 'http://localhost:8089/abc', sourceReportFactoryMap, logger)
 
 		verify(logger).info 'HTTP/1.1 200 OK'
 		verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
