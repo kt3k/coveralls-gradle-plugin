@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.0//EN"
+        "report.dtd">
+<report name="coveralls-gradle-plugin">
+    <sessioninfo id="LZ750HS-cad10ac6" start="1385921761830" dump="1385921774600"/>
+    <sessioninfo id="LZ750HS-8d16e7b5" start="1385921830157" dump="1385921843714"/>
+    <sessioninfo id="LZ750HS-7eb8fd97" start="1385921913240" dump="1385921930189"/>
+    <package name="org/kt3k/gradle/plugin">
+        <class name="org/kt3k/gradle/plugin/CoverallsPlugin">
+            <method name="&lt;init&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="14"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="apply" desc="(Lorg/gradle/api/Project;)V" line="19">
+                <counter type="INSTRUCTION" missed="0" covered="28"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V" line="15">
+                <counter type="INSTRUCTION" missed="0" covered="54"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getAPI_ENDPOINT" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setAPI_ENDPOINT" desc="(Ljava/lang/String;)V">
+                <counter type="INSTRUCTION" missed="3" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getCOBERTURA_REPORT_PATH" desc="()Ljava/io/File;">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setCOBERTURA_REPORT_PATH" desc="(Ljava/io/File;)V">
+                <counter type="INSTRUCTION" missed="3" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getJACOCO_REPORT_PATH" desc="()Ljava/io/File;">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setJACOCO_REPORT_PATH" desc="(Ljava/io/File;)V">
+                <counter type="INSTRUCTION" missed="3" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <counter type="INSTRUCTION" missed="9" covered="102"/>
+            <counter type="LINE" missed="0" covered="3"/>
+            <counter type="COMPLEXITY" missed="3" covered="6"/>
+            <counter type="METHOD" missed="3" covered="6"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/CoverallsPlugin$_apply_closure1">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="20">
+                <counter type="INSTRUCTION" missed="2" covered="75"/>
+                <counter type="LINE" missed="0" covered="4"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getProject" desc="()Lorg/gradle/api/Project;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="2" covered="11"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="15" covered="103"/>
+            <counter type="LINE" missed="0" covered="4"/>
+            <counter type="COMPLEXITY" missed="1" covered="4"/>
+            <counter type="METHOD" missed="1" covered="4"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <sourcefile name="CoverallsPlugin.groovy">
+            <line nr="15" mi="0" ci="14" mb="0" cb="0"/>
+            <line nr="16" mi="0" ci="15" mb="0" cb="0"/>
+            <line nr="19" mi="0" ci="20" mb="0" cb="0"/>
+            <line nr="20" mi="0" ci="6" mb="0" cb="0"/>
+            <line nr="21" mi="0" ci="20" mb="0" cb="0"/>
+            <line nr="22" mi="0" ci="20" mb="0" cb="0"/>
+            <line nr="23" mi="2" ci="27" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="24" covered="205"/>
+            <counter type="LINE" missed="0" covered="7"/>
+            <counter type="COMPLEXITY" missed="4" covered="10"/>
+            <counter type="METHOD" missed="4" covered="10"/>
+            <counter type="CLASS" missed="0" covered="2"/>
+        </sourcefile>
+        <counter type="INSTRUCTION" missed="24" covered="205"/>
+        <counter type="LINE" missed="0" covered="7"/>
+        <counter type="COMPLEXITY" missed="4" covered="10"/>
+        <counter type="METHOD" missed="4" covered="10"/>
+        <counter type="CLASS" missed="0" covered="2"/>
+    </package>
+    <package name="org/kt3k/gradle/plugin/coveralls/domain">
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory">
+            <method name="&lt;init&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="14"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="createReportList" desc="(Lorg/gradle/api/Project;Ljava/io/File;)Ljava/util/List;" line="14">
+                <counter type="INSTRUCTION" missed="31" covered="0"/>
+                <counter type="LINE" missed="2" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="createTargetSrcDirs" desc="(Lorg/gradle/api/Project;)Ljava/util/List;" line="19">
+                <counter type="INSTRUCTION" missed="2" covered="94"/>
+                <counter type="LINE" missed="0" covered="5"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="createReportList" desc="(Ljava/util/List;Ljava/io/File;)Ljava/util/List;" line="33">
+                <counter type="INSTRUCTION" missed="2" covered="102"/>
+                <counter type="LINE" missed="0" covered="8"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="20"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="35" covered="230"/>
+            <counter type="LINE" missed="2" covered="13"/>
+            <counter type="COMPLEXITY" missed="1" covered="4"/>
+            <counter type="METHOD" missed="1" covered="4"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/String;Ljava/lang/String;)V" line="9">
+                <counter type="INSTRUCTION" missed="0" covered="38"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="20"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getServiceName" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setServiceName" desc="(Ljava/lang/String;)V">
+                <counter type="INSTRUCTION" missed="4" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getServiceJobId" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setServiceJobId" desc="(Ljava/lang/String;)V">
+                <counter type="INSTRUCTION" missed="4" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <counter type="INSTRUCTION" missed="8" covered="64"/>
+            <counter type="LINE" missed="0" covered="2"/>
+            <counter type="COMPLEXITY" missed="2" covered="4"/>
+            <counter type="METHOD" missed="2" covered="4"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory$_createReportList_closure2">
+            <method name="&lt;init&gt;"
+                    desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="23"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;" line="25">
+                <counter type="INSTRUCTION" missed="2" covered="82"/>
+                <counter type="LINE" missed="0" covered="4"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="call" desc="(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="12" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getReports" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getSourceDirectories" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="36" covered="107"/>
+            <counter type="LINE" missed="0" covered="4"/>
+            <counter type="COMPLEXITY" missed="3" covered="3"/>
+            <counter type="METHOD" missed="3" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory$_createReportList_closure1">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="14">
+                <counter type="INSTRUCTION" missed="2" covered="48"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getA" desc="()Ljava/util/Map;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="13" covered="65"/>
+            <counter type="LINE" missed="0" covered="2"/>
+            <counter type="COMPLEXITY" missed="1" covered="3"/>
+            <counter type="METHOD" missed="1" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createReportList_closure4_closure6_closure7">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="42">
+                <counter type="INSTRUCTION" missed="50" covered="58"/>
+                <counter type="BRANCH" missed="8" covered="6"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="6" covered="2"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getCov" desc="()Ljava/util/Map;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="61" covered="75"/>
+            <counter type="BRANCH" missed="8" covered="6"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="7" covered="4"/>
+            <counter type="METHOD" missed="1" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/Report">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" line="12">
+                <counter type="INSTRUCTION" missed="0" covered="50"/>
+                <counter type="LINE" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="toJson" desc="()Ljava/lang/String;" line="18">
+                <counter type="INSTRUCTION" missed="2" covered="23"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="20"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getService_job_id" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setService_job_id" desc="(Ljava/lang/String;)V">
+                <counter type="INSTRUCTION" missed="4" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getService_name" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setService_name" desc="(Ljava/lang/String;)V">
+                <counter type="INSTRUCTION" missed="4" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getSource_files" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setSource_files" desc="(Ljava/util/List;)V">
+                <counter type="INSTRUCTION" missed="4" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <counter type="INSTRUCTION" missed="14" covered="102"/>
+            <counter type="LINE" missed="0" covered="5"/>
+            <counter type="COMPLEXITY" missed="3" covered="6"/>
+            <counter type="METHOD" missed="3" covered="6"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory$_createReportList_closure1_closure5">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="17">
+                <counter type="INSTRUCTION" missed="2" covered="76"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getCov" desc="()Ljava/util/Map;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="26" covered="93"/>
+            <counter type="LINE" missed="0" covered="2"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createReportList_closure5_closure9">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;)V">
+                <counter type="INSTRUCTION" missed="0" covered="7"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="49">
+                <counter type="INSTRUCTION" missed="2" covered="8"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="15" covered="17"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="1" covered="3"/>
+            <counter type="METHOD" missed="1" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createReportList_closure5_closure8">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="49">
+                <counter type="INSTRUCTION" missed="2" covered="12"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getFilename" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="26" covered="29"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory$_actualSourceFile_closure4">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;)V">
+                <counter type="INSTRUCTION" missed="0" covered="7"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="40">
+                <counter type="INSTRUCTION" missed="2" covered="8"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="15" covered="17"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="1" covered="3"/>
+            <counter type="METHOD" missed="1" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory$_createReportList_closure2_closure6">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Object;" line="29">
+                <counter type="INSTRUCTION" missed="2" covered="17"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="call" desc="(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="12" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getR" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="25" covered="34"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory">
+            <method name="&lt;init&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="14" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="createFromEnvVar" desc="(Ljava/util/Map;)Ljava/lang/Object;" line="7">
+                <counter type="INSTRUCTION" missed="40" covered="46"/>
+                <counter type="BRANCH" missed="12" covered="10"/>
+                <counter type="LINE" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="8" covered="4"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="20"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="54" covered="66"/>
+            <counter type="BRANCH" missed="12" covered="10"/>
+            <counter type="LINE" missed="0" covered="3"/>
+            <counter type="COMPLEXITY" missed="9" covered="5"/>
+            <counter type="METHOD" missed="1" covered="2"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory$_actualSourceFile_closure3">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="40">
+                <counter type="INSTRUCTION" missed="2" covered="21"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getFilename" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="26" covered="38"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/SourceReport">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" line="10">
+                <counter type="INSTRUCTION" missed="0" covered="50"/>
+                <counter type="LINE" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="20"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getName" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setName" desc="(Ljava/lang/String;)V">
+                <counter type="INSTRUCTION" missed="4" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getSource" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setSource" desc="(Ljava/lang/String;)V">
+                <counter type="INSTRUCTION" missed="4" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getCoverage" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="setCoverage" desc="(Ljava/util/List;)V">
+                <counter type="INSTRUCTION" missed="4" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <counter type="INSTRUCTION" missed="12" covered="79"/>
+            <counter type="LINE" missed="0" covered="3"/>
+            <counter type="COMPLEXITY" missed="3" covered="5"/>
+            <counter type="METHOD" missed="3" covered="5"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createReportList_closure5">
+            <method name="&lt;init&gt;"
+                    desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="23"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;" line="49">
+                <counter type="INSTRUCTION" missed="13" covered="123"/>
+                <counter type="BRANCH" missed="10" covered="4"/>
+                <counter type="LINE" missed="1" covered="6"/>
+                <counter type="COMPLEXITY" missed="7" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="call" desc="(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="20" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getReports" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getSrcDirs" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="55" covered="148"/>
+            <counter type="BRANCH" missed="10" covered="4"/>
+            <counter type="LINE" missed="1" covered="6"/>
+            <counter type="COMPLEXITY" missed="10" covered="3"/>
+            <counter type="METHOD" missed="3" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createReportList_closure4">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="38">
+                <counter type="INSTRUCTION" missed="2" covered="28"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getA" desc="()Ljava/util/Map;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="13" covered="45"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="1" covered="3"/>
+            <counter type="METHOD" missed="1" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createReportList_closure5_closure10">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Object;" line="56">
+                <counter type="INSTRUCTION" missed="2" covered="17"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="call" desc="(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="12" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getR" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="25" covered="34"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory">
+            <method name="&lt;init&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="14"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="createReportList" desc="(Lorg/gradle/api/Project;Ljava/io/File;)Ljava/util/List;" line="8">
+                <counter type="INSTRUCTION" missed="2" covered="113"/>
+                <counter type="LINE" missed="0" covered="7"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="actualSourceFile" desc="(Ljava/util/List;Ljava/lang/String;)Ljava/io/File;" line="40">
+                <counter type="INSTRUCTION" missed="2" covered="32"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="20"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="4" covered="179"/>
+            <counter type="LINE" missed="0" covered="8"/>
+            <counter type="COMPLEXITY" missed="0" covered="4"/>
+            <counter type="METHOD" missed="0" covered="4"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createReportList_closure4_closure6">
+            <method name="&lt;init&gt;"
+                    desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="23"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="39">
+                <counter type="INSTRUCTION" missed="2" covered="74"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getA" desc="()Ljava/util/Map;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getPkg" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="8" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="21" covered="99"/>
+            <counter type="LINE" missed="0" covered="2"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createTargetSrcDirs_closure1">
+            <method name="&lt;init&gt;"
+                    desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="23"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="21">
+                <counter type="INSTRUCTION" missed="2" covered="37"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getProject" desc="()Lorg/gradle/api/Project;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getTargetSrcDirs" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="37" covered="62"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="3" covered="3"/>
+            <counter type="METHOD" missed="3" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createTargetSrcDirs_closure2">
+            <method name="&lt;init&gt;"
+                    desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="23"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="24">
+                <counter type="INSTRUCTION" missed="2" covered="37"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getProject" desc="()Lorg/gradle/api/Project;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getTargetSrcDirs" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="37" covered="62"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="3" covered="3"/>
+            <counter type="METHOD" missed="3" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory$_createTargetSrcDirs_closure3">
+            <method name="&lt;init&gt;"
+                    desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="23"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="27">
+                <counter type="INSTRUCTION" missed="2" covered="37"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getProject" desc="()Lorg/gradle/api/Project;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getTargetSrcDirs" desc="()Ljava/util/List;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="37" covered="62"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="3" covered="3"/>
+            <counter type="METHOD" missed="3" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <sourcefile name="ServiceInfo.groovy">
+            <line nr="9" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="10" mi="0" ci="13" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="8" covered="64"/>
+            <counter type="LINE" missed="0" covered="2"/>
+            <counter type="COMPLEXITY" missed="2" covered="4"/>
+            <counter type="METHOD" missed="2" covered="4"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </sourcefile>
+        <sourcefile name="Report.groovy">
+            <line nr="12" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="13" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="14" mi="0" ci="13" mb="0" cb="0"/>
+            <line nr="18" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="19" mi="2" ci="9" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="14" covered="102"/>
+            <counter type="LINE" missed="0" covered="5"/>
+            <counter type="COMPLEXITY" missed="3" covered="6"/>
+            <counter type="METHOD" missed="3" covered="6"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </sourcefile>
+        <sourcefile name="CoberturaSourceReportFactory.groovy">
+            <line nr="8" mi="0" ci="16" mb="0" cb="0"/>
+            <line nr="9" mi="0" ci="22" mb="0" cb="0"/>
+            <line nr="11" mi="0" ci="10" mb="0" cb="0"/>
+            <line nr="13" mi="0" ci="28" mb="0" cb="0"/>
+            <line nr="14" mi="0" ci="25" mb="0" cb="0"/>
+            <line nr="16" mi="2" ci="21" mb="0" cb="0"/>
+            <line nr="17" mi="0" ci="32" mb="0" cb="0"/>
+            <line nr="18" mi="2" ci="42" mb="0" cb="0"/>
+            <line nr="22" mi="0" ci="15" mb="0" cb="0"/>
+            <line nr="24" mi="0" ci="15" mb="0" cb="0"/>
+            <line nr="25" mi="0" ci="19" mb="0" cb="0"/>
+            <line nr="27" mi="0" ci="30" mb="0" cb="0"/>
+            <line nr="28" mi="0" ci="13" mb="0" cb="0"/>
+            <line nr="29" mi="2" ci="15" mb="0" cb="0"/>
+            <line nr="32" mi="2" ci="18" mb="0" cb="0"/>
+            <line nr="35" mi="2" ci="5" mb="0" cb="0"/>
+            <line nr="40" mi="6" ci="49" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="145" covered="533"/>
+            <counter type="LINE" missed="0" covered="17"/>
+            <counter type="COMPLEXITY" missed="11" covered="22"/>
+            <counter type="METHOD" missed="11" covered="22"/>
+            <counter type="CLASS" missed="0" covered="7"/>
+        </sourcefile>
+        <sourcefile name="ServiceInfoFactory.groovy">
+            <line nr="7" mi="22" ci="22" mb="6" cb="6"/>
+            <line nr="8" mi="16" ci="13" mb="3" cb="1"/>
+            <line nr="12" mi="2" ci="2" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="54" covered="66"/>
+            <counter type="BRANCH" missed="12" covered="10"/>
+            <counter type="LINE" missed="0" covered="3"/>
+            <counter type="COMPLEXITY" missed="9" covered="5"/>
+            <counter type="METHOD" missed="1" covered="2"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </sourcefile>
+        <sourcefile name="SourceReport.groovy">
+            <line nr="10" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="11" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="12" mi="0" ci="13" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="12" covered="79"/>
+            <counter type="LINE" missed="0" covered="3"/>
+            <counter type="COMPLEXITY" missed="3" covered="5"/>
+            <counter type="METHOD" missed="3" covered="5"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </sourcefile>
+        <sourcefile name="JacocoSourceReportFactory.groovy">
+            <line nr="14" mi="12" ci="0" mb="0" cb="0"/>
+            <line nr="15" mi="17" ci="0" mb="0" cb="0"/>
+            <line nr="19" mi="0" ci="15" mb="0" cb="0"/>
+            <line nr="20" mi="0" ci="20" mb="0" cb="0"/>
+            <line nr="21" mi="2" ci="35" mb="0" cb="0"/>
+            <line nr="23" mi="0" ci="20" mb="0" cb="0"/>
+            <line nr="24" mi="2" ci="35" mb="0" cb="0"/>
+            <line nr="26" mi="0" ci="20" mb="0" cb="0"/>
+            <line nr="27" mi="2" ci="35" mb="0" cb="0"/>
+            <line nr="29" mi="2" ci="11" mb="0" cb="0"/>
+            <line nr="33" mi="0" ci="11" mb="0" cb="0"/>
+            <line nr="34" mi="0" ci="10" mb="0" cb="0"/>
+            <line nr="35" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="36" mi="0" ci="10" mb="0" cb="0"/>
+            <line nr="37" mi="0" ci="16" mb="0" cb="0"/>
+            <line nr="38" mi="2" ci="20" mb="0" cb="0"/>
+            <line nr="39" mi="0" ci="55" mb="0" cb="0"/>
+            <line nr="40" mi="2" ci="17" mb="0" cb="0"/>
+            <line nr="42" mi="50" ci="47" mb="4" cb="2"/>
+            <line nr="47" mi="0" ci="15" mb="0" cb="0"/>
+            <line nr="48" mi="0" ci="15" mb="0" cb="0"/>
+            <line nr="49" mi="4" ci="53" mb="3" cb="3"/>
+            <line nr="50" mi="4" ci="4" mb="3" cb="1"/>
+            <line nr="51" mi="7" ci="0" mb="4" cb="0"/>
+            <line nr="53" mi="0" ci="11" mb="0" cb="0"/>
+            <line nr="54" mi="0" ci="30" mb="0" cb="0"/>
+            <line nr="55" mi="0" ci="13" mb="0" cb="0"/>
+            <line nr="56" mi="2" ci="15" mb="0" cb="0"/>
+            <line nr="58" mi="2" ci="20" mb="0" cb="0"/>
+            <line nr="60" mi="2" ci="5" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="362" covered="863"/>
+            <counter type="BRANCH" missed="18" covered="10"/>
+            <counter type="LINE" missed="3" covered="27"/>
+            <counter type="COMPLEXITY" missed="35" covered="35"/>
+            <counter type="METHOD" missed="22" covered="34"/>
+            <counter type="CLASS" missed="0" covered="11"/>
+        </sourcefile>
+        <counter type="INSTRUCTION" missed="595" covered="1707"/>
+        <counter type="BRANCH" missed="30" covered="20"/>
+        <counter type="LINE" missed="3" covered="57"/>
+        <counter type="COMPLEXITY" missed="63" covered="77"/>
+        <counter type="METHOD" missed="42" covered="73"/>
+        <counter type="CLASS" missed="0" covered="22"/>
+    </package>
+    <package name="org/kt3k/gradle/plugin/coveralls">
+        <class name="org/kt3k/gradle/plugin/coveralls/Application$_postJsonToUrl_closure1_closure4">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" line="29">
+                <counter type="INSTRUCTION" missed="2" covered="47"/>
+                <counter type="LINE" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="call" desc="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="12" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getLogger" desc="()Lorg/slf4j/Logger;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="25" covered="64"/>
+            <counter type="LINE" missed="0" covered="3"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/Application$_postJsonToUrl_closure1_closure3">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="15"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" line="23">
+                <counter type="INSTRUCTION" missed="2" covered="47"/>
+                <counter type="LINE" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="call" desc="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="12" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getLogger" desc="()Lorg/slf4j/Logger;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="25" covered="64"/>
+            <counter type="LINE" missed="0" covered="3"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/Application">
+            <method name="&lt;init&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="14" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="postJsonToUrl" desc="(Ljava/lang/String;Ljava/lang/String;Lorg/slf4j/Logger;)V" line="16">
+                <counter type="INSTRUCTION" missed="0" covered="45"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="main"
+                    desc="(Ljava/util/Map;Lorg/gradle/api/Project;Ljava/lang/String;Ljava/util/Map;Lorg/slf4j/Logger;)V"
+                    line="39">
+                <counter type="INSTRUCTION" missed="39" covered="203"/>
+                <counter type="BRANCH" missed="16" covered="12"/>
+                <counter type="LINE" missed="0" covered="17"/>
+                <counter type="COMPLEXITY" missed="12" covered="3"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="20"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="53" covered="268"/>
+            <counter type="BRANCH" missed="16" covered="12"/>
+            <counter type="LINE" missed="0" covered="19"/>
+            <counter type="COMPLEXITY" missed="13" covered="5"/>
+            <counter type="METHOD" missed="1" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/Application$_main_closure2">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/Object;Ljava/lang/Object;)V">
+                <counter type="INSTRUCTION" missed="0" covered="7"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="50">
+                <counter type="INSTRUCTION" missed="2" covered="12"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="()Ljava/lang/Object;">
+                <counter type="INSTRUCTION" missed="13" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="15" covered="21"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="1" covered="3"/>
+            <counter type="METHOD" missed="1" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="org/kt3k/gradle/plugin/coveralls/Application$_postJsonToUrl_closure1">
+            <method name="&lt;init&gt;"
+                    desc="(Ljava/lang/Object;Ljava/lang/Object;Lgroovy/lang/Reference;Lgroovy/lang/Reference;)V">
+                <counter type="INSTRUCTION" missed="0" covered="23"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="doCall" desc="(Ljava/lang/Object;)Ljava/lang/Object;" line="20">
+                <counter type="INSTRUCTION" missed="2" covered="78"/>
+                <counter type="LINE" missed="0" covered="3"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getJson" desc="()Ljava/lang/String;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="getLogger" desc="()Lorg/slf4j/Logger;">
+                <counter type="INSTRUCTION" missed="11" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V">
+                <counter type="INSTRUCTION" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="24" covered="103"/>
+            <counter type="LINE" missed="0" covered="3"/>
+            <counter type="COMPLEXITY" missed="2" covered="3"/>
+            <counter type="METHOD" missed="2" covered="3"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <sourcefile name="Application.groovy">
+            <line nr="16" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="18" mi="0" ci="19" mb="0" cb="0"/>
+            <line nr="20" mi="0" ci="36" mb="0" cb="0"/>
+            <line nr="22" mi="0" ci="20" mb="0" cb="0"/>
+            <line nr="23" mi="0" ci="17" mb="0" cb="0"/>
+            <line nr="24" mi="0" ci="17" mb="0" cb="0"/>
+            <line nr="25" mi="2" ci="11" mb="0" cb="0"/>
+            <line nr="28" mi="2" ci="20" mb="0" cb="0"/>
+            <line nr="29" mi="0" ci="17" mb="0" cb="0"/>
+            <line nr="30" mi="0" ci="17" mb="0" cb="0"/>
+            <line nr="31" mi="2" ci="11" mb="0" cb="0"/>
+            <line nr="39" mi="0" ci="19" mb="3" cb="3"/>
+            <line nr="41" mi="4" ci="4" mb="2" cb="2"/>
+            <line nr="42" mi="7" ci="7" mb="0" cb="0"/>
+            <line nr="44" mi="4" ci="1" mb="3" cb="1"/>
+            <line nr="47" mi="0" ci="16" mb="0" cb="0"/>
+            <line nr="48" mi="0" ci="16" mb="0" cb="0"/>
+            <line nr="50" mi="2" ci="33" mb="3" cb="3"/>
+            <line nr="51" mi="4" ci="4" mb="2" cb="2"/>
+            <line nr="52" mi="16" ci="16" mb="0" cb="0"/>
+            <line nr="53" mi="4" ci="1" mb="3" cb="1"/>
+            <line nr="56" mi="0" ci="11" mb="0" cb="0"/>
+            <line nr="57" mi="0" ci="11" mb="0" cb="0"/>
+            <line nr="58" mi="0" ci="12" mb="0" cb="0"/>
+            <line nr="59" mi="0" ci="13" mb="0" cb="0"/>
+            <line nr="60" mi="0" ci="22" mb="0" cb="0"/>
+            <line nr="62" mi="0" ci="11" mb="0" cb="0"/>
+            <line nr="64" mi="0" ci="14" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="142" covered="520"/>
+            <counter type="BRANCH" missed="16" covered="12"/>
+            <counter type="LINE" missed="0" covered="28"/>
+            <counter type="COMPLEXITY" missed="20" covered="17"/>
+            <counter type="METHOD" missed="8" covered="15"/>
+            <counter type="CLASS" missed="0" covered="5"/>
+        </sourcefile>
+        <counter type="INSTRUCTION" missed="142" covered="520"/>
+        <counter type="BRANCH" missed="16" covered="12"/>
+        <counter type="LINE" missed="0" covered="28"/>
+        <counter type="COMPLEXITY" missed="20" covered="17"/>
+        <counter type="METHOD" missed="8" covered="15"/>
+        <counter type="CLASS" missed="0" covered="5"/>
+    </package>
+    <counter type="INSTRUCTION" missed="761" covered="2432"/>
+    <counter type="BRANCH" missed="46" covered="32"/>
+    <counter type="LINE" missed="3" covered="92"/>
+    <counter type="COMPLEXITY" missed="87" covered="104"/>
+    <counter type="METHOD" missed="54" covered="98"/>
+    <counter type="CLASS" missed="0" covered="29"/>
+</report>

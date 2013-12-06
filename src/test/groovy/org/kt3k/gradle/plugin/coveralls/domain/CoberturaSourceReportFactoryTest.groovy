@@ -1,14 +1,18 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
+import org.gradle.api.Project
 import org.junit.Test
 import static org.junit.Assert.*
+import static org.mockito.Mockito.mock
 
-class SourceReportFactoryTest {
+class CoberturaSourceReportFactoryTest {
 
 	@Test
 	void testCreateFromCoberturaXML() {
 
-		List<SourceReport> reports = SourceReportFactory.createFromCoberturaXML new File('src/test/fixture/coverage.xml')
+        Project project = mock Project
+        CoberturaSourceReportFactory sut = new CoberturaSourceReportFactory()
+		List<SourceReport> reports = sut.createReportList project, new File('src/test/fixture/coverage.xml')
 
 		assertNotNull reports
 		assertEquals 7, reports.size()
@@ -25,7 +29,9 @@ class SourceReportFactoryTest {
 	@Test
 	void testCreateFromCoberturaWithMultipleSourcesIncludingWrongOneXML() {
 
-		List<SourceReport> reports = SourceReportFactory.createFromCoberturaXML new File('src/test/fixture/coverage_with_multiple_sources_including_wrong_ones.xml')
+        Project project = mock Project
+        CoberturaSourceReportFactory sut = new CoberturaSourceReportFactory()
+		List<SourceReport> reports = sut.createReportList project, new File('src/test/fixture/coverage_with_multiple_sources_including_wrong_ones.xml')
 
 		assertNotNull reports
 		assertEquals 7, reports.size()
@@ -45,7 +51,9 @@ class SourceReportFactoryTest {
 		// test line hits addition
 		// see <line> tags in src/test/fixture/coverage_add_hits.xml
 
-		List<SourceReport> reports = SourceReportFactory.createFromCoberturaXML new File('src/test/fixture/coverage_add_hits.xml')
+        Project project = mock Project
+		CoberturaSourceReportFactory sut = new CoberturaSourceReportFactory()
+		List<SourceReport> reports = sut.createReportList project, new File('src/test/fixture/coverage_add_hits.xml')
 
 		assertNotNull reports
 

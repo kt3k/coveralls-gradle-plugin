@@ -1,16 +1,13 @@
 package org.kt3k.gradle.plugin.coveralls
 
 import groovyx.net.http.HTTPBuilder
-
-import static groovyx.net.http.Method.POST
-
-import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.apache.http.entity.ContentType
-
+import org.apache.http.entity.mime.MultipartEntityBuilder
+import org.gradle.api.Project
+import org.kt3k.gradle.plugin.coveralls.domain.*
 import org.slf4j.Logger
 
-import org.kt3k.gradle.plugin.coveralls.domain.*
-
+import static groovyx.net.http.Method.POST
 
 class Application {
 
@@ -36,7 +33,7 @@ class Application {
 		}
 	}
 
-	static void main(Map env, String apiEndpoint, String coverageFilePath, Logger logger) {
+	static void main(Map env, Project project, String apiEndpoint, Map<File, SourceReportFactory> sourceReportFactoryMap, Logger logger) {
 
 		// create service info from environmental variable
 		ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(env)
@@ -50,23 +47,22 @@ class Application {
 		logger.warn 'service name: ' + serviceInfo.serviceName
 		logger.warn 'service job id: ' + serviceInfo.serviceJobId
 
-		File file = new File(coverageFilePath)
-
-		if (!file.exists()) {
-			logger.error 'covertura report not available: ' + file.absolutePath
-
+		Map.Entry<File, SourceReportFactory> entry = sourceReportFactoryMap.find { it.key.exists() }
+		if (entry == null) {
+			logger.error 'No report file available: ' + sourceReportFactoryMap.keySet()
 			return
 		}
 
-		logger.info 'cobertura report file: ' + file.absolutePath
-
-		List<SourceReport> sourceReports = SourceReportFactory.createFromCoberturaXML file
-
+		File reportFile = entry.key
+		SourceReportFactory sourceReportFactory = entry.value
+		logger.info 'Report file: ' + reportFile
+		List<SourceReport> sourceReports = sourceReportFactory.createReportList project, reportFile
 		Report rep = new Report(serviceInfo.serviceName, serviceInfo.serviceJobId, sourceReports)
 
-		logger.info rep.toJson()
+		String json = rep.toJson()
+		logger.info json
 
-		postJsonToUrl rep.toJson(), apiEndpoint, logger
+		postJsonToUrl json, apiEndpoint, logger
 	}
 
 }
