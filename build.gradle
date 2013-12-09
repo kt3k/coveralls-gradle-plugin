@@ -81,9 +81,9 @@ uploadArchives {
 
             repository(url: System.getenv('MVN_REPO')) {
 
-                // set authentication info if repoUser property is set
-                if (project.hasProperty('repoUser')) {
-                    authentication userName: repoUser, password: repoPassword
+                // set authentication info if sonatypeUsername property is set
+                if (project.hasProperty('sonatypeUsername')) {
+                    authentication userName: sonatypeUsername, password: sonatypePassword
                 }
             }
 
