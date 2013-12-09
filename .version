@@ -1,7 +1,7 @@
 ---
-version: 0.1.6
+version: 0.2.0
 files:
   gradle.properties: version=%.%.%
   README.md:
-    - coveralls-gradle-plugin v%.%.%
-    - org.kt3k.gradle.plugin:coveralls-gradle-plugin:%.%.%
+  - coveralls-gradle-plugin v%.%.%
+  - org.kt3k.gradle.plugin:coveralls-gradle-plugin:%.%.%
