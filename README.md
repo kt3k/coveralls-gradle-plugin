@@ -50,7 +50,7 @@ For groovy projects, add a following line to build.gradle:
 cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
 ```
 
-### use with JaCoCo plugin
+### use with *JaCoCo* plugin
 
 Add following lines to build.gradle:
 
@@ -70,7 +70,7 @@ buildscript {
 
 jacocoTestReport {
     reports {
-        xml.enabled = true
+        xml.enabled = true // coveralls plugin depends on xml format report
         html.enabled = true
     }
 }
