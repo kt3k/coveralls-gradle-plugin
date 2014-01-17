@@ -10,9 +10,9 @@ class CoberturaSourceReportFactoryTest {
 	@Test
 	void testCreateFromCoberturaXML() {
 
-        Project project = mock Project
-        CoberturaSourceReportFactory sut = new CoberturaSourceReportFactory()
-		List<SourceReport> reports = sut.createReportList project, new File('src/test/fixture/coverage.xml')
+		Project project = mock Project
+		CoberturaSourceReportFactory factory = new CoberturaSourceReportFactory()
+		List<SourceReport> reports = factory.createReportList project, new File('src/test/fixture/coverage.xml')
 
 		assertNotNull reports
 		assertEquals 7, reports.size()
@@ -29,9 +29,9 @@ class CoberturaSourceReportFactoryTest {
 	@Test
 	void testCreateFromCoberturaWithMultipleSourcesIncludingWrongOneXML() {
 
-        Project project = mock Project
-        CoberturaSourceReportFactory sut = new CoberturaSourceReportFactory()
-		List<SourceReport> reports = sut.createReportList project, new File('src/test/fixture/coverage_with_multiple_sources_including_wrong_ones.xml')
+		Project project = mock Project
+		CoberturaSourceReportFactory factory = new CoberturaSourceReportFactory()
+		List<SourceReport> reports = factory.createReportList project, new File('src/test/fixture/coverage_with_multiple_sources_including_wrong_ones.xml')
 
 		assertNotNull reports
 		assertEquals 7, reports.size()
@@ -51,9 +51,9 @@ class CoberturaSourceReportFactoryTest {
 		// test line hits addition
 		// see <line> tags in src/test/fixture/coverage_add_hits.xml
 
-        Project project = mock Project
-		CoberturaSourceReportFactory sut = new CoberturaSourceReportFactory()
-		List<SourceReport> reports = sut.createReportList project, new File('src/test/fixture/coverage_add_hits.xml')
+		Project project = mock Project
+		CoberturaSourceReportFactory factory = new CoberturaSourceReportFactory()
+		List<SourceReport> reports = factory.createReportList project, new File('src/test/fixture/coverage_add_hits.xml')
 
 		assertNotNull reports
 
@@ -78,4 +78,5 @@ class CoberturaSourceReportFactoryTest {
 		assertEquals null, reports[0].coverage[17]
 		assertEquals null, reports[0].coverage[18]
 	}
+
 }
