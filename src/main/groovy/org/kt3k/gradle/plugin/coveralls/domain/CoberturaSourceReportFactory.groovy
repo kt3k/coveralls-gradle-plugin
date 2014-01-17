@@ -9,35 +9,55 @@ class CoberturaSourceReportFactory implements SourceReportFactory {
 		Node coverage = new XmlParser().parse(file)
 		List<String> sourceDirectories = coverage.sources.source*.text()
 
-		Map a = [:]
+		// mapping of [filename] => [hits per line mapping]
+		Map<String, Map<Integer, Integer>> hitsPerLineMapForFilename = [:]
 
 		coverage.packages.package.classes.class.each() { cls ->
-			Map cov = a.get(cls.'@filename', [:])
+			// mapping of [line number] => [line hits]
+			Map<Integer, Integer> hitsPerLineMap = hitsPerLineMapForFilename.get(cls.'@filename', [:])
 
 			cls.lines.line.each() {
-				Integer hits = cov.get(it.'@number'.toInteger() - 1, 0)
-				cov[it.'@number'.toInteger() - 1] = hits + it.'@hits'.toInteger()
+				Integer hits = hitsPerLineMap.get(it.'@number'.toInteger() - 1, 0)
+				hitsPerLineMap[it.'@number'.toInteger() - 1] = hits + it.'@hits'.toInteger()
 			}
 		}
 
 		List<SourceReport> reports = new ArrayList<SourceReport>()
 
-		a.each { String filename, Map<Integer, Integer> cov ->
-			String source = actualSourceFile(sourceDirectories, filename).text
+		hitsPerLineMapForFilename.each { String filename, Map<Integer, Integer> cov ->
 
-			List r = [null] * source.readLines().size()
-			cov.each { Integer line, Integer hits ->
-				r[line] = hits
+			// find actual source file from directory candidates
+			File sourceFile = actualSourceFile(sourceDirectories, filename)
+
+			if (sourceFile == null) {
+				// if sourceFile is not found then ignore the entry
+				return
 			}
 
-			reports.add new SourceReport(filename, source, r)
+			String source = sourceFile.text
+
+			// create hits per line list
+			List<Integer> hitsPerLineList = [null] * source.readLines().size()
+
+			cov.each { Integer line, Integer hits ->
+				hitsPerLineList[line] = hits
+			}
+
+			reports.add new SourceReport(filename, source, hitsPerLineList)
 		}
 
 		return reports
 
 	}
 
+	/**
+	 * finds the actual source file path and returns File object
+	 *
+	 * @param sourceDirs
+	 * @param filename
+	 * @return
+	 */
 	private static File actualSourceFile(List<String> sourceDirs, String filename) {
-		sourceDirs.collect { new File(it + '/' + filename) }.find { it.exists() }
+		return sourceDirs.collect { new File(it + '/' + filename) }.find { it.exists() }
 	}
 }
