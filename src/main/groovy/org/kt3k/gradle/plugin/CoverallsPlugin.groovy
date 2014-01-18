@@ -24,8 +24,8 @@ class CoverallsPlugin implements Plugin<Project> {
 			Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
 
 			// add factories
-			sourceReportFactoryMap[projectDir + COBERTURA_REPORT_PATH] = new CoberturaSourceReportFactory();
-			sourceReportFactoryMap[projectDir + JACOCO_REPORT_PATH] = new JacocoSourceReportFactory();
+			sourceReportFactoryMap[projectDir + '/' + COBERTURA_REPORT_PATH] = new CoberturaSourceReportFactory();
+			sourceReportFactoryMap[projectDir + '/' + JACOCO_REPORT_PATH] = new JacocoSourceReportFactory();
 
 			// run main procedure
 			Application.main(System.getenv(), project, API_ENDPOINT, sourceReportFactoryMap, LoggerFactory.getLogger('coveralls-logger'))
