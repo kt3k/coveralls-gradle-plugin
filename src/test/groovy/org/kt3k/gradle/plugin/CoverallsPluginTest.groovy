@@ -15,10 +15,11 @@ class CoverallsPluginTest {
 	@Test
 	void testApply() {
 		ArgumentCaptor<Closure> captor = ArgumentCaptor.forClass Closure
-		Task task = mock(Task.class)
+		Task task = mock Task
 
-		Project project = mock(Project.class)
+		Project project = mock Project
 		when(project.task('coveralls')).thenReturn(task)
+		when(project.getProjectDir()).thenReturn(new File('./'))
 
 		Plugin plugin = new CoverallsPlugin()
 		plugin.apply(project)

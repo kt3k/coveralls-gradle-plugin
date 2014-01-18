@@ -33,10 +33,10 @@ class Application {
 		}
 	}
 
-	static void main(Map env, Project project, String apiEndpoint, Map<File, SourceReportFactory> sourceReportFactoryMap, Logger logger) {
+	static void main(Map<String, String> env, Project project, String apiEndpoint, Map<String, SourceReportFactory> sourceReportFactoryMap, Logger logger) {
 
-		// create service info from environmental variable
-		ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(env)
+		// create service info from environmental variables
+		ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar env
 
 		if (serviceInfo == null) {
 			logger.error 'no available CI service'
@@ -47,16 +47,24 @@ class Application {
 		logger.warn 'service name: ' + serviceInfo.serviceName
 		logger.warn 'service job id: ' + serviceInfo.serviceJobId
 
-		Map.Entry<File, SourceReportFactory> entry = sourceReportFactoryMap.find { it.key.exists() }
+		// search the coverage file
+		Map.Entry<String, SourceReportFactory> entry = sourceReportFactoryMap.find { Map.Entry<String, SourceReportFactory> entry ->
+			String coverageFile = entry.key
+			return new File(coverageFile).exists()
+		}
+
 		if (entry == null) {
 			logger.error 'No report file available: ' + sourceReportFactoryMap.keySet()
 			return
 		}
 
-		File reportFile = entry.key
+		File reportFile = new File(entry.key)
 		SourceReportFactory sourceReportFactory = entry.value
+
 		logger.info 'Report file: ' + reportFile
+
 		List<SourceReport> sourceReports = sourceReportFactory.createReportList project, reportFile
+
 		Report rep = new Report(serviceInfo.serviceName, serviceInfo.serviceJobId, sourceReports)
 
 		String json = rep.toJson()

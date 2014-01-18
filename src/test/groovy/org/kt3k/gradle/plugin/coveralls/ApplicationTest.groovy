@@ -1,16 +1,20 @@
 package org.kt3k.gradle.plugin.coveralls
-import com.github.tomakehurst.wiremock.client.WireMock
-import com.github.tomakehurst.wiremock.junit.WireMockRule
-import org.gradle.api.Project
-import org.gradle.api.logging.Logger
+
 import org.junit.Rule
 import org.junit.Test
+
+import com.github.tomakehurst.wiremock.client.WireMock
+import static com.github.tomakehurst.wiremock.client.WireMock.*
+import com.github.tomakehurst.wiremock.junit.WireMockRule
+
+import org.gradle.api.Project
+import org.gradle.api.logging.Logger
+
 import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
 import org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*
-import static org.mockito.Mockito.mock
-import static org.mockito.Mockito.verify
+import org.mockito.Mockito
+import static org.mockito.Mockito.*
 
 class ApplicationTest {
 
@@ -19,10 +23,11 @@ class ApplicationTest {
 
 		Logger logger = mock Logger
 		Project project = mock Project
+		when(project.getProjectDir()).thenReturn new File('./')
 
 		Application.main [:], project, "", [:], logger
 
-		verify(logger).error 'no available CI service'
+		Mockito.verify(logger).error 'no available CI service'
 	}
 
 	@Test
@@ -30,13 +35,15 @@ class ApplicationTest {
 
 		Logger logger = mock Logger
 		Project project = mock Project
-		Map<File, SourceReportFactory> sourceReportFactoryMap = [:]
+		when(project.getProjectDir()).thenReturn new File('./')
+
+		Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
 		sourceReportFactoryMap[new File('hoge/fuga')] = new CoberturaSourceReportFactory();
 		sourceReportFactoryMap[new File('foo/bar')] = new CoberturaSourceReportFactory();
 
 		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123'], project, "", sourceReportFactoryMap, logger)
 
-		verify(logger).error 'No report file available: ' + ['hoge/fuga', 'foo/bar']
+		Mockito.verify(logger).error 'No report file available: ' + ['hoge/fuga', 'foo/bar']
 	}
 
 	@Rule
@@ -55,8 +62,8 @@ class ApplicationTest {
 
 		Application.postJsonToUrl '{}', 'http://localhost:8089/abc', logger
 
-		verify(logger).info 'HTTP/1.1 200 OK'
-		verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
+		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')).withRequestBody(matching('^.*$')))
 
@@ -75,8 +82,8 @@ class ApplicationTest {
 
 		Application.postJsonToUrl '{}', 'http://localhost:8089/abc', logger
 
-		verify(logger).error 'HTTP/1.1 404 Not Found'
-		verify(logger).error '[Content-Type: text/plain, Content-Length: 9, Server: Jetty(6.1.25)]'
+		Mockito.verify(logger).error 'HTTP/1.1 404 Not Found'
+		Mockito.verify(logger).error '[Content-Type: text/plain, Content-Length: 9, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')).withRequestBody(matching('.*')))
 
@@ -92,13 +99,15 @@ class ApplicationTest {
 				.withBody("Some content")))
 
 		Project project = mock Project
+		when(project.getProjectDir()).thenReturn new File('./')
+
 		Logger logger = mock Logger
-		Map<File, SourceReportFactory> sourceReportFactoryMap = [:]
-		sourceReportFactoryMap[new File('src/test/fixture/coverage.xml')] = new CoberturaSourceReportFactory()
+		Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
+		sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
 		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123'], project, 'http://localhost:8089/abc', sourceReportFactoryMap, logger)
 
-		verify(logger).info 'HTTP/1.1 200 OK'
-		verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
+		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')))
 

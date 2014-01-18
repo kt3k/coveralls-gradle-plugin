@@ -12,14 +12,22 @@ class CoverallsPlugin implements Plugin<Project> {
 
 	static String API_ENDPOINT = 'https://coveralls.io/api/v1/jobs'
 
-	static File COBERTURA_REPORT_PATH = new File('build/reports/cobertura/coverage.xml')
-	static File JACOCO_REPORT_PATH = new File('build/reports/jacoco/test/jacocoTestReport.xml')
+	static String COBERTURA_REPORT_PATH = 'build/reports/cobertura/coverage.xml'
+	static String JACOCO_REPORT_PATH = 'build/reports/jacoco/test/jacocoTestReport.xml'
 
 	void apply(Project project) {
 		project.task('coveralls') << {
-			Map<File, SourceReportFactory> sourceReportFactoryMap = [:]
-			sourceReportFactoryMap[COBERTURA_REPORT_PATH] = new CoberturaSourceReportFactory();
-			sourceReportFactoryMap[JACOCO_REPORT_PATH] = new JacocoSourceReportFactory();
+			// project dir
+			String projectDir = project.projectDir.path
+
+			// create coverage file to Factory class mapping
+			Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
+
+			// add factories
+			sourceReportFactoryMap[projectDir + COBERTURA_REPORT_PATH] = new CoberturaSourceReportFactory();
+			sourceReportFactoryMap[projectDir + JACOCO_REPORT_PATH] = new JacocoSourceReportFactory();
+
+			// run main procedure
 			Application.main(System.getenv(), project, API_ENDPOINT, sourceReportFactoryMap, LoggerFactory.getLogger('coveralls-logger'))
 		}
 	}
