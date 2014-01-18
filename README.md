@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v0.2.1
+# coveralls-gradle-plugin v0.2.2
 
 [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.png?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.png)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
@@ -21,7 +21,7 @@ buildscript {
 
     dependencies {
         classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.2.1'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.2.2'
     }
 }
 
