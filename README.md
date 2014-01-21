@@ -107,6 +107,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
- * 2013-12-09   v0.2.1   Add JaCoCo support. (via @ihiroky)
+ * 2014-01-21   v0.2.4   Fixed the case of absent source files. (issue #3)
+ * 2013-12-09   v0.2.1   Added JaCoCo support. (via @ihiroky)
  * 2013-11-02   v0.1.6   Changed distribution repository from Github to Maven central.
  * 2013-10-27   v0.1.5   Fixed the case of multiple `<source>` tags. (via @bric3)
