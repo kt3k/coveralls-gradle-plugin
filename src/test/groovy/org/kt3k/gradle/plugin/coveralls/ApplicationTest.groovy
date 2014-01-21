@@ -99,7 +99,6 @@ class ApplicationTest {
 				.withBody("Some content")))
 
 		Project project = mock Project
-		when(project.getProjectDir()).thenReturn new File('./')
 
 		Logger logger = mock Logger
 		Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
@@ -110,6 +109,24 @@ class ApplicationTest {
 		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')))
+
+	}
+
+
+	@Test
+	void testMainWithEmptyCoverageReport() {
+		Project project = mock Project
+		when(project.getName()).thenReturn 'foo'
+
+		Logger logger = mock Logger
+
+		Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
+		sourceReportFactoryMap['src/test/fixture/coverage_without_source_files.xml'] = new CoberturaSourceReportFactory()
+
+		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123'], project, 'http://localhost:8089/abc', sourceReportFactoryMap, logger)
+
+		Mockito.verify(logger).error 'No source file found on the project: "foo"'
+		Mockito.verify(logger).error 'With coverage file: src/test/fixture/coverage_without_source_files.xml'
 
 	}
 

@@ -58,12 +58,20 @@ class Application {
 			return
 		}
 
-		File reportFile = new File(entry.key)
+		String reportFilePath = entry.key
+		File reportFile = new File(reportFilePath)
 		SourceReportFactory sourceReportFactory = entry.value
 
 		logger.info 'Report file: ' + reportFile
 
 		List<SourceReport> sourceReports = sourceReportFactory.createReportList project, reportFile
+
+		// if report size is zero then do nothing
+		if (sourceReports.size == 0) {
+			logger.error 'No source file found on the project: "' + project.name + '"'
+			logger.error 'With coverage file: ' + reportFilePath
+			return
+		}
 
 		Report rep = new Report(serviceInfo.serviceName, serviceInfo.serviceJobId, sourceReports)
 

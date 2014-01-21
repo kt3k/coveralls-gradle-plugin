@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage>
+	<sources>
+		<source>src/test/fixture</source>
+	</sources>
+	<packages>
+		<package name="org.kt3k.gradle.plugin">
+			<classes>
+			</classes>
+		</package>
+		<package name="org.kt3k.gradle.plugin.coveralls">
+			<classes>
+			</classes>
+		</package>
+		<package name="org.kt3k.gradle.plugin.coveralls.domain">
+			<classes>
+			</classes>
+		</package>
+	</packages>
+</coverage>
