@@ -78,7 +78,7 @@ class Application {
 			return
 		}
 
-		Report rep = new Report(serviceInfo.serviceName, serviceInfo.serviceJobId, sourceReports)
+		Report rep = new Report(serviceInfo, sourceReports)
 
 		String json = rep.toJson()
 		logger.info json
