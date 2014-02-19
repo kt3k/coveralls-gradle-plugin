@@ -46,6 +46,11 @@ class Application {
 
 		logger.warn 'service name: ' + serviceInfo.serviceName
 		logger.warn 'service job id: ' + serviceInfo.serviceJobId
+		if (serviceInfo.repoToken != null) {
+		    logger.warn 'repo token: present (not shown for security)'
+		} else {
+		    logger.warn 'repo token: null'
+		}
 
 		// search the coverage file
 		Map.Entry<String, SourceReportFactory> entry = sourceReportFactoryMap.find { Map.Entry<String, SourceReportFactory> entry ->
