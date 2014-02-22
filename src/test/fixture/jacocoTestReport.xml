@@ -111,6 +111,10 @@
         <counter type="COMPLEXITY" missed="4" covered="10"/>
         <counter type="METHOD" missed="4" covered="10"/>
         <counter type="CLASS" missed="0" covered="2"/>
+        <sourcefile name="Nonexistent.groovy">
+        <!-- this entity is for the test of the handling of nonexistent file data -->
+            <line nr="1" mi="0" ci="1" mb="0" cb="0"/>
+        </sourcefile>
     </package>
     <package name="org/kt3k/gradle/plugin/coveralls/domain">
         <class name="org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory">
