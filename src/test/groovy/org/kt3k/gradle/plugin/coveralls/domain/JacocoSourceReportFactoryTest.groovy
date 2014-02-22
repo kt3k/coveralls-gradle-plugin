@@ -31,6 +31,17 @@ class JacocoSourceReportFactoryTest {
 
 
 	@Test
+	public void testCreateReportList() throws Exception {
+		Project project = ProjectBuilder.builder().build()
+		project.plugins.apply(GroovyPlugin)
+
+		List<SourceReport> reports = new JacocoSourceReportFactory().createReportList(project, new File('src/test/fixture/jacocoTestReport.xml'))
+
+		assertNotNull(reports)
+	}
+
+
+	@Test
 	public void testCreateReportForJavaPlugin() throws Exception {
 		Project project = ProjectBuilder.builder().build()
 		project.plugins.apply(JavaPlugin)
