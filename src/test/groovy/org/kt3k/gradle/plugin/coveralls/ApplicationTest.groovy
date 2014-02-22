@@ -130,4 +130,41 @@ class ApplicationTest {
 
 	}
 
+
+	@Test
+	void testMainWithTravisProSituation() {
+
+		// stub api endpoint
+		stubFor(post(urlEqualTo("/abc"))
+				.willReturn(aResponse()
+				.withStatus(200)
+				.withHeader("Content-Type", "text/plain")
+				.withBody("Some content")))
+
+		// mock up project
+		Project project = mock Project
+
+		// mock up logger
+		Logger logger = mock Logger
+
+		// dummy cobertura report
+		Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
+		sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
+
+		// set travis env variables and repo token (this lead to Travis-pro report)
+		Application.main([TRAVIS: 'true', TRAVIS_JOB_ID: '123', COVERALLS_REPO_TOKEN: 'abc123xyz'], project, 'http://localhost:8089/abc', sourceReportFactoryMap, logger)
+
+		// verify logger interactions
+		Mockito.verify(logger).warn 'service name: travis-pro'
+		Mockito.verify(logger).warn 'service job id: 123'
+		Mockito.verify(logger).warn 'repo token: present (not shown for security)'
+
+		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
+		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+
+		// verify api interaction
+		WireMock.verify(postRequestedFor(urlMatching('/abc')))
+
+	}
+
 }
