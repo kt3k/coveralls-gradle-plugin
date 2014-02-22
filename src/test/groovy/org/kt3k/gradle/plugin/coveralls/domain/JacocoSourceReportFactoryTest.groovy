@@ -8,15 +8,12 @@ import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Test
 
 import static org.junit.Assert.*
-/**
- *
- */
+
 class JacocoSourceReportFactoryTest {
 
 	@Test
 	public void testCreateReport() throws Exception {
-		List<SourceReport> reports = JacocoSourceReportFactory.createReportList(
-				[new File('src/main/groovy')], new File('src/test/fixture/jacocoTestReport.xml'))
+		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/main/groovy')], new File('src/test/fixture/jacocoTestReport.xml'))
 
 		assertNotNull reports
 		assertEquals 8, reports.size()
@@ -32,6 +29,7 @@ class JacocoSourceReportFactoryTest {
 		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[7].name
 	}
 
+
 	@Test
 	public void testCreateReportForJavaPlugin() throws Exception {
 		Project project = ProjectBuilder.builder().build()
@@ -44,6 +42,7 @@ class JacocoSourceReportFactoryTest {
 		}
 	}
 
+
 	@Test
 	public void testCreateReportForGroovyPlugin() throws Exception {
 		Project project = ProjectBuilder.builder().build()
@@ -55,6 +54,7 @@ class JacocoSourceReportFactoryTest {
 			assertTrue it.absolutePath.endsWith("src/main/java") || it.absolutePath.endsWith('src/main/groovy')
 		}
 	}
+
 
 	@Test
 	public void testCreateReportForScalaPlugin() throws Exception {
