@@ -10,10 +10,19 @@ class CoberturaSourceReportFactory implements SourceReportFactory {
 
 	@Override
 	List<SourceReport> createReportList(Project project, File file) {
-		Node coverage = new XmlParser().parse(file)
+		// create parser
+		XmlParser parser = new XmlParser()
+
+		// skip external DTD validation
+		// see http://xerces.apache.org/xerces2-j/features.html#nonvalidating.load-external-dtd
+		parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
+
+		// parse
+		Node coverage = parser.parse(file)
+
 		List<String> sourceDirectories = coverage.sources.source*.text()
 
-		// mapping of [filename] => [hits per line mapping]
+		// mapping of [filename] => [hits per line]
 		Map<String, Map<Integer, Integer>> hitsPerLineMapForFilename = [:]
 
 		coverage.packages.package.classes.class.each() { cls ->
@@ -57,9 +66,9 @@ class CoberturaSourceReportFactory implements SourceReportFactory {
 	/**
 	 * finds the actual source file path and returns File object
 	 *
-	 * @param sourceDirs
-	 * @param filename
-	 * @return
+	 * @param sourceDirs the list of candidate source dirs
+	 * @param filename the file name to search
+	 * @return found File object
 	 */
 	private static File actualSourceFile(List<String> sourceDirs, String filename) {
 		return sourceDirs.collect { new File(it + '/' + filename) }.find { it.exists() }

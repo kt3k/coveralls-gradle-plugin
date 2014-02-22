@@ -32,10 +32,18 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 	}
 
 	static List<SourceReport> createReportList(List<File> srcDirs, File jacocoReportFile) {
+		// create parser
 		XmlParser parser = new XmlParser()
+
+		// skip external DTD validation
+		// see http://xerces.apache.org/xerces2-j/features.html#nonvalidating.load-external-dtd
 		parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
+
+		// parse
 		Node report = parser.parse(jacocoReportFile)
+
 		Map<String, Map<Integer, Integer>> a = [:]
+
 		report.package.each() { pkg ->
 			pkg.sourcefile.each() { sf ->
 				Map<Integer, Integer> cov = a.get("${pkg.@name}/${sf.@name}", [:])
@@ -47,18 +55,26 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 		}
 
 		List<SourceReport> reports = new ArrayList<SourceReport>()
+
 		a.each { String filename, Map<Integer, Integer> cov ->
+
 			File sourceFile = srcDirs.collect { new File(it, filename) }.find { it.exists() }
+
 			if (sourceFile == null) {
-				return;
+				return
 			}
+
 			String source = sourceFile.text
+
 			List r = [null] * source.readLines().size()
+
 			cov.each { Integer line, Integer hits ->
 				r[line] = hits
 			}
+
 			reports.add new SourceReport(filename, source, r)
 		}
+
 		return reports
 	}
 }
