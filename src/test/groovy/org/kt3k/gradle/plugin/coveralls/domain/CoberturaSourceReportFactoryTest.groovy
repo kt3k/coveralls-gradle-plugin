@@ -26,6 +26,7 @@ class CoberturaSourceReportFactoryTest {
 		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/SourceReportFactory.groovy', reports[6].name
 	}
 
+
 	@Test
 	void testCreateFromCoberturaWithMultipleSourcesIncludingWrongOneXML() {
 
@@ -44,6 +45,22 @@ class CoberturaSourceReportFactoryTest {
 		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[5].name
 		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/SourceReportFactory.groovy', reports[6].name
 	}
+
+
+	@Test
+	void testCreateFromCoberturaWithNonexistentFileEntry() {
+
+		// mock up project
+		Project project = mock Project
+
+		CoberturaSourceReportFactory factory = new CoberturaSourceReportFactory()
+
+		// create source report
+		List<SourceReport> reports = factory.createReportList project, new File('src/test/fixture/coverage_with_nonexistent_file_entry.xml')
+
+		assertNotNull reports
+	}
+
 
 	@Test
 	void testLineHitsAddition() {
