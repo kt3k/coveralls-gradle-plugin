@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v0.2.4
+# coveralls-gradle-plugin v0.2.5
 
 [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.png?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.png)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
@@ -93,6 +93,26 @@ after_success:
 - gradle jacocoTestReport coveralls
 ```
 
+### use with Travis-CI Pro & Coveralls Pro
+
+When using Travis-CI Pro, you must provide your Coveralls Pro repo token in the
+`COVERALLS_REPO_TOKEN` environment variable in `.travis.yml`.
+
+```yaml
+env:
+  global:
+    - COVERALLS_REPO_TOKEN=mySecRetRepoToken
+```
+
+You may also use a secure environment variable to hold `COVERALLS_REPO_TOKEN`
+by following the instructions on [docs.travis-ci.com](http://docs.travis-ci.com/user/build-configuration/#Secure-environment-variables).
+
+```yaml
+env:
+  global:
+    - secure: <encrypted string here>
+```
+
 ## Examples
 
 - https://github.com/mockito/mockito
@@ -107,6 +127,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2014-02-19   v0.2.5   Support Travis Pro. (issue #4)
  * 2014-01-21   v0.2.4   Fixed the case of absent source files. (issue #3)
  * 2013-12-09   v0.2.1   Added JaCoCo support. (via @ihiroky)
  * 2013-11-02   v0.1.6   Changed distribution repository from Github to Maven central.

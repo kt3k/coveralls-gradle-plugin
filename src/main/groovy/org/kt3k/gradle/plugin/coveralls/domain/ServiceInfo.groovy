@@ -4,10 +4,12 @@ package org.kt3k.gradle.plugin.coveralls.domain
 class ServiceInfo {
     String serviceName;
     String serviceJobId;
+    String repoToken;
 
-    public ServiceInfo(String serviceName, String serviceJobId) {
+    public ServiceInfo(String serviceName, String serviceJobId, String repoToken) {
         this.serviceName = serviceName;
         this.serviceJobId = serviceJobId;
+        this.repoToken = repoToken;
     }
 }
 

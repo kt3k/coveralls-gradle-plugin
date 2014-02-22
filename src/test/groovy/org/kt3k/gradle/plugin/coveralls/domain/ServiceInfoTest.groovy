@@ -7,11 +7,12 @@ class ServiceInfoTest {
 
 	@Test
 	void testConstructor() {
-		ServiceInfo serviceInfo = new ServiceInfo('x-ci', '1729')
+		ServiceInfo serviceInfo = new ServiceInfo('x-ci', '1729', 'ABCDEF')
 
 		assertNotNull serviceInfo
 		assertEquals 'x-ci', serviceInfo.serviceName
 		assertEquals '1729', serviceInfo.serviceJobId
+		assertEquals 'ABCDEF', serviceInfo.repoToken
 	}
 
 }
