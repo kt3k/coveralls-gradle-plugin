@@ -2,6 +2,10 @@ package org.kt3k.gradle.plugin.coveralls.domain
 
 import org.gradle.api.Project
 
+
+/**
+ * Factory class for SourceReport for Cobertura report file.
+ */
 class CoberturaSourceReportFactory implements SourceReportFactory {
 
 	@Override

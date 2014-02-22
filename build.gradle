@@ -1,4 +1,4 @@
-// build file
+// build.gradle
 
 apply plugin: 'groovy'
 apply plugin: 'maven'

@@ -1,15 +1,17 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
-// model for ci service info
+/**
+ * The model class of CI service information
+ */
 class ServiceInfo {
-    String serviceName;
-    String serviceJobId;
-    String repoToken;
+	String serviceName;
+	String serviceJobId;
+	String repoToken;
 
-    public ServiceInfo(String serviceName, String serviceJobId, String repoToken) {
-        this.serviceName = serviceName;
-        this.serviceJobId = serviceJobId;
-        this.repoToken = repoToken;
-    }
+	public ServiceInfo(String serviceName, String serviceJobId, String repoToken) {
+		this.serviceName = serviceName;
+		this.serviceJobId = serviceJobId;
+		this.repoToken = repoToken;
+	}
 }
 

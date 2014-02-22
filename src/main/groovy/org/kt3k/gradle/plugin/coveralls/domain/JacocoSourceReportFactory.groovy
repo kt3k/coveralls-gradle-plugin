@@ -5,8 +5,9 @@ import org.gradle.api.plugins.GroovyPlugin
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.scala.ScalaPlugin
 
+
 /**
- *
+ * Factory class of SourceReport for JaCoCo report file.
  */
 class JacocoSourceReportFactory implements SourceReportFactory {
 

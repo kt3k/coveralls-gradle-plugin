@@ -8,13 +8,27 @@ import org.kt3k.gradle.plugin.coveralls.domain.JacocoSourceReportFactory
 import org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory
 import org.slf4j.LoggerFactory
 
+/**
+ * Coveralls plugin for gradle.
+ *
+ * This plugin adds the only one task `coveralls` which searches coverage report xml, converts it into JSON string and post to coveralls.io.
+ */
 class CoverallsPlugin implements Plugin<Project> {
 
+	/** API endpoint url of Coveralls */
 	static String API_ENDPOINT = 'https://coveralls.io/api/v1/jobs'
 
+	/** Cobertura report path */
 	static String COBERTURA_REPORT_PATH = 'build/reports/cobertura/coverage.xml'
+
+	/** JaCoCo report path */
 	static String JACOCO_REPORT_PATH = 'build/reports/jacoco/test/jacocoTestReport.xml'
 
+	/**
+	 * Add `coveralls` task to the project.
+	 *
+	 * @param project the project to add coveralls task
+	 */
 	void apply(Project project) {
 		project.task('coveralls') << {
 			// project dir

@@ -9,8 +9,18 @@ import org.slf4j.Logger
 
 import static groovyx.net.http.Method.POST
 
+/**
+ * Main procedure class of `coveralls` task.
+ */
 class Application {
 
+	/**
+	 * Post JSON string to the url (as a multipart HTTP POST).
+	 *
+	 * @param json the JSON string to post
+	 * @param url the url to post
+	 * @param logger the logger to use
+	 */
 	static void postJsonToUrl(String json, String url, final Logger logger) {
 
 		HTTPBuilder http = new HTTPBuilder(url)
@@ -33,6 +43,15 @@ class Application {
 		}
 	}
 
+	/**
+	 * Main procedure of `coveralls` task.
+	 *
+	 * @param env environmental variables
+	 * @param project project to deal with
+	 * @param apiEndpoint API endpoint to post resulting report
+	 * @param sourceReportFactoryMap the mapping of sourceReportFactories to use
+	 * @param logger the logger to use
+	 */
 	static void main(Map<String, String> env, Project project, String apiEndpoint, Map<String, SourceReportFactory> sourceReportFactoryMap, Logger logger) {
 
 		// create service info from environmental variables
@@ -47,9 +66,9 @@ class Application {
 		logger.warn 'service name: ' + serviceInfo.serviceName
 		logger.warn 'service job id: ' + serviceInfo.serviceJobId
 		if (serviceInfo.repoToken != null) {
-		    logger.warn 'repo token: present (not shown for security)'
+			logger.warn 'repo token: present (not shown for security)'
 		} else {
-		    logger.warn 'repo token: null'
+			logger.warn 'repo token: null'
 		}
 
 		// search the coverage file
