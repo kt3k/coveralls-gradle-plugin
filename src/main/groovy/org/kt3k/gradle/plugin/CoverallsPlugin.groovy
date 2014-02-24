@@ -30,6 +30,9 @@ class CoverallsPlugin implements Plugin<Project> {
 	 * @param project the project to add coveralls task
 	 */
 	void apply(Project project) {
+
+		project.extensions.create('coveralls', CoverallsPluginExtension)
+
 		project.task('coveralls') << {
 			// project dir
 			String projectDir = project.projectDir.path
@@ -38,8 +41,8 @@ class CoverallsPlugin implements Plugin<Project> {
 			Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
 
 			// add factories
-			sourceReportFactoryMap[projectDir + '/' + COBERTURA_REPORT_PATH] = new CoberturaSourceReportFactory();
-			sourceReportFactoryMap[projectDir + '/' + JACOCO_REPORT_PATH] = new JacocoSourceReportFactory();
+			sourceReportFactoryMap[projectDir + '/' + project.extensions.coveralls.coberturaReportPath] = new CoberturaSourceReportFactory();
+			sourceReportFactoryMap[projectDir + '/' + project.extensions.coveralls.jacocoReportPath] = new JacocoSourceReportFactory();
 
 			// run main procedure
 			Application.main(System.getenv(), project, API_ENDPOINT, sourceReportFactoryMap, LoggerFactory.getLogger('coveralls-logger'))

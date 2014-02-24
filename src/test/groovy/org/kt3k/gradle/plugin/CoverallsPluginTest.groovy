@@ -9,26 +9,22 @@ import org.mockito.ArgumentCaptor
 import org.gradle.api.Project
 import org.gradle.api.Plugin
 import org.gradle.api.Task
+import org.gradle.testfixtures.ProjectBuilder
 
 class CoverallsPluginTest {
 
 	@Test
 	void testApply() {
-		ArgumentCaptor<Closure> captor = ArgumentCaptor.forClass Closure
-		Task task = mock Task
 
-		Project project = mock Project
-		when(project.task('coveralls')).thenReturn(task)
-		when(project.getProjectDir()).thenReturn(new File('./'))
+		// build dummy project
+		Project project = ProjectBuilder.builder().build()
 
-		Plugin plugin = new CoverallsPlugin()
-		plugin.apply(project)
+		new CoverallsPlugin().apply(project)
 
-		// verify coveralls task is registered
-		verify(project).task('coveralls')
-		verify(task).leftShift(captor.capture())
+		Task task = project.tasks.getByName('coveralls')
 
-		captor.getValue().call()
+		// execute task action
+		task.getActions().first().execute(task)
 	}
 
 }
