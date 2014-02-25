@@ -13,4 +13,4 @@ after_success:
 - ./coveralls.groovy
 
 after_failure:
-- gradle clean check --stacktrace
+- gradle clean check --debug
