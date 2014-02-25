@@ -127,7 +127,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
- * 2014-02-19   v0.2.5   Support Travis Pro. (issue #4)
+ * 2014-02-19   v0.2.5   Added the support of Travis Pro. (issue #4, via @dhalperi)
  * 2014-01-21   v0.2.4   Fixed the case of absent source files. (issue #3)
  * 2013-12-09   v0.2.1   Added JaCoCo support. (via @ihiroky)
  * 2013-11-02   v0.1.6   Changed distribution repository from Github to Maven central.
