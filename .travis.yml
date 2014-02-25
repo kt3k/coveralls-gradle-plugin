@@ -11,3 +11,6 @@ env:
 after_success:
 - gradle cobertura
 - ./coveralls.groovy
+
+after_failure:
+- gradle clean check --stacktrace
