@@ -34,11 +34,11 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = Mockito.mock Logger
+		Logger logger = task.logger = Mockito.mock Logger
 
 		task.coverallsAction()
 
-		Mockito.verify(task.logger).error 'no available CI service'
+		Mockito.verify(logger).error 'no available CI service'
 	}
 
 	@Test
@@ -46,7 +46,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = Mockito.mock Logger
+		Logger logger = task.logger = Mockito.mock Logger
 
 		task.sourceReportFactoryMap[new File('hoge/fuga')] = new CoberturaSourceReportFactory();
 		task.sourceReportFactoryMap[new File('foo/bar')] = new CoberturaSourceReportFactory();
@@ -55,7 +55,7 @@ class CoverallsTaskTest {
 
 		task.coverallsAction()
 
-		Mockito.verify(task.logger).error 'No report file available: ' + ['hoge/fuga', 'foo/bar']
+		Mockito.verify(logger).error 'No report file available: ' + ['hoge/fuga', 'foo/bar']
 	}
 
 	@Rule
@@ -72,12 +72,12 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = Mockito.mock Logger
+		Logger logger = task.logger = Mockito.mock Logger
 
 		task.postJsonToUrl '{}', 'http://localhost:8089/abc'
 
-		Mockito.verify(task.logger).info 'HTTP/1.1 200 OK'
-		Mockito.verify(task.logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
+		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')).withRequestBody(matching('^.*$')))
 
@@ -95,12 +95,12 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = Mockito.mock Logger
+		Logger logger = task.logger = Mockito.mock Logger
 
 		task.postJsonToUrl '{}', 'http://localhost:8089/abc'
 
-		Mockito.verify(task.logger).error 'HTTP/1.1 404 Not Found'
-		Mockito.verify(task.logger).error '[Content-Type: text/plain, Content-Length: 9, Server: Jetty(6.1.25)]'
+		Mockito.verify(logger).error 'HTTP/1.1 404 Not Found'
+		Mockito.verify(logger).error '[Content-Type: text/plain, Content-Length: 9, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')).withRequestBody(matching('.*')))
 
@@ -118,7 +118,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = Mockito.mock Logger
+		Logger logger = task.logger = Mockito.mock Logger
 
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
 
@@ -128,8 +128,8 @@ class CoverallsTaskTest {
 
 		task.coverallsAction()
 
-		Mockito.verify(task.logger).info 'HTTP/1.1 200 OK'
-		Mockito.verify(task.logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
+		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')))
 
@@ -141,7 +141,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = Mockito.mock Logger
+		Logger logger = task.logger = Mockito.mock Logger
 
 		task.sourceReportFactoryMap['src/test/fixture/coverage_without_source_files.xml'] = new CoberturaSourceReportFactory()
 
@@ -151,8 +151,8 @@ class CoverallsTaskTest {
 
 		task.coverallsAction()
 
-		Mockito.verify(task.logger).error 'No source file found on the project: "test"'
-		Mockito.verify(task.logger).error 'With coverage file: src/test/fixture/coverage_without_source_files.xml'
+		Mockito.verify(logger).error 'No source file found on the project: "test"'
+		Mockito.verify(logger).error 'With coverage file: src/test/fixture/coverage_without_source_files.xml'
 
 	}
 
@@ -171,7 +171,7 @@ class CoverallsTaskTest {
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
 		// set mocked logger
-		task.logger = Mockito.mock Logger
+		Logger logger = task.logger = Mockito.mock Logger
 
 		// dummy cobertura coverage report
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
@@ -184,12 +184,12 @@ class CoverallsTaskTest {
 		task.coverallsAction()
 
 		// verify logger interactions
-		Mockito.verify(task.logger).warn 'service name: travis-pro'
-		Mockito.verify(task.logger).warn 'service job id: 123'
-		Mockito.verify(task.logger).warn 'repo token: present (not shown for security)'
+		Mockito.verify(logger).warn 'service name: travis-pro'
+		Mockito.verify(logger).warn 'service job id: 123'
+		Mockito.verify(logger).warn 'repo token: present (not shown for security)'
 
-		Mockito.verify(task.logger).info 'HTTP/1.1 200 OK'
-		Mockito.verify(task.logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
+		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
 		// verify api interaction
 		WireMock.verify(postRequestedFor(urlMatching('/abc')))

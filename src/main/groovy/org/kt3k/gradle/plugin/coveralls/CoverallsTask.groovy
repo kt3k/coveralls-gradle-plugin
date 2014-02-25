@@ -29,11 +29,6 @@ class CoverallsTask extends DefaultTask {
 	/** source report factory mapping */
 	Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
 
-	@Override
-	Logger getLogger() {
-		return this.logger
-	}
-
 
 	/**
 	 * Posts JSON string to the url (as a multipart HTTP POST).
