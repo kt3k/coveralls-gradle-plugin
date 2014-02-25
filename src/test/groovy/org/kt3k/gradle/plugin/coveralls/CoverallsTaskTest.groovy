@@ -18,7 +18,6 @@ import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
 import org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory
 
 import org.mockito.Mockito
-import static org.mockito.Mockito.*
 
 class CoverallsTaskTest {
 
@@ -35,7 +34,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = mock Logger
+		task.logger = Mockito.mock Logger
 
 		task.coverallsAction()
 
@@ -47,7 +46,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = mock Logger
+		task.logger = Mockito.mock Logger
 
 		task.sourceReportFactoryMap[new File('hoge/fuga')] = new CoberturaSourceReportFactory();
 		task.sourceReportFactoryMap[new File('foo/bar')] = new CoberturaSourceReportFactory();
@@ -73,7 +72,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = mock Logger
+		task.logger = Mockito.mock Logger
 
 		task.postJsonToUrl '{}', 'http://localhost:8089/abc'
 
@@ -96,7 +95,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = mock Logger
+		task.logger = Mockito.mock Logger
 
 		task.postJsonToUrl '{}', 'http://localhost:8089/abc'
 
@@ -119,7 +118,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = mock Logger
+		task.logger = Mockito.mock Logger
 
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
 
@@ -142,7 +141,7 @@ class CoverallsTaskTest {
 
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
-		task.logger = mock Logger
+		task.logger = Mockito.mock Logger
 
 		task.sourceReportFactoryMap['src/test/fixture/coverage_without_source_files.xml'] = new CoberturaSourceReportFactory()
 
@@ -172,7 +171,7 @@ class CoverallsTaskTest {
 		Task task = this.project.task('coveralls', type: CoverallsTask)
 
 		// set mocked logger
-		task.logger = mock Logger
+		task.logger = Mockito.mock Logger
 
 		// dummy cobertura coverage report
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
