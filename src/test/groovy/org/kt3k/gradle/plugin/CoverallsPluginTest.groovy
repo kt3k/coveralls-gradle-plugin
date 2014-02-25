@@ -11,6 +11,8 @@ import org.gradle.api.Plugin
 import org.gradle.api.Task
 import org.gradle.testfixtures.ProjectBuilder
 
+import org.kt3k.gradle.plugin.coveralls.CoverallsTask
+
 class CoverallsPluginTest {
 
 	@Test
@@ -23,8 +25,7 @@ class CoverallsPluginTest {
 
 		Task task = project.tasks.getByName('coveralls')
 
-		// execute task action
-		task.getActions().first().execute(task)
+		assertTrue(task instanceof CoverallsTask)
 	}
 
 }

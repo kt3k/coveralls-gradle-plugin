@@ -2,11 +2,11 @@ package org.kt3k.gradle.plugin
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.kt3k.gradle.plugin.coveralls.Application
+import org.gradle.api.Task
+import org.kt3k.gradle.plugin.coveralls.CoverallsTask
 import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
 import org.kt3k.gradle.plugin.coveralls.domain.JacocoSourceReportFactory
 import org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory
-import org.slf4j.LoggerFactory
 
 /**
  * Coveralls plugin for gradle.
@@ -15,15 +15,6 @@ import org.slf4j.LoggerFactory
  */
 class CoverallsPlugin implements Plugin<Project> {
 
-	/** API endpoint url of Coveralls */
-	static String API_ENDPOINT = 'https://coveralls.io/api/v1/jobs'
-
-	/** Cobertura report path */
-	static String COBERTURA_REPORT_PATH = 'build/reports/cobertura/coverage.xml'
-
-	/** JaCoCo report path */
-	static String JACOCO_REPORT_PATH = 'build/reports/jacoco/test/jacocoTestReport.xml'
-
 	/**
 	 * Add `coveralls` task to the project.
 	 *
@@ -31,22 +22,22 @@ class CoverallsPlugin implements Plugin<Project> {
 	 */
 	void apply(Project project) {
 
+		// create coveralls project extension
 		project.extensions.create('coveralls', CoverallsPluginExtension)
 
-		project.task('coveralls') << {
-			// project dir
-			String projectDir = project.projectDir.path
+		// register coveralls task
+		Task task = project.task('coveralls', type: CoverallsTask)
 
-			// create coverage file to Factory class mapping
-			Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
+		// set project
+		task.project = project
 
-			// add factories
-			sourceReportFactoryMap[projectDir + '/' + project.extensions.coveralls.coberturaReportPath] = new CoberturaSourceReportFactory();
-			sourceReportFactoryMap[projectDir + '/' + project.extensions.coveralls.jacocoReportPath] = new JacocoSourceReportFactory();
+		// set env vars
+		task.env = System.getenv()
 
-			// run main procedure
-			Application.main(System.getenv(), project, API_ENDPOINT, sourceReportFactoryMap, LoggerFactory.getLogger('coveralls-logger'))
-		}
+		// add factories
+		task.sourceReportFactoryMap[project.projectDir.path + '/' + project.extensions.coveralls.coberturaReportPath] = new CoberturaSourceReportFactory();
+		task.sourceReportFactoryMap[project.projectDir.path + '/' + project.extensions.coveralls.jacocoReportPath] = new JacocoSourceReportFactory();
+
 	}
 
 }

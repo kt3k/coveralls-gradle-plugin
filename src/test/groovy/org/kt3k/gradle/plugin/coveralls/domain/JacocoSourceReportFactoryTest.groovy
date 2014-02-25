@@ -16,17 +16,16 @@ class JacocoSourceReportFactoryTest {
 		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/main/groovy')], new File('src/test/fixture/jacocoTestReport.xml'))
 
 		assertNotNull reports
-		assertEquals 8, reports.size()
+		assertEquals 7, reports.size()
 
 		reports.sort { it.name }
 		assertEquals 'org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
-		assertEquals 'org/kt3k/gradle/plugin/coveralls/Application.groovy', reports[1].name
-		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory.groovy', reports[2].name
-		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory.groovy', reports[3].name
-		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/Report.groovy', reports[4].name
-		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo.groovy', reports[5].name
-		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory.groovy', reports[6].name
-		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[7].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory.groovy', reports[1].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory.groovy', reports[2].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/Report.groovy', reports[3].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo.groovy', reports[4].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory.groovy', reports[5].name
+		assertEquals 'org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[6].name
 	}
 
 
