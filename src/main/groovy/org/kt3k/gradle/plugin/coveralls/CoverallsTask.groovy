@@ -7,8 +7,8 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import org.gradle.api.tasks.TaskAction
 import org.kt3k.gradle.plugin.coveralls.domain.*
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import org.gradle.api.logging.Logger
+import org.gradle.api.logging.Logging
 
 import static groovyx.net.http.Method.POST
 
@@ -24,10 +24,15 @@ class CoverallsTask extends DefaultTask {
 	Map<String, String> env = [:]
 
 	/** the logger */
-	Logger logger = LoggerFactory.getLogger('coveralls-logger')
+	Logger logger = Logging.getLogger('coveralls-logger')
 
 	/** source report factory mapping */
 	Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
+
+	@Override
+	Logger getLogger() {
+		return this.logger
+	}
 
 
 	/**
