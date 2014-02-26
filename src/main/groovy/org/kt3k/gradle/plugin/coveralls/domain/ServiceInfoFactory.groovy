@@ -13,18 +13,30 @@ class ServiceInfoFactory {
 	 */
 	public static ServiceInfo createFromEnvVar(Map<String, String> env) {
 
-		// it now supports travis only.
-		if (env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null) {
-			if (env.get('COVERALLS_REPO_TOKEN') != null) {
+		if (repoTokenIsSet(env)) {
+			if (envIsTravis(env)) {
 				return new ServiceInfo('travis-pro', env.get('TRAVIS_JOB_ID'), env.get('COVERALLS_REPO_TOKEN'))
 			} else {
+				return new ServiceInfo('other', null, env.get('COVERALLS_REPO_TOKEN'))
+			}
+
+		} else {
+			if (envIsTravis(env)) {
 				return new ServiceInfo('travis-ci', env.get('TRAVIS_JOB_ID'), null)
 			}
 		}
 
-		// cannot create service info from environmental variables.
+		// cannot create service info from environmental variables. (no repo_token, not travis)
 		return null
 
+	}
+
+	private static envIsTravis(Map<String, String> env) {
+		return env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null
+	}
+
+	private static repoTokenIsSet(env) {
+		return env.get('COVERALLS_REPO_TOKEN') != null
 	}
 
 }

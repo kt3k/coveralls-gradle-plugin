@@ -27,8 +27,15 @@ class ServiceInfoFactoryTest {
 		assertEquals '12345678', serviceInfo.serviceJobId
 		assertEquals 'ABCDEF', serviceInfo.repoToken
 
-		// test the case of travis-pro but job_id is not available
-		assertNull ServiceInfoFactory.createFromEnvVar(TRAVIS: 'true', 'COVERALLS_REPO_TOKEN': 'ABCDEF')
+		// test the case of the environment other than travis with repo token
+		serviceInfo = ServiceInfoFactory.createFromEnvVar('COVERALLS_REPO_TOKEN': 'ABCDEF')
+
+		assertEquals 'other', serviceInfo.serviceName
+		assertEquals null, serviceInfo.serviceJobId
+		assertEquals 'ABCDEF', serviceInfo.repoToken
+
+		// test the case of no repo token and no travis
+		assertNull ServiceInfoFactory.createFromEnvVar([:])
 	}
 
 }
