@@ -31,12 +31,20 @@ class ServiceInfoFactory {
 
 	}
 
-	private static envIsTravis(Map<String, String> env) {
-		return env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null
+	private static boolean envIsTravis(Map<String, String> env) {
+		if (env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null) {
+			return true
+		}
+
+		return false
 	}
 
-	private static repoTokenIsSet(env) {
-		return env.get('COVERALLS_REPO_TOKEN') != null
+	private static boolean repoTokenIsSet(Map<String, String> env) {
+		if (env.get('COVERALLS_REPO_TOKEN') != null) {
+			return true
+		}
+
+		return false
 	}
 
 }
