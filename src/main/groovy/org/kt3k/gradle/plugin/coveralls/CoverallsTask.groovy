@@ -17,9 +17,6 @@ import static groovyx.net.http.Method.POST
  */
 class CoverallsTask extends DefaultTask {
 
-	/** target project */
-	Project project
-
 	/** environmental variable */
 	Map<String, String> env = [:]
 
@@ -87,6 +84,12 @@ class CoverallsTask extends DefaultTask {
 		} else {
 			this.logger.warn 'repo token: null'
 		}
+
+
+		// add factories
+		this.sourceReportFactoryMap[this.project.projectDir.path + '/' + this.project.extensions.coveralls.coberturaReportPath] = new CoberturaSourceReportFactory()
+		this.sourceReportFactoryMap[this.project.projectDir.path + '/' + this.project.extensions.coveralls.jacocoReportPath] = new JacocoSourceReportFactory()
+
 
 		// search the coverage file
 		Map.Entry<String, SourceReportFactory> entry = this.sourceReportFactoryMap.find { Map.Entry<String, SourceReportFactory> entry ->

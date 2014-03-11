@@ -28,15 +28,8 @@ class CoverallsPlugin implements Plugin<Project> {
 		// register coveralls task
 		Task task = project.task('coveralls', type: CoverallsTask)
 
-		// set project
-		task.project = project
-
 		// set env vars
 		task.env = System.getenv()
-
-		// add factories
-		task.sourceReportFactoryMap[project.projectDir.path + '/' + project.extensions.coveralls.coberturaReportPath] = new CoberturaSourceReportFactory();
-		task.sourceReportFactoryMap[project.projectDir.path + '/' + project.extensions.coveralls.jacocoReportPath] = new JacocoSourceReportFactory();
 
 	}
 

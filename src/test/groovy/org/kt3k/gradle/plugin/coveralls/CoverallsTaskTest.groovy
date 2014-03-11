@@ -48,14 +48,17 @@ class CoverallsTaskTest {
 
 		Logger logger = task.logger = Mockito.mock Logger
 
-		task.sourceReportFactoryMap[new File('hoge/fuga')] = new CoberturaSourceReportFactory();
-		task.sourceReportFactoryMap[new File('foo/bar')] = new CoberturaSourceReportFactory();
+		// set nonexistent report file paths
+		this.project.extensions.coveralls.coberturaReportPath = 'foo/bar.xml'
+		this.project.extensions.coveralls.jacocoReportPath = 'baz/bar.xml'
+
+		String projDir = this.project.projectDir.path
 
 		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
 
 		task.coverallsAction()
 
-		Mockito.verify(logger).error 'No report file available: ' + ['hoge/fuga', 'foo/bar']
+		Mockito.verify(logger).error 'No report file available: ' + [projDir + '/foo/bar.xml', projDir + '/baz/bar.xml']
 	}
 
 	@Rule
