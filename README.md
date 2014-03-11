@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v0.2.5
+# coveralls-gradle-plugin v0.3.0
 
 [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.png?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.png)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
@@ -21,7 +21,7 @@ buildscript {
 
     dependencies {
         classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.2.5'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.3.0'
     }
 }
 
@@ -65,7 +65,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.2.1'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.3.0'
     }
 }
 
@@ -127,6 +127,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2014-03-11   v0.3.0   Make coverage report paths configurable. (issue #6)
  * 2014-02-19   v0.2.5   Added the support of Travis Pro. (issue #4, via @dhalperi)
  * 2014-01-21   v0.2.4   Fixed the case of absent source files. (issue #3)
  * 2013-12-09   v0.2.1   Added JaCoCo support. (via @ihiroky)
