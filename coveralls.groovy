@@ -72,14 +72,16 @@ class SourceReportFactory {
         List<SourceReport> reports = new ArrayList<SourceReport>()
 
         a.each { String filename, Map cov ->
-            String source = new File(sourceDir + filename).text
+            File sourceFile = new File(sourceDir + filename)
+            String source = sourceFile.text
 
             List r = [null] * source.readLines().size()
             cov.each { Integer line, Integer hits ->
                 r[line] = hits
             }
 
-            reports.add new SourceReport(filename, source, r)
+            String relPath = new File('.').toURI().relativize( sourceFile.toURI() ).toString()
+            reports.add new SourceReport(relPath, source, r)
         }
 
         return reports
