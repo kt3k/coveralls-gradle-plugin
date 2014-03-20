@@ -88,7 +88,9 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 				r[line] = hits
 			}
 
-			reports.add new SourceReport(filename, source, r)
+			// Compute relative path from . via https://gist.github.com/ysb33r/5804364
+			String relPath = new File('.').toURI().relativize( sourceFile.toURI() ).toString()
+			reports.add new SourceReport(relPath, source, r)
 		}
 
 		return reports
