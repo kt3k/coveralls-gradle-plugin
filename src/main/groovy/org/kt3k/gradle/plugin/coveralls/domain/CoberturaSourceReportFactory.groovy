@@ -40,13 +40,14 @@ class CoberturaSourceReportFactory implements SourceReportFactory {
 		hitsPerLineMapForFilename.each { String filename, Map<Integer, Integer> cov ->
 
 			// find actual source file from directory candidates
-			File sourceFile = actualSourceFile(sourceDirectories, filename)
+			String sourceFilename = actualSourceFilename(sourceDirectories, filename)
 
-			if (sourceFile == null) {
-				// if sourceFile is not found then ignore the entry
+			if (sourceFilename == null) {
+				// if sourceFilename is not found then ignore the entry
 				return
 			}
 
+            File sourceFile = new File(sourceFilename)
 			String source = sourceFile.text
 
 			// create hits per line list
@@ -56,7 +57,7 @@ class CoberturaSourceReportFactory implements SourceReportFactory {
 				hitsPerLineList[line] = hits
 			}
 
-			reports.add new SourceReport(filename, source, hitsPerLineList)
+			reports.add new SourceReport(sourceFilename, source, hitsPerLineList)
 		}
 
 		return reports
@@ -70,7 +71,7 @@ class CoberturaSourceReportFactory implements SourceReportFactory {
 	 * @param filename the file name to search
 	 * @return found File object
 	 */
-	private static File actualSourceFile(List<String> sourceDirs, String filename) {
-		return sourceDirs.collect { new File(it + '/' + filename) }.find { it.exists() }
+	private static String actualSourceFilename(List<String> sourceDirs, String filename) {
+		return sourceDirs.collect { it + '/' + filename }.find { new File(it).exists() }
 	}
 }
