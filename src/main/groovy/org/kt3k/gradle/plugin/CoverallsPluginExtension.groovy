@@ -20,4 +20,9 @@ class CoverallsPluginExtension {
 	/** Cobertura report path */
 	String coberturaReportPath = 'build/reports/cobertura/coverage.xml'
 
+	/**
+	 * Additional source directories
+	 */
+	List<String> sourceDirs = []
+
 }

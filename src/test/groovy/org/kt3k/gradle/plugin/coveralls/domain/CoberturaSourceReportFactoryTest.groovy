@@ -1,16 +1,29 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
 import org.gradle.api.Project
+import org.gradle.testfixtures.ProjectBuilder
+import org.junit.Before
 import org.junit.Test
 import static org.junit.Assert.*
-import static org.mockito.Mockito.mock
+import org.kt3k.gradle.plugin.CoverallsPluginExtension
 
 class CoberturaSourceReportFactoryTest {
+
+	Project project
+
+	@Before
+	public void setUp() {
+
+		// fake a project
+		project = ProjectBuilder.builder().build()
+
+		// create coveralls extension
+		project.extensions.create('coveralls', CoverallsPluginExtension)
+	}
 
 	@Test
 	void testCreateFromCoberturaXML() {
 
-		Project project = mock Project
 		CoberturaSourceReportFactory factory = new CoberturaSourceReportFactory()
 		List<SourceReport> reports = factory.createReportList project, new File('src/test/fixture/coverage.xml')
 
@@ -30,7 +43,6 @@ class CoberturaSourceReportFactoryTest {
 	@Test
 	void testCreateFromCoberturaWithMultipleSourcesIncludingWrongOneXML() {
 
-		Project project = mock Project
 		CoberturaSourceReportFactory factory = new CoberturaSourceReportFactory()
 		List<SourceReport> reports = factory.createReportList project, new File('src/test/fixture/coverage_with_multiple_sources_including_wrong_ones.xml')
 
@@ -50,9 +62,6 @@ class CoberturaSourceReportFactoryTest {
 	@Test
 	void testCreateFromCoberturaWithNonexistentFileEntry() {
 
-		// mock up project
-		Project project = mock Project
-
 		CoberturaSourceReportFactory factory = new CoberturaSourceReportFactory()
 
 		// create source report
@@ -68,7 +77,6 @@ class CoberturaSourceReportFactoryTest {
 		// test line hits addition
 		// see <line> tags in src/test/fixture/coverage_add_hits.xml
 
-		Project project = mock Project
 		CoberturaSourceReportFactory factory = new CoberturaSourceReportFactory()
 		List<SourceReport> reports = factory.createReportList project, new File('src/test/fixture/coverage_add_hits.xml')
 

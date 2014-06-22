@@ -25,7 +25,12 @@ class CoberturaSourceReportFactory implements SourceReportFactory {
 		// parse
 		Node coverage = parser.parse(file)
 
+
+		// default source directories
 		List<String> sourceDirectories = coverage.sources.source*.text()
+
+		// append optional directories
+		sourceDirectories += project.extensions.coveralls.sourceDirs
 
 		// mapping of [filename] => [hits per line]
 		Map<String, Map<Integer, Integer>> hitsPerLineMapForFilename = [:]

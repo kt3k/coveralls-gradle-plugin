@@ -6,10 +6,24 @@ import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.scala.ScalaPlugin
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Test
+import org.junit.Before
+import org.kt3k.gradle.plugin.CoverallsPluginExtension
 
 import static org.junit.Assert.*
 
 class JacocoSourceReportFactoryTest {
+
+	Project project
+
+	@Before
+	public void setUp() {
+
+		// fake a project
+		project = ProjectBuilder.builder().build()
+
+		// create coveralls extension
+		project.extensions.create('coveralls', CoverallsPluginExtension)
+	}
 
 	@Test
 	public void testCreateReport() throws Exception {
@@ -31,7 +45,6 @@ class JacocoSourceReportFactoryTest {
 
 	@Test
 	public void testCreateReportList() throws Exception {
-		Project project = ProjectBuilder.builder().build()
 		project.plugins.apply(GroovyPlugin)
 
 		List<SourceReport> reports = new JacocoSourceReportFactory().createReportList(project, new File('src/test/fixture/jacocoTestReport.xml'))
@@ -42,7 +55,7 @@ class JacocoSourceReportFactoryTest {
 
 	@Test
 	public void testCreateReportForJavaPlugin() throws Exception {
-		Project project = ProjectBuilder.builder().build()
+
 		project.plugins.apply(JavaPlugin)
 
 		List<File> srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)
@@ -55,7 +68,7 @@ class JacocoSourceReportFactoryTest {
 
 	@Test
 	public void testCreateReportForGroovyPlugin() throws Exception {
-		Project project = ProjectBuilder.builder().build()
+
 		project.plugins.apply(GroovyPlugin)
 
 		List<File> srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)
@@ -68,7 +81,7 @@ class JacocoSourceReportFactoryTest {
 
 	@Test
 	public void testCreateReportForScalaPlugin() throws Exception {
-		Project project = ProjectBuilder.builder().build()
+
 		project.plugins.apply(ScalaPlugin)
 
 		List<File> srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)

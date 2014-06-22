@@ -36,7 +36,7 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 			targetSrcDirs += project.sourceSets.main.scala.srcDirs
 		}
 
-		return targetSrcDirs.sort()
+		return project.extensions.coveralls.sourceDirs + targetSrcDirs.sort()
 	}
 
 	static List<SourceReport> createReportList(List<File> srcDirs, File jacocoReportFile) {
