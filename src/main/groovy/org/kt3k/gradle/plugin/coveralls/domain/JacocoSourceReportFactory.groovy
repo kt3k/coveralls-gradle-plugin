@@ -1,5 +1,6 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
+import com.android.build.gradle.BasePlugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.GroovyPlugin
 import org.gradle.api.plugins.JavaPlugin
@@ -23,6 +24,10 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 	static List<File> createTargetSrcDirs(Project project) {
 
 		List<File> targetSrcDirs = new ArrayList<File>()
+
+        project.plugins.withType(BasePlugin) {
+            targetSrcDirs += project.android.sourceSets.main.java.getSrcDirs()
+        }
 
 		project.plugins.withType(JavaPlugin) {
 			targetSrcDirs += project.sourceSets.main.java.srcDirs
