@@ -127,6 +127,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2014-06-26   v0.5.0   Add Android plugin support ([#17](https://github.com/kt3k/coveralls-gradle-plugin/pull/17))
  * 2014-06-21   v0.4.1   Change some XML parser settings ([#16](https://github.com/kt3k/coveralls-gradle-plugin/pull/16))
  * 2014-03-15   v0.3.1   Upgrade HttpBuilder to v0.7.1. (issue #8)
  * 2014-03-11   v0.3.0   Make coverage report paths configurable. (issue #6)
