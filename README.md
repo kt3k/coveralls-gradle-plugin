@@ -127,10 +127,10 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
- * 2014-06-26   v0.5.0   Add Android plugin support ([#17](https://github.com/kt3k/coveralls-gradle-plugin/pull/17))
- * 2014-06-21   v0.4.1   Change some XML parser settings ([#16](https://github.com/kt3k/coveralls-gradle-plugin/pull/16))
- * 2014-03-15   v0.3.1   Upgrade HttpBuilder to v0.7.1. (issue #8)
- * 2014-03-11   v0.3.0   Make coverage report paths configurable. (issue #6)
+ * 2014-06-26   v0.5.0   Added Android plugin support ([#17](https://github.com/kt3k/coveralls-gradle-plugin/pull/17))
+ * 2014-06-21   v0.4.1   Changed some XML parser settings ([#16](https://github.com/kt3k/coveralls-gradle-plugin/pull/16))
+ * 2014-03-15   v0.3.1   Upgraded HttpBuilder to v0.7.1. (issue #8)
+ * 2014-03-11   v0.3.0   Made coverage report paths configurable. (issue #6)
  * 2014-02-19   v0.2.5   Added the support of Travis Pro. (issue #4, via @dhalperi)
  * 2014-01-21   v0.2.4   Fixed the case of absent source files. (issue #3)
  * 2013-12-09   v0.2.1   Added JaCoCo support. (via @ihiroky)
