@@ -78,6 +78,7 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 		List<SourceReport> reports = new ArrayList<SourceReport>()
 
 		// find actual source files
+		// and create the list of SourceReport instances
 		a.each { String filename, Map<Integer, Integer> cov ->
 
 			File sourceFile = srcDirs.collect { new File(it, filename) }.find { it.exists() }
