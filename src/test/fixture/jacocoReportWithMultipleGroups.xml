@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.0//EN" "report.dtd">
+<report name="Coverage Report">
+  <group name="a group">
+    <package name="org/kt3k/gradle/plugin">
+      <sourcefile name="CoverallsPlugin.groovy">
+        <line nr="1" mi="0" ci="2" mb="0" cb="0"/>
+      </sourcefile>
+    </package>
+  </group>
+  <group name="b group">
+    <package name="org/kt3k/gradle/plugin/coveralls">
+      <sourcefile name="Application.groovy">
+        <line nr="1" mi="0" ci="4" mb="0" cb="0"/>
+      </sourcefile>
+    </package>
+  </group>
+</report>

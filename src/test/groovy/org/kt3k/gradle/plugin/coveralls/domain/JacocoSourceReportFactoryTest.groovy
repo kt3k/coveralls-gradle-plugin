@@ -27,19 +27,39 @@ class JacocoSourceReportFactoryTest {
 
 	@Test
 	public void testCreateReport() throws Exception {
-		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/main/groovy')], new File('src/test/fixture/jacocoTestReport.xml'))
+		// test with single (not multi) project jacoco report
+		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/test/fixture')], new File('src/test/fixture/jacocoTestReport.xml'))
 
 		assertNotNull reports
-		assertEquals 7, reports.size()
 
+		assertEquals 6, reports.size()
+
+		// sort reports for assertion
 		reports.sort { it.name }
-		assertEquals 'src/main/groovy/org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
-		assertEquals 'src/main/groovy/org/kt3k/gradle/plugin/coveralls/domain/CoberturaSourceReportFactory.groovy', reports[1].name
-		assertEquals 'src/main/groovy/org/kt3k/gradle/plugin/coveralls/domain/JacocoSourceReportFactory.groovy', reports[2].name
-		assertEquals 'src/main/groovy/org/kt3k/gradle/plugin/coveralls/domain/Report.groovy', reports[3].name
-		assertEquals 'src/main/groovy/org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo.groovy', reports[4].name
-		assertEquals 'src/main/groovy/org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory.groovy', reports[5].name
-		assertEquals 'src/main/groovy/org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[6].name
+
+		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
+		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/Application.groovy', reports[1].name
+		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/Report.groovy', reports[2].name
+		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo.groovy', reports[3].name
+		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory.groovy', reports[4].name
+		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[5].name
+	}
+
+
+	@Test
+	public void testCreateReportWithMultiProjectReport() {
+		// test with multi-project jacoco report
+		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/test/fixture')], new File('src/test/fixture/jacocoReportWithMultipleGroups.xml'))
+
+		assertNotNull reports
+
+		assertEquals 2, reports.size()
+
+		// sort reports for assertion
+		reports.sort { it.name }
+
+		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
+		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/Application.groovy', reports[1].name
 	}
 
 

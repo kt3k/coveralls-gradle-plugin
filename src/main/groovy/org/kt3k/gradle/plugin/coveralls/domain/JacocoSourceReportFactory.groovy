@@ -57,16 +57,16 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 
 		Map<String, Map<Integer, Integer>> a = [:]
 
-		report.package.each { pkg ->
+		(report.group.package + report.package).each { pkg ->
 
 			pkg.sourcefile.each { sf ->
 				Map<Integer, Integer> cov = a.get("${pkg.@name}/${sf.@name}", [:])
 
-				sf.line.each { ln ->
-					Integer lineIndex = ln.@nr.toInteger() - 1
+				sf.line.each { line ->
+					Integer lineIndex = line.@nr.toInteger() - 1
 
 					// jacoco doesn't count hits
-					if (ln.@ci.toInteger() > 0) {
+					if (line.@ci.toInteger() > 0) {
 						cov[lineIndex] = 1
 					} else {
 						cov[lineIndex] = 0
@@ -77,6 +77,7 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 
 		List<SourceReport> reports = new ArrayList<SourceReport>()
 
+		// find actual source files
 		a.each { String filename, Map<Integer, Integer> cov ->
 
 			File sourceFile = srcDirs.collect { new File(it, filename) }.find { it.exists() }
