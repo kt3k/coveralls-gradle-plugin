@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v0.5.0
+# coveralls-gradle-plugin v0.6.0
 
 [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.png?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.png)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
@@ -21,7 +21,7 @@ buildscript {
 
     dependencies {
         classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.5.0'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.6.0'
     }
 }
 
@@ -127,6 +127,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2014-07-02   v0.6.0   Added multiple project support for jacoco report.
  * 2014-06-26   v0.5.0   Added Android plugin support ([#17](https://github.com/kt3k/coveralls-gradle-plugin/pull/17))
  * 2014-06-21   v0.4.1   Changed some XML parser settings ([#16](https://github.com/kt3k/coveralls-gradle-plugin/pull/16))
  * 2014-03-15   v0.3.1   Upgraded HttpBuilder to v0.7.1. (issue #8)
