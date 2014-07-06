@@ -127,6 +127,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2014-07-06   v0.6.1   Fixed report parser behaviours. ([#18](https://github.com/kt3k/coveralls-gradle-plugin/pull/18))
  * 2014-07-02   v0.6.0   Added multiple project support for jacoco report.
  * 2014-06-26   v0.5.0   Added Android plugin support ([#17](https://github.com/kt3k/coveralls-gradle-plugin/pull/17))
  * 2014-06-21   v0.4.1   Changed some XML parser settings ([#16](https://github.com/kt3k/coveralls-gradle-plugin/pull/16))
