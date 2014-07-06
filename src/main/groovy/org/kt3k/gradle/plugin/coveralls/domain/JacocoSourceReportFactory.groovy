@@ -46,11 +46,7 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 
 	static List<SourceReport> createReportList(List<File> srcDirs, File jacocoReportFile) {
 		// create parser
-		XmlParser parser = new XmlParser()
-
-		// skip external DTD validation
-		// see http://xerces.apache.org/xerces2-j/features.html#nonvalidating.load-external-dtd
-		parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
+		XmlParser parser = new XmlParserFactory().xmlParser
 
 		// parse
 		Node report = parser.parse(jacocoReportFile)
