@@ -15,7 +15,6 @@ import org.gradle.testfixtures.ProjectBuilder
 
 import org.kt3k.gradle.plugin.CoverallsPluginExtension
 import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
-import org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory
 
 import org.mockito.Mockito
 

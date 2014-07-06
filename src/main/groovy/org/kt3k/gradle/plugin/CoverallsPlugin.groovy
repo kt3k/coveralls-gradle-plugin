@@ -4,9 +4,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.kt3k.gradle.plugin.coveralls.CoverallsTask
-import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
-import org.kt3k.gradle.plugin.coveralls.domain.JacocoSourceReportFactory
-import org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory
 
 /**
  * Coveralls plugin for gradle.
