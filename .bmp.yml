@@ -1,7 +1,10 @@
 ---
-version: 0.6.1
+version: 0.6.5
 files:
   gradle.properties: version=%.%.%
   README.md:
   - coveralls-gradle-plugin v%.%.%
   - org.kt3k.gradle.plugin:coveralls-gradle-plugin:%.%.%
+  build.gradle:
+  - name = '%.%.%'
+  - vcsTag = 'v%.%.%'
