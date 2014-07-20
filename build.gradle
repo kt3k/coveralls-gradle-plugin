@@ -6,6 +6,8 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'signing'
 apply plugin: 'cobertura'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
 
 repositories {
     mavenCentral()
@@ -26,15 +28,15 @@ dependencies {
 
 buildscript {
     repositories {
-        mavenCentral()
 
-        maven {
-            url 'http://kt3k.github.io/repository/maven/release'
-        }
+        mavenCentral()
+        jcenter()
+
     }
 
     dependencies {
-        classpath 'net.saliman:gradle-cobertura-plugin:1.1.2'
+        classpath 'net.saliman:gradle-cobertura-plugin:2.2.4'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.5'
     }
 }
 
@@ -122,3 +124,43 @@ uploadArchives {
 
 cobertura.coverageFormats = ['html', 'xml']
 cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
+
+
+// MavenPublication settings
+publishing {
+    publications {
+        plugin(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+
+bintray {
+
+    // these two should be defined out of the repository, for example, in ~/.gradle/gradle.properties
+    user = bintrayUsername
+    key = bintrayApiKey
+
+    publications = ['plugin']
+
+    pkg {
+        repo = 'gradle-plugins'
+        name = 'coveralls-gradle-plugin'
+        desc = 'Send coverage data to coveralls.io.'
+        websiteUrl = 'https://github.com/kt3k/coveralls-gradle-plugin'
+        issueTrackerUrl = 'https://github.com/kt3k/coveralls-gradle-plugin/issues'
+        vcsUrl = 'https://github.com/kt3k/coveralls-gradle-plugin.git'
+        licenses = ['MIT']
+        labels = ['coveralls', 'coverage']
+        publicDownloadNumbers = true
+        version {
+            name = '0.6.5'
+            vcsTag = 'v0.6.5'
+            attributes = [
+                'gradle-plugin': 'com.github.kt3k.coveralls:org.kt3k.gradle.plugin:coveralls-gradle-plugin'
+            ]
+        }
+    }
+
+}
