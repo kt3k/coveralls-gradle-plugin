@@ -138,9 +138,11 @@ publishing {
 
 bintray {
 
-    // these two should be defined out of the repository, for example, in ~/.gradle/gradle.properties
-    user = bintrayUsername
-    key = bintrayApiKey
+    if (project.hasProperty('bintrayUsername')) {
+        // these two should be defined out of the repository, for example, in ~/.gradle/gradle.properties
+        user = bintrayUsername
+        key = bintrayApiKey
+    }
 
     publications = ['plugin']
 
