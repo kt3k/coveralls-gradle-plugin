@@ -157,8 +157,8 @@ bintray {
         labels = ['coveralls', 'coverage']
         publicDownloadNumbers = true
         version {
-            name = '0.6.5'
-            vcsTag = 'v0.6.5'
+            name = '0.6.6'
+            vcsTag = 'v0.6.6'
             attributes = [
                 'gradle-plugin': 'com.github.kt3k.coveralls:org.kt3k.gradle.plugin:coveralls-gradle-plugin'
             ]
