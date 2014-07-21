@@ -12,7 +12,7 @@ Add following lines to build.gradle:
 
 ```groovy
 apply plugin: 'cobertura'
-apply plugin: 'coveralls'
+apply plugin: 'com.github.kt3k.coveralls'
 
 buildscript {
     repositories {
@@ -57,7 +57,7 @@ Add following lines to build.gradle:
 
 ```groovy
 apply plugin: 'jacoco'
-apply plugin: 'coveralls'
+apply plugin: 'com.github.kt3k.coveralls'
 
 buildscript {
     repositories {
