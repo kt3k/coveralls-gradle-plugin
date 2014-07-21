@@ -8,7 +8,7 @@
 
 ### use with *cobertura* reporter
 
-Add following lines to build.gradle:
+Add the following lines to build.gradle:
 
 ```groovy
 apply plugin: 'cobertura'
@@ -30,7 +30,7 @@ cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml f
 
 And run `coveralls` task after `cobertura` task.
 
-This plugin now supports Travis-CI only. Sample `.travis.yml` looks like following:
+An example `.travis.yml` looks like following:
 
 ```yaml
 language: java
@@ -45,7 +45,7 @@ after_success:
 - gradle cobertura coveralls
 ```
 
-For groovy projects, add a following line to build.gradle:
+For groovy projects, add the following line to build.gradle:
 
 ```groovy
 cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
@@ -53,7 +53,7 @@ cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
 
 ### use with *JaCoCo* plugin
 
-Add following lines to build.gradle:
+Add the following lines to build.gradle:
 
 ```groovy
 apply plugin: 'jacoco'
@@ -78,7 +78,7 @@ jacocoTestReport {
 
 ```
 
-Sample `.travis.yml` looks like following:
+An example `.travis.yml` looks like following:
 
 ```yaml
 language: java
