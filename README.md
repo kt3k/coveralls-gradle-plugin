@@ -4,6 +4,12 @@
 
 > Send coverage data to coveralls.io.
 
+## News
+
+The ID of the plugin is changed from `coveralls` to `com.github.kt3k.coveralls` according to [the guidelines of gradle plugin](http://plugins.gradle.org/submit).
+Please see the examples below for details.
+(2014/07/21)
+
 ## Usage
 
 ### use with *cobertura* reporter
@@ -125,6 +131,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2014-07-21   v1.0.2   Changed the ID of the plugin.
  * 2014-07-06   v0.6.1   Fixed XML parser behaviours. ([#18](https://github.com/kt3k/coveralls-gradle-plugin/pull/18))
  * 2014-07-02   v0.6.0   Multiple project support for jacoco. ([#13](https://github.com/kt3k/coveralls-gradle-plugin/pull/13))
  * 2014-06-26   v0.5.0   Android plugin support. ([#17](https://github.com/kt3k/coveralls-gradle-plugin/pull/17))
