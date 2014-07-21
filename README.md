@@ -6,7 +6,7 @@
 
 ## News
 
-The ID of the plugin is changed from `coveralls` to `com.github.kt3k.coveralls` according to [the guidelines of gradle plugin](http://plugins.gradle.org/submit).
+The ID of the plugin has been changed from `coveralls` to `com.github.kt3k.coveralls` according to [the guidelines of gradle plugin](http://plugins.gradle.org/submit).
 Please see the examples below for details.
 (2014/07/21)
 
@@ -71,7 +71,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.3.0'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:1.0.2'
     }
 }
 
