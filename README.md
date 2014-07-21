@@ -115,9 +115,7 @@ env:
 
 ## Examples
 
-- https://github.com/mockito/mockito
-- https://github.com/gesellix/gradle-debian-plugin
-- https://github.com/strawjs/straw-android-plugin
+- https://github.com/strawjs/straw-android
 
 
 ## License
