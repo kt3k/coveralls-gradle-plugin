@@ -6,6 +6,7 @@ import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import org.gradle.api.tasks.TaskAction
+import org.kt3k.gradle.plugin.CoverallsPluginExtension
 import org.kt3k.gradle.plugin.coveralls.domain.*
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
@@ -87,9 +88,9 @@ class CoverallsTask extends DefaultTask {
 
 
 		// add factories
-		this.sourceReportFactoryMap[this.project.projectDir.path + '/' + this.project.extensions.coveralls.coberturaReportPath] = new CoberturaSourceReportFactory()
-		this.sourceReportFactoryMap[this.project.projectDir.path + '/' + this.project.extensions.coveralls.jacocoReportPath] = new JacocoSourceReportFactory()
-
+        CoverallsPluginExtension coveralls = this.project.extensions.getByType(CoverallsPluginExtension)
+        this.sourceReportFactoryMap[this.project.file(coveralls.coberturaReportPath).absolutePath] = new CoberturaSourceReportFactory()
+		this.sourceReportFactoryMap[this.project.file(coveralls.jacocoReportPath).absolutePath] = new JacocoSourceReportFactory()
 
 		// search the coverage file
 		Map.Entry<String, SourceReportFactory> entry = this.sourceReportFactoryMap.find { Map.Entry<String, SourceReportFactory> entry ->
@@ -122,7 +123,7 @@ class CoverallsTask extends DefaultTask {
 		String json = rep.toJson()
 		this.logger.info json
 
-		postJsonToUrl json, this.project.extensions.coveralls.apiEndpoint
+		postJsonToUrl json, coveralls.apiEndpoint
 	}
 
 }
