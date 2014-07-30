@@ -36,6 +36,18 @@ class ServiceInfoFactoryTest {
 
 		// test the case of no repo token and no travis
 		assertNull ServiceInfoFactory.createFromEnvVar([:])
+
+        // "other" CI that supplies env vars (like Codeship)
+        serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+                CI_NAME: 'name',
+                CI_BUILD_NUMBER: 'build_number',
+                CI_BUILD_URL: 'build_url',
+                CI_BRANCH: 'branch',
+                CI_PULL_REQUEST: 'pull_request',
+        )
+
+        assert serviceInfo == new ServiceInfo('name', 'build_number', 'build_url', 'branch', 'pull_request', 'ABCDEF')
 	}
 
 }
