@@ -6,7 +6,10 @@
 
 ## News
 
-The ID of the plugin has been changed from `coveralls` to `com.github.kt3k.coveralls` according to [the guidelines of gradle plugin](http://plugins.gradle.org/submit).
+- We dropped gradle 1.x support at the plugin version 2.0.0. If you need to use the plugin with gradle 1.x, please see [v1.0.2](https://github.com/kt3k/coveralls-gradle-plugin/tree/v1.0.2) or [v0.6.1](https://github.com/kt3k/coveralls-gradle-plugin/tree/v0.6.1).
+(2014/08/01)
+
+- The ID of the plugin has been changed from `coveralls` to `com.github.kt3k.coveralls` according to [the guidelines of gradle plugin](http://plugins.gradle.org/submit).
 Please see the examples below for details.
 (2014/07/21)
 
@@ -131,6 +134,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2014-08-01   v2.0.0   More CI services support. Improvements. ([#21](https://github.com/kt3k/coveralls-gradle-plugin/pull/21))
  * 2014-07-21   v1.0.2   Changed the ID of the plugin. `coveralls` -> `com.github.kt3k.coveralls` ([#19](https://github.com/kt3k/coveralls-gradle-plugin/pull/19))
  * 2014-07-06   v0.6.1   Fixed XML parser behaviours. ([#18](https://github.com/kt3k/coveralls-gradle-plugin/pull/18))
  * 2014-07-02   v0.6.0   Multiple project support for jacoco. ([#13](https://github.com/kt3k/coveralls-gradle-plugin/pull/13))
