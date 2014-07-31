@@ -17,7 +17,14 @@ class ServiceInfoFactory {
 			if (envIsTravis(env)) {
 				return new ServiceInfo('travis-pro', env.get('TRAVIS_JOB_ID'), env.get('COVERALLS_REPO_TOKEN'))
 			} else {
-				return new ServiceInfo('other', null, env.get('COVERALLS_REPO_TOKEN'))
+				return new ServiceInfo(
+                        env['CI_NAME'] ?: 'other',
+                        env['CI_BUILD_NUMBER'],
+                        env['CI_BUILD_URL'],
+                        env['CI_BRANCH'],
+                        env['CI_PULL_REQUEST'],
+                        env['COVERALLS_REPO_TOKEN']
+                )
 			}
 
 		} else {
@@ -32,19 +39,11 @@ class ServiceInfoFactory {
 	}
 
 	private static boolean envIsTravis(Map<String, String> env) {
-		if (env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null) {
-			return true
-		}
-
-		return false
+		env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null
 	}
 
 	private static boolean repoTokenIsSet(Map<String, String> env) {
-		if (env.get('COVERALLS_REPO_TOKEN') != null) {
-			return true
-		}
-
-		return false
+		env.get('COVERALLS_REPO_TOKEN') != null
 	}
 
 }

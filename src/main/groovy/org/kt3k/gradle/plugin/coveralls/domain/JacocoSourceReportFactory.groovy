@@ -1,11 +1,9 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
-import com.android.build.gradle.BasePlugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.GroovyPlugin
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.scala.ScalaPlugin
-
 
 /**
  * Factory class of SourceReport for JaCoCo report file.
@@ -25,7 +23,7 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 
 		List<File> targetSrcDirs = new ArrayList<File>()
 
-        project.plugins.withType(BasePlugin) {
+        project.plugins.matching { it.class.name == "com.android.build.gradle.BasePlugin" }.all {
             targetSrcDirs += project.android.sourceSets.main.java.getSrcDirs()
         }
 
