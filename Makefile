@@ -6,7 +6,10 @@ release-github:
 	rm -rf repository
 
 release-snapshot:
-	MVN_REPO=https://oss.sonatype.org/content/repositories/snapshots/ gradle uploadArchives
+	MVN_REPO=https://oss.sonatype.org/content/repositories/snapshots/ ./gradlew uploadArchives
 
-release:
-	MVN_REPO=https://oss.sonatype.org/service/local/staging/deploy/maven2/ gradle uploadArchives
+release-maven:
+	MVN_REPO=https://oss.sonatype.org/service/local/staging/deploy/maven2/ ./gradlew clean uploadArchives
+
+release-bintray:
+	./gradlew clean bintray
