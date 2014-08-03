@@ -9,8 +9,8 @@ env:
 - TERM=dumb
 
 after_success:
-- gradle cobertura
+- ./gradlew cobertura
 - ./coveralls.groovy
 
 after_failure:
-- gradle clean check --debug
+- ./gradlew clean check --debug
