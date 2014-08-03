@@ -48,7 +48,7 @@ class CoberturaSourceReportFactory implements SourceReportFactory {
 				return
 			}
 
-            File sourceFile = new File(sourceFilename)
+			File sourceFile = new File(sourceFilename)
 			String source = sourceFile.text
 
 			// create hits per line list

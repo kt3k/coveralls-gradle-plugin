@@ -23,9 +23,9 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 
 		List<File> targetSrcDirs = new ArrayList<File>()
 
-        project.plugins.matching { it.class.name == "com.android.build.gradle.BasePlugin" }.all {
-            targetSrcDirs += project.android.sourceSets.main.java.getSrcDirs()
-        }
+		project.plugins.matching { it.class.name == "com.android.build.gradle.BasePlugin" }.all {
+			targetSrcDirs += project.android.sourceSets.main.java.getSrcDirs()
+		}
 
 		project.plugins.withType(JavaPlugin) {
 			targetSrcDirs += project.sourceSets.main.java.srcDirs

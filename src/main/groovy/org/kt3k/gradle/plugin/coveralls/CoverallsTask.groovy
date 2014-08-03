@@ -88,8 +88,8 @@ class CoverallsTask extends DefaultTask {
 
 
 		// add factories
-        CoverallsPluginExtension coveralls = this.project.extensions.getByType(CoverallsPluginExtension)
-        this.sourceReportFactoryMap[this.project.file(coveralls.coberturaReportPath).absolutePath] = new CoberturaSourceReportFactory()
+		CoverallsPluginExtension coveralls = this.project.extensions.getByType(CoverallsPluginExtension)
+		this.sourceReportFactoryMap[this.project.file(coveralls.coberturaReportPath).absolutePath] = new CoberturaSourceReportFactory()
 		this.sourceReportFactoryMap[this.project.file(coveralls.jacocoReportPath).absolutePath] = new JacocoSourceReportFactory()
 
 		// search the coverage file

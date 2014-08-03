@@ -18,13 +18,13 @@ class ServiceInfoFactory {
 				return new ServiceInfo('travis-pro', env.get('TRAVIS_JOB_ID'), env.get('COVERALLS_REPO_TOKEN'))
 			} else {
 				return new ServiceInfo(
-                        env['CI_NAME'] ?: 'other',
-                        env['CI_BUILD_NUMBER'],
-                        env['CI_BUILD_URL'],
-                        env['CI_BRANCH'],
-                        env['CI_PULL_REQUEST'],
-                        env['COVERALLS_REPO_TOKEN']
-                )
+					env['CI_NAME'] ?: 'other',
+					env['CI_BUILD_NUMBER'],
+					env['CI_BUILD_URL'],
+					env['CI_BRANCH'],
+					env['CI_PULL_REQUEST'],
+					env['COVERALLS_REPO_TOKEN']
+				)
 			}
 
 		} else {
