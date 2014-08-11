@@ -51,7 +51,7 @@ env:
 - TERM=dumb
 
 after_success:
-- gradle cobertura coveralls
+- ./gradlew cobertura coveralls
 ```
 
 For groovy projects, add the following line to build.gradle:
@@ -99,7 +99,7 @@ env:
 - TERM=dumb
 
 after_success:
-- gradle jacocoTestReport coveralls
+- ./gradlew jacocoTestReport coveralls
 ```
 
 ### use with Travis-CI Pro & Coveralls Pro
