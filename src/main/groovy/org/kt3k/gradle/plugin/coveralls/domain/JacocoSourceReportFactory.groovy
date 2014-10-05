@@ -23,7 +23,17 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 
 		List<File> targetSrcDirs = new ArrayList<File>()
 
-		project.plugins.matching { it.class.name == "com.android.build.gradle.BasePlugin" }.all {
+		project.plugins.matching {
+			def instanceofWithName
+			instanceofWithName = { Class c, name ->
+				if (c == Object.class) {
+					false
+				} else {
+					c.name == name || instanceofWithName(c.superclass, name)
+				}
+			}
+			instanceofWithName(it.class, "com.android.build.gradle.BasePlugin")
+		}.all {
 			targetSrcDirs += project.android.sourceSets.main.java.getSrcDirs()
 		}
 
