@@ -1,5 +1,10 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
+import com.android.build.gradle.BasePlugin
+import com.android.build.gradle.DummyAndroidPlugin
+import com.android.build.gradle.DummyExtendedAndroidPlugin
+import com.android.build.gradle.DummyExtendedPlugin
+import com.android.build.gradle.DummyPlugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.GroovyPlugin
 import org.gradle.api.plugins.JavaPlugin
@@ -70,6 +75,30 @@ class JacocoSourceReportFactoryTest {
 		List<SourceReport> reports = new JacocoSourceReportFactory().createReportList(project, new File('src/test/fixture/jacocoTestReport.xml'))
 
 		assertNotNull(reports)
+	}
+
+
+	@Test
+	public void testCreateReportForAndroidPlugin() throws Exception {
+
+		// should NOT be detected
+		project.plugins.apply(DummyPlugin)
+		project.plugins.apply(DummyExtendedPlugin)
+
+		List<File> srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)
+
+		assertEquals 0, srcDirs.size()
+
+		// should be detected
+		project.plugins.apply(BasePlugin)
+		project.plugins.apply(DummyAndroidPlugin)
+		project.plugins.apply(DummyExtendedAndroidPlugin)
+
+		srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)
+
+		// if we can apply the real Android plugins in the future,
+		// we might have to check the contents of srcDirs
+		assertEquals 3, srcDirs.size()
 	}
 
 
