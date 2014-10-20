@@ -134,6 +134,7 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
+ * 2014-10-05   v2.0.1   Compatibility with gradle-android-plugin 0.13.x. ([#25](https://github.com/kt3k/coveralls-gra    dle-plugin/pull/25))
  * 2014-08-01   v2.0.0   More CI services support. Improvements. ([#21](https://github.com/kt3k/coveralls-gradle-plugin/pull/21))
  * 2014-07-21   v1.0.2   Changed the ID of the plugin. `coveralls` -> `com.github.kt3k.coveralls` ([#19](https://github.com/kt3k/coveralls-gradle-plugin/pull/19))
  * 2014-07-06   v0.6.1   Fixed XML parser behaviours. ([#18](https://github.com/kt3k/coveralls-gradle-plugin/pull/18))
