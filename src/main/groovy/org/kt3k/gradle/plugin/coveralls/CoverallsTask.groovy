@@ -1,8 +1,8 @@
 package org.kt3k.gradle.plugin.coveralls
 
 import groovyx.net.http.HTTPBuilder
-import org.apache.http.entity.ContentType
-import org.apache.http.entity.mime.MultipartEntityBuilder
+import org.apache.http.entity.mime.MultipartEntity
+import org.apache.http.entity.mime.content.ByteArrayBody
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import org.gradle.api.tasks.TaskAction
@@ -41,7 +41,8 @@ class CoverallsTask extends DefaultTask {
 
 		http.request(POST) { req ->
 
-			req.entity = MultipartEntityBuilder.create().addBinaryBody('json_file', json.getBytes('UTF-8'), ContentType.APPLICATION_JSON, 'json_file').build()
+			req.entity = new MultipartEntity()
+			req.entity.addPart('json_file', new ByteArrayBody(json.getBytes('UTF-8'), 'application/json', 'json_file'))
 
 			response.success = { resp, reader ->
 				this.logger.info resp.statusLine.toString()
