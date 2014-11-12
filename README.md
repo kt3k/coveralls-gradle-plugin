@@ -147,16 +147,16 @@ MIT License ( Yoshiya Hinosawa )
 
  * 2014-10-05   v2.0.1   Compatibility with gradle-android-plugin 0.13.x. ([#25](https://github.com/kt3k/coveralls-gra    dle-plugin/pull/25))
  * 2014-08-01   v2.0.0   More CI services support. Improvements. ([#21](https://github.com/kt3k/coveralls-gradle-plugin/pull/21))
- * 2014-07-21   v1.0.2   Changed the ID of the plugin. `coveralls` -> `com.github.kt3k.coveralls` ([#19](https://github.com/kt3k/coveralls-gradle-plugin/pull/19))
- * 2014-07-06   v0.6.1   Fixed XML parser behaviours. ([#18](https://github.com/kt3k/coveralls-gradle-plugin/pull/18))
- * 2014-07-02   v0.6.0   Multiple project support for jacoco. ([#13](https://github.com/kt3k/coveralls-gradle-plugin/pull/13))
+ * 2014-07-21   v1.0.2   Plugin ID changed. `coveralls` -> `com.github.kt3k.coveralls` ([#19](https://github.com/kt3k/coveralls-gradle-plugin/pull/19))
+ * 2014-07-06   v0.6.1   XML parser behaviours fixed. ([#18](https://github.com/kt3k/coveralls-gradle-plugin/pull/18))
+ * 2014-07-02   v0.6.0   Multiple project support for JaCoCo. ([#13](https://github.com/kt3k/coveralls-gradle-plugin/pull/13))
  * 2014-06-26   v0.5.0   Android plugin support. ([#17](https://github.com/kt3k/coveralls-gradle-plugin/pull/17))
- * 2014-06-21   v0.4.1   Fixed XML parser settings. ([#16](https://github.com/kt3k/coveralls-gradle-plugin/pull/16))
- * 2014-03-15   v0.3.1   Upgraded HttpBuilder to v0.7.1. ([#8](https://github.com/kt3k/coveralls-gradle-plugin/pull/8))
- * 2014-03-11   v0.3.0   Configurable coverage report path. ([#7](https://github.com/kt3k/coveralls-gradle-plugin/pull/7))
+ * 2014-06-21   v0.4.1   XML parser settings fixed. ([#16](https://github.com/kt3k/coveralls-gradle-plugin/pull/16))
+ * 2014-03-15   v0.3.1   HttpBuilder upgraded to v0.7.1. ([#8](https://github.com/kt3k/coveralls-gradle-plugin/pull/8))
+ * 2014-03-11   v0.3.0   Coverage report path became configurable. ([#7](https://github.com/kt3k/coveralls-gradle-plugin/pull/7))
  * 2014-02-19   v0.2.5   Travis Pro support. ([#4](https://github.com/kt3k/coveralls-gradle-plugin/pull/4))
  * 2014-01-21   v0.2.4   Ignore absent source files. ([#3](https://github.com/kt3k/coveralls-gradle-plugin/pull/3))
  * 2013-12-09   v0.2.1   JaCoCo support. ([#2](https://github.com/kt3k/coveralls-gradle-plugin/pull/2))
  * 2013-11-02   v0.1.6   Available at Maven Central.
  * 2013-10-27   v0.1.5   Multiple `<source>` tag support. ([#1](https://github.com/kt3k/coveralls-gradle-plugin/pull/1))
- * 2013-10-08   v0.1.3   The first usable version.
+ * 2013-10-08   v0.1.3   First usable version.
