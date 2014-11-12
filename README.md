@@ -15,7 +15,7 @@ Please see the examples below for details.
 
 ## Usage
 
-### use with *cobertura* reporter
+### Use with *cobertura* reporter
 
 Add the following lines to build.gradle:
 
@@ -60,7 +60,7 @@ For groovy projects, add the following line to build.gradle:
 cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
 ```
 
-### use with *JaCoCo* plugin
+### Use with *JaCoCo* plugin
 
 Add the following lines to build.gradle:
 
@@ -102,7 +102,7 @@ after_success:
 - ./gradlew jacocoTestReport coveralls
 ```
 
-### use with Travis-CI Pro & Coveralls Pro
+### Use with Travis-CI Pro & Coveralls Pro
 
 When using Travis-CI Pro, you must provide your Coveralls Pro repo token in the
 `COVERALLS_REPO_TOKEN` environment variable in `.travis.yml`.
@@ -120,6 +120,17 @@ by following the instructions on [docs.travis-ci.com](http://docs.travis-ci.com/
 env:
   global:
     - secure: <encrypted string here>
+```
+
+### Configuring coveralls "task"
+
+If you configure coveralls "task" (not the extension object), you need to write as the following:
+
+```
+tasks.coveralls {
+  dependsOn 'check'
+  onlyIf { isCI }
+}
 ```
 
 ## Examples
