@@ -31,7 +31,7 @@ class ServiceInfoFactoryTest {
     @Test
     void testCreateFromEnvVarTravisPro() {
         // test the case of travis-pro
-        serviceInfo = ServiceInfoFactory.createFromEnvVar TRAVIS: 'true', TRAVIS_JOB_ID: '12345678', COVERALLS_REPO_TOKEN: 'ABCDEF'
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar TRAVIS: 'true', TRAVIS_JOB_ID: '12345678', COVERALLS_REPO_TOKEN: 'ABCDEF'
 
         assertEquals 'travis-pro', serviceInfo.serviceName
         assertEquals '12345678', serviceInfo.serviceJobId
@@ -42,7 +42,7 @@ class ServiceInfoFactoryTest {
     @Test
     void testCreateFromEnvVarFromRepoToken() {
         // test the case of the environment other than travis with repo token
-        serviceInfo = ServiceInfoFactory.createFromEnvVar('COVERALLS_REPO_TOKEN': 'ABCDEF')
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar('COVERALLS_REPO_TOKEN': 'ABCDEF')
 
         assertEquals 'other', serviceInfo.serviceName
         assertEquals null, serviceInfo.serviceJobId
@@ -53,7 +53,7 @@ class ServiceInfoFactoryTest {
     void testCreateFromEnvVarFromRepoToken2() {
 
         // "other" CI that supplies env vars (like Codeship)
-        serviceInfo = ServiceInfoFactory.createFromEnvVar(
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
                 COVERALLS_REPO_TOKEN: 'ABCDEF',
                 CI_NAME: 'name',
                 CI_BUILD_NUMBER: 'build_number',
