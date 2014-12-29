@@ -15,13 +15,13 @@ class Report {
     String service_pull_request
     List<SourceReport> source_files
     Map<String, String> environment
-    Git git
+    GitInfo git
 
     public Report(ServiceInfo serviceInfo, List<SourceReport> sourceFiles) {
         this(serviceInfo, sourceFiles, null)
     }
 
-    public Report(ServiceInfo serviceInfo, List<SourceReport> sourceFiles, Git git) {
+    public Report(ServiceInfo serviceInfo, List<SourceReport> sourceFiles, GitInfo git) {
         this.service_name = serviceInfo.serviceName
         this.service_number = serviceInfo.serviceNumber
         this.service_build_url = serviceInfo.serviceBuildUrl
