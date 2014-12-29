@@ -18,12 +18,21 @@ class ServiceInfoFactory {
                 return new ServiceInfo(
                         serviceName: 'travis-pro',
                         serviceJobId: env.get('TRAVIS_JOB_ID'),
-                        repoToken: env.get('COVERALLS_REPO_TOKEN'))
+                        repoToken: env.get('COVERALLS_REPO_TOKEN'),
+                        environment: [
+                                'travis_job_id'      : env.get('TRAVIS_JOB_ID'),
+                                'travis_pull_request': env.get('TRAVIS_PULL_REQUEST')]
+                )
             } else if (envIsCircleci(env)) {
                 return new ServiceInfo(
                         serviceName: 'circleci',
                         serviceNumber: env.get('CIRCLE_BUILD_NUM'),
-                        repoToken: env.get('COVERALLS_REPO_TOKEN'))
+                        repoToken: env.get('COVERALLS_REPO_TOKEN'),
+                        environment: [
+                                'circleci_build_num': env.get('CIRCLE_BUILD_NUM'),
+                                'branch'            : env.get('CIRCLE_BRANCH'),
+                                'commit_sha'        : env.get('CIRCLE_SHA1')]
+                )
             } else {
                 return new ServiceInfo(
                         serviceName: env['CI_NAME'] ?: 'other',
@@ -37,7 +46,7 @@ class ServiceInfoFactory {
 
         } else {
             if (envIsTravis(env)) {
-                return new ServiceInfo(serviceName:  'travis-ci', serviceJobId:  env.get('TRAVIS_JOB_ID'))
+                return new ServiceInfo(serviceName: 'travis-ci', serviceJobId: env.get('TRAVIS_JOB_ID'))
             }
         }
 

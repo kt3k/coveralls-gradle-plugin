@@ -14,6 +14,7 @@ class ServiceInfo {
 	String serviceBranch
 	String servicePullRequest
 	String serviceJobId
+	Map<String,String> environment;
 
 	boolean equals(o) {
 		if (this.is(o)) return true
