@@ -40,6 +40,17 @@ class ServiceInfoFactoryTest {
 
 
     @Test
+    void testCreateFromEnvVarCircleci() {
+        // test the case of travis-pro
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar CIRCLECI: 'true', CIRCLE_BUILD_NUM: '12345678', COVERALLS_REPO_TOKEN: 'ABCDEF'
+
+        assertEquals 'circleci', serviceInfo.serviceName
+        assertEquals '12345678', serviceInfo.serviceNumber
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+    }
+
+
+    @Test
     void testCreateFromEnvVarFromRepoToken() {
         // test the case of the environment other than travis with repo token
         ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar('COVERALLS_REPO_TOKEN': 'ABCDEF')
@@ -62,7 +73,13 @@ class ServiceInfoFactoryTest {
                 CI_PULL_REQUEST: 'pull_request',
         )
 
-        assert serviceInfo == new ServiceInfo('name', 'build_number', 'build_url', 'branch', 'pull_request', 'ABCDEF')
+        assertEquals serviceInfo, new ServiceInfo(
+                serviceName: 'name',
+                serviceNumber: 'build_number',
+                serviceBuildUrl: 'build_url',
+                serviceBranch: 'branch',
+                servicePullRequest: 'pull_request',
+                repoToken: 'ABCDEF')
     }
 
 }
