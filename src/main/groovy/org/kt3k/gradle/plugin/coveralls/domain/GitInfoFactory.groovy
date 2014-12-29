@@ -15,16 +15,21 @@ class GitInfoFactory {
      *
      */
     public static GitInfo load(File sourceDirectory) throws IOException {
-        Repository repository = new RepositoryBuilder().findGitDir(sourceDirectory).build();
-        try {
-            repository.getWorkTree();
-            return new GitInfo(
-                    head: getHead(repository),
-                    branch: getBranch(repository),
-                    remotes: getRemotes(repository));
-        } finally {
-            repository.close();
+        def repositoryOptional = getRepositoryOptional(sourceDirectory)
+        if (repositoryOptional.isPresent()) {
+            def repository = repositoryOptional.get()
+            try {
+                return new GitInfo(
+                        head: getHead(repository),
+                        branch: getBranch(repository),
+                        remotes: getRemotes(repository));
+            } finally {
+                repository.close();
+            }
+        } else {
+            return null
         }
+
     }
 
     private static GitInfo.Head getHead(final Repository repository) throws IOException {
@@ -53,5 +58,14 @@ class GitInfoFactory {
             remotes.add(new GitInfo.Remote(name: remote, url: url));
         }
         return remotes;
+    }
+
+    private static Optional<Repository> getRepositoryOptional(File repoUri) {
+        def repositoryBuilder = new RepositoryBuilder().findGitDir(repoUri);
+        if (repositoryBuilder.getGitDir() == null && repositoryBuilder.getWorkTree() == null) {
+            return Optional.empty()
+        } else {
+            return Optional.of(repositoryBuilder.build())
+        }
     }
 }

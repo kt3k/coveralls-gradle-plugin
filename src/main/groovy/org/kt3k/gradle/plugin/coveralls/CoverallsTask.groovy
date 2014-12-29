@@ -86,7 +86,12 @@ class CoverallsTask extends DefaultTask {
 		}
 
 
-		GitInfo gitInfo = GitInfoFactory.load this.project.absoluteProjectPath("/")
+
+		def directory = this.project.projectDir
+		GitInfo gitInfo = GitInfoFactory.load directory
+		if (gitInfo == null) {
+			this.logger.warn "no git repo found in: " + directory
+		}
 
 		// add factories
 		CoverallsPluginExtension coveralls = this.project.extensions.getByType(CoverallsPluginExtension)
