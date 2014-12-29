@@ -14,6 +14,7 @@ import org.junit.Test
 import org.junit.Before
 import org.kt3k.gradle.plugin.CoverallsPluginExtension
 
+import static java.io.File.separatorChar
 import static org.junit.Assert.*
 
 class JacocoSourceReportFactoryTest {
@@ -110,7 +111,7 @@ class JacocoSourceReportFactoryTest {
 		List<File> srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)
 
 		srcDirs.each {
-			assertTrue it.absolutePath.endsWith("src/main/java")
+			assertTrue it.absolutePath.endsWith("src" + separatorChar + "main" + separatorChar + "java")
 		}
 	}
 
@@ -123,7 +124,7 @@ class JacocoSourceReportFactoryTest {
 		List<File> srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)
 
 		srcDirs.each {
-			assertTrue it.absolutePath.endsWith("src/main/java") || it.absolutePath.endsWith('src/main/groovy')
+			assertTrue it.absolutePath.endsWith("src" + separatorChar + "main" + separatorChar + "java") || it.absolutePath.endsWith('src' + separatorChar + 'main' + separatorChar + 'groovy')
 		}
 	}
 
@@ -136,7 +137,7 @@ class JacocoSourceReportFactoryTest {
 		List<File> srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)
 
 		srcDirs.each {
-			assertTrue it.absolutePath.endsWith("src/main/java") || it.absolutePath.endsWith('src/main/scala')
+			assertTrue it.absolutePath.endsWith("src" + separatorChar + "main" + separatorChar + "java") || it.absolutePath.endsWith('src' + separatorChar + 'main' + separatorChar + 'scala')
 		}
 	}
 }
