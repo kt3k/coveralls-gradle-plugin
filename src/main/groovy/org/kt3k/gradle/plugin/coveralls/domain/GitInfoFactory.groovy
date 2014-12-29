@@ -15,9 +15,8 @@ class GitInfoFactory {
      *
      */
     public static GitInfo load(File sourceDirectory) throws IOException {
-        def repositoryOptional = getRepositoryOptional(sourceDirectory)
-        if (repositoryOptional.isPresent()) {
-            def repository = repositoryOptional.get()
+        Repository repository = buildRepository(sourceDirectory)
+        if (repository != null) {
             try {
                 return new GitInfo(
                         head: getHead(repository),
@@ -60,12 +59,12 @@ class GitInfoFactory {
         return remotes;
     }
 
-    private static Optional<Repository> getRepositoryOptional(File repoUri) {
+    private static Repository buildRepository(File repoUri) {
         def repositoryBuilder = new RepositoryBuilder().findGitDir(repoUri);
         if (repositoryBuilder.getGitDir() == null && repositoryBuilder.getWorkTree() == null) {
-            return Optional.empty()
+            return null
         } else {
-            return Optional.of(repositoryBuilder.build())
+            return repositoryBuilder.build()
         }
     }
 }
