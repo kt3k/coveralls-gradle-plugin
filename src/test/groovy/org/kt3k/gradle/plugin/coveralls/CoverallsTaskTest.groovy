@@ -18,6 +18,8 @@ import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
 
 import org.mockito.Mockito
 
+import static java.io.File.separatorChar
+
 class CoverallsTaskTest {
 
 	Project project
@@ -57,7 +59,7 @@ class CoverallsTaskTest {
 
 		task.coverallsAction()
 
-		Mockito.verify(logger).error 'No report file available: ' + [projDir + '/foo/bar.xml', projDir + '/baz/bar.xml']
+		Mockito.verify(logger).error 'No report file available: ' + [projDir + separatorChar + 'foo' + separatorChar + 'bar.xml', projDir + separatorChar + 'baz' + separatorChar + 'bar.xml']
 	}
 
 	@Rule

@@ -19,6 +19,7 @@ dependencies {
 
     compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
     compile 'org.apache.httpcomponents:httpmime:4.3'
+    compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.0.201412230720-r'
 
     testCompile 'junit:junit:4.11'
     testCompile 'org.mockito:mockito-all:1.9.5'
@@ -114,6 +115,10 @@ uploadArchives {
                     developer {
                         id 'kt3k'
                         name 'Yoshiya Hinosawa'
+                    }
+                    developer {
+                        id 'gitu'
+                        name 'Florian Schrag'
                     }
                 }
             }

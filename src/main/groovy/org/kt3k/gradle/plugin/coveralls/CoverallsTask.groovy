@@ -4,12 +4,11 @@ import groovyx.net.http.HTTPBuilder
 import org.apache.http.entity.ContentType
 import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.gradle.api.DefaultTask
-import org.gradle.api.Project
+import org.gradle.api.logging.Logger
+import org.gradle.api.logging.Logging
 import org.gradle.api.tasks.TaskAction
 import org.kt3k.gradle.plugin.CoverallsPluginExtension
 import org.kt3k.gradle.plugin.coveralls.domain.*
-import org.gradle.api.logging.Logger
-import org.gradle.api.logging.Logging
 
 import static groovyx.net.http.Method.POST
 
@@ -87,6 +86,13 @@ class CoverallsTask extends DefaultTask {
 		}
 
 
+
+		def directory = this.project.projectDir
+		GitInfo gitInfo = GitInfoFactory.load directory
+		if (gitInfo == null) {
+			this.logger.warn "no git repo found in: " + directory
+		}
+
 		// add factories
 		CoverallsPluginExtension coveralls = this.project.extensions.getByType(CoverallsPluginExtension)
 		this.sourceReportFactoryMap[this.project.file(coveralls.coberturaReportPath).absolutePath] = new CoberturaSourceReportFactory()
@@ -118,7 +124,7 @@ class CoverallsTask extends DefaultTask {
 			return
 		}
 
-		Report rep = new Report(serviceInfo, sourceReports)
+		Report rep = new Report(serviceInfo, sourceReports, gitInfo)
 
 		String json = rep.toJson()
 		this.logger.info json
