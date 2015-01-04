@@ -85,8 +85,8 @@ uploadArchives {
             repository(url: System.getenv('MVN_REPO')) {
 
                 // set authentication info if sonatypeUsername property is set
-                if (project.hasProperty('sonatypeUsername')) {
-                    authentication userName: sonatypeUsername, password: sonatypePassword
+                if (project.hasProperty('sonatype.username')) {
+                    authentication userName: project.'sonatype.username', password: project.'sonatype.password'
                 }
             }
 
@@ -142,10 +142,10 @@ publishing {
 
 bintray {
 
-    if (project.hasProperty('bintrayUsername')) {
+    if (project.hasProperty('bintray.username')) {
         // these two should be defined out of the repository, for example, in ~/.gradle/gradle.properties
-        user = bintrayUsername
-        key = bintrayApiKey
+        user = project.'bintray.username'
+        key = project.'bintray.apiKey'
     }
 
     publications = ['plugin']
