@@ -122,6 +122,12 @@ env:
     - secure: <encrypted string here>
 ```
 
+### Use with mutli-project build
+
+This plugin only handles one project per build. You need to merge coverage report before coveralls plugin take it.
+
+See example: https://github.com/ben-manes/caffeine/blob/master/build.gradle
+
 ### Configuring coveralls "task"
 
 If you configure coveralls "task" (not the extension object), you need to write as the following:
