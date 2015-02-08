@@ -64,6 +64,44 @@ class ServiceInfoFactoryTest {
         assertEquals '12345678', serviceInfo.environment['circleci_build_num']
     }
 
+    @Test
+    void testCreateFromEnvVarJenkinsNonPullRequest() {
+        // test the case of travis-pro
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                JENKINS_URL: 'abc',
+                BUILD_NUMBER: '12345678',
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+                GIT_BRANCH: 'branchX',
+                GIT_COMMIT: '231asdfadsf424')
+
+        assertEquals 'jenkins', serviceInfo.serviceName
+        assertEquals '12345678', serviceInfo.serviceNumber
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+        assertEquals 'branchX', serviceInfo.environment['branch']
+        assertEquals '231asdfadsf424', serviceInfo.environment['commit_sha']
+        assertEquals '12345678', serviceInfo.environment['jenkins_build_num']
+    }
+
+    @Test
+    void testCreateFromEnvVarJenkinsPullRequest() {
+        // test the case of travis-pro
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                JENKINS_URL: 'abc',
+                BUILD_NUMBER: '12345678',
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+                GIT_BRANCH: 'branchX',
+                GIT_COMMIT: '231asdfadsf424',
+                ghprbPullLink: 'def',
+                ghprbActualCommit: '424fsdafdsa132')
+
+        assertEquals 'jenkins', serviceInfo.serviceName
+        assertEquals '12345678', serviceInfo.serviceNumber
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+        assertEquals 'branchX', serviceInfo.environment['branch']
+        assertEquals '424fsdafdsa132', serviceInfo.environment['commit_sha']
+        assertEquals '12345678', serviceInfo.environment['jenkins_build_num']
+        assertEquals 'def', serviceInfo.servicePullRequest
+    }
 
     @Test
     void testCreateFromEnvVarFromRepoToken() {

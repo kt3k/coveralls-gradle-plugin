@@ -33,6 +33,28 @@ class ServiceInfoFactory {
                                 'branch'            : env.get('CIRCLE_BRANCH'),
                                 'commit_sha'        : env.get('CIRCLE_SHA1')]
                 )
+            } else if (envIsJenkins(env)) {
+                def environment = [
+                        'jenkins_build_num': env.get('BUILD_NUMBER'),
+                        'jenkins_build_url': env.get('BUILD_URL'),
+                        'branch'           : env.get('GIT_BRANCH')]
+
+                def serviceInfo = new ServiceInfo(
+                        serviceName: 'jenkins',
+                        serviceNumber: env.get('BUILD_NUMBER'),
+                        serviceBuildUrl : env.get('BUILD_URL'),
+                        repoToken: env.get('COVERALLS_REPO_TOKEN'),
+                        environment: environment
+                )
+
+                if (envIsJenkinsPullRequest(env)) {
+                    serviceInfo.servicePullRequest = env.get('ghprbPullLink');
+                    environment.commit_sha = env.get('ghprbActualCommit')
+                } else {
+                    environment.commit_sha = env.get('GIT_COMMIT')
+                }
+
+                return serviceInfo
             } else {
                 return new ServiceInfo(
                         serviceName: env['CI_NAME'] ?: 'other',
@@ -53,6 +75,14 @@ class ServiceInfoFactory {
         // cannot create service info from environmental variables. (no repo_token, not travis)
         return null
 
+    }
+
+    private static boolean envIsJenkins(Map<String, String> env) {
+        env.get('JENKINS_URL') != null
+    }
+
+    private static boolean envIsJenkinsPullRequest(Map<String, String> env) {
+        env.get('ghprbPullLink') != null
     }
 
     private static boolean envIsTravis(Map<String, String> env) {
