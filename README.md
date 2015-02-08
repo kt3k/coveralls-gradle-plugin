@@ -139,6 +139,23 @@ tasks.coveralls {
 }
 ```
 
+### CI Services
+
+The following CI services should *automatically* work:
+
+ - [Travis CI](https://travis-ci.org/)
+ - [CircleCI](https://circleci.com/)
+ - [Jenkins CI](http://jenkins-ci.org/)
+
+If you need to customize something or support a different CI service, you can configure environment variables:
+
+ - `CI_NAME`
+ - `CI_BUILD_NUMBER`
+ - `CI_BUILD_URL`
+ - `CI_BRANCH`
+ - `CI_PULL_REQUEST`
+ - `COVERALLS_REPO_TOKEN`
+
 ## Examples
 
 - https://github.com/strawjs/straw-android
