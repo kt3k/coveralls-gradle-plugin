@@ -61,6 +61,7 @@ class ServiceInfoFactory {
                         serviceNumber: env.get('SNAP_PIPELINE_COUNTER'),
                         serviceBranch: env.get('SNAP_BRANCH'),
                         repoToken: env.get('COVERALLS_REPO_TOKEN'),
+                        servicePullRequest: env.get('SNAP_PULL_REQUEST_NUMBER'),
                         environment: [
                                 'pipeline_counter': env.get('SNAP_PIPELINE_COUNTER'),
                                 'stage_name'      : env.get('SNAP_STAGE_NAME'),
