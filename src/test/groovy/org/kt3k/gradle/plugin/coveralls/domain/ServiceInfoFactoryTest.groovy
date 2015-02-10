@@ -73,13 +73,15 @@ class ServiceInfoFactoryTest {
                 COVERALLS_REPO_TOKEN: 'ABCDEF',
                 SNAP_BRANCH: "branchX",
                 SNAP_STAGE_NAME: "test",
-                SNAP_COMMIT: "231asdfadsf424"
+                SNAP_COMMIT: "231asdfadsf424",
+                SNAP_PULL_REQUEST_NUMBER: "42"
         )
 
         assertEquals 'snapci', serviceInfo.serviceName
         assertEquals '12345678', serviceInfo.serviceNumber
         assertEquals 'branchX', serviceInfo.serviceBranch
         assertEquals 'ABCDEF', serviceInfo.repoToken
+        assertEquals '42', serviceInfo.servicePullRequest
 
         assertEquals '12345678', serviceInfo.environment['pipeline_counter']
         assertEquals 'test', serviceInfo.environment['stage_name']
