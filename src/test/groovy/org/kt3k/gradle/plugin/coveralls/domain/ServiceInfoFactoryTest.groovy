@@ -65,6 +65,29 @@ class ServiceInfoFactoryTest {
     }
 
     @Test
+    void testCreateFromEnvVarSnap() {
+        // test the case of snap-ci
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                SNAP_CI: "true",
+                SNAP_PIPELINE_COUNTER: "12345678",
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+                SNAP_BRANCH: "branchX",
+                SNAP_STAGE_NAME: "test",
+                SNAP_COMMIT: "231asdfadsf424"
+        )
+
+        assertEquals 'snapci', serviceInfo.serviceName
+        assertEquals '12345678', serviceInfo.serviceNumber
+        assertEquals 'branchX', serviceInfo.serviceBranch
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+
+        assertEquals '12345678', serviceInfo.environment['pipeline_counter']
+        assertEquals 'test', serviceInfo.environment['stage_name']
+        assertEquals 'branchX', serviceInfo.environment['branch']
+        assertEquals '231asdfadsf424', serviceInfo.environment['commit_sha']
+    }
+
+    @Test
     void testCreateFromEnvVarJenkinsNonPullRequest() {
         // test the case of travis-pro
         ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(

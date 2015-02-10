@@ -55,6 +55,18 @@ class ServiceInfoFactory {
                 }
 
                 return serviceInfo
+            } else if (envIsSnap(env)) {
+                return new ServiceInfo(
+                        serviceName: 'snapci',
+                        serviceNumber: env.get('SNAP_PIPELINE_COUNTER'),
+                        serviceBranch: env.get('SNAP_BRANCH'),
+                        repoToken: env.get('COVERALLS_REPO_TOKEN'),
+                        environment: [
+                                'pipeline_counter': env.get('SNAP_PIPELINE_COUNTER'),
+                                'stage_name'      : env.get('SNAP_STAGE_NAME'),
+                                'branch'          : env.get('SNAP_BRANCH'),
+                                'commit_sha'      : env.get('SNAP_COMMIT')]
+                )
             } else {
                 return new ServiceInfo(
                         serviceName: env['CI_NAME'] ?: 'other',
@@ -91,6 +103,10 @@ class ServiceInfoFactory {
 
     private static boolean envIsCircleci(Map<String, String> env) {
         env.get('CIRCLECI') == 'true'
+    }
+
+    private static boolean envIsSnap(Map<String, String> env) {
+        env.get('SNAP_CI') == 'true'
     }
 
     private static boolean repoTokenIsSet(Map<String, String> env) {
