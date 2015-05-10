@@ -177,7 +177,8 @@ MIT License ( Yoshiya Hinosawa )
 
 ## Release History
 
- * 2015-02-10   v2.3.1   Improvement of Snap CI support. ([#36](https://github.com/kt3k/coveralls-gradle-plugin/pull/36))
+ * 2015-05-10   v2.4.0   Improved Travis CI support. ([#40](https://github.com/kt3k/coveralls-gradle-plugin/pull/40))
+ * 2015-02-10   v2.3.1   Improved Snap CI support. ([#36](https://github.com/kt3k/coveralls-gradle-plugin/pull/36))
  * 2015-02-10   v2.3.0   [Snap CI](https://snap-ci.com/) support. ([#35](https://github.com/kt3k/coveralls-gradle-plugin/pull/35))
  * 2015-02-08   v2.2.0   JenkinsCI support. ([#33](https://github.com/kt3k/coveralls-gradle-plugin/pull/33))
  * 2015-01-05   v2.1.0   CircleCI support. ([#31](https://github.com/kt3k/coveralls-gradle-plugin/pull/31))
