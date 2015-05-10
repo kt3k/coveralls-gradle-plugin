@@ -16,7 +16,7 @@ class ServiceInfoFactory {
         if (repoTokenIsSet(env)) {
             if (envIsTravis(env)) {
                 return new ServiceInfo(
-                        serviceName: 'travis-pro',
+                        serviceName: env.get('CI_NAME') ?: 'travis-pro',
                         serviceJobId: env.get('TRAVIS_JOB_ID'),
                         repoToken: env.get('COVERALLS_REPO_TOKEN'),
                         environment: [
@@ -99,7 +99,7 @@ class ServiceInfoFactory {
     }
 
     private static boolean envIsTravis(Map<String, String> env) {
-        env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null
+        env.get('TRAVIS') == 'true' && env.get('TRAVIS_JOB_ID') != null && (env.get('CI_NAME') ?: 'travis').startsWith('travis')
     }
 
     private static boolean envIsCircleci(Map<String, String> env) {
