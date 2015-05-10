@@ -157,11 +157,11 @@ If you need to customize something or support a different CI service, you can co
  - `COVERALLS_REPO_TOKEN`
 
 #### Supported CI names
- * Travis-CI: travis-ci
- * Travis-Pro: travis-pro
- * CircleCI: circleci
- * Jenkins: jenkins
- * Snap CI: snapci
+ * Travis-CI: `travis-ci`
+ * Travis-Pro: `travis-pro`
+ * CircleCI: `circleci`
+ * Jenkins: `jenkins`
+ * Snap CI: `snapci`
 
 If you have `COVERALLS_REPO_TOKEN` set and you're using Travis-CI not Travis-Pro, you need to set `CI_NAME=travis-ci`.
 
