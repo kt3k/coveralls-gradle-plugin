@@ -156,6 +156,13 @@ If you need to customize something or support a different CI service, you can co
  - `CI_PULL_REQUEST`
  - `COVERALLS_REPO_TOKEN`
 
+#### Supported CI names
+ * Travis-CI: travis-ci
+ * Travis-Pro: travis-pro
+ * CircleCI: circleci
+ * Jenkins: jenkins
+ * Snap CI: snapci
+
 ## Examples
 
 - https://github.com/strawjs/straw-android
