@@ -21,6 +21,25 @@ class ServiceInfoFactoryTest {
         assertEquals null, serviceInfo.repoToken
     }
 
+
+    @Test
+    void testCreateFromEnvVarTravisCiWithRepoToken() {
+        // test the case of travis-pro
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                CI_NAME: 'travis-ci',
+                TRAVIS: 'true',
+                TRAVIS_JOB_ID: '12345678',
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+                TRAVIS_PULL_REQUEST: '3232')
+
+        assertEquals 'travis-ci', serviceInfo.serviceName
+        assertEquals '12345678', serviceInfo.serviceJobId
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+
+        assertEquals '12345678', serviceInfo.environment['travis_job_id']
+        assertEquals '3232', serviceInfo.environment['travis_pull_request']
+    }
+
     @Test
     void testCreateFromEnvVarTravisNoJobId() {
         // test the case that travis == true but job_id is not available
