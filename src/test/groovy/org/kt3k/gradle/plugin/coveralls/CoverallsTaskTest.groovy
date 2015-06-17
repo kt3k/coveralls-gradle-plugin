@@ -1,5 +1,7 @@
 package org.kt3k.gradle.plugin.coveralls
 
+import java.io.FileNotFoundException
+
 import org.junit.Rule
 import org.junit.Test
 import org.junit.Before
@@ -18,6 +20,7 @@ import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
 
 import org.mockito.Mockito
 
+import static groovy.test.GroovyAssert.assertTrue
 import static java.io.File.separatorChar
 
 class CoverallsTaskTest {
@@ -200,4 +203,70 @@ class CoverallsTaskTest {
 
 	}
 
+	@Test
+	void testMainNoPostJson() {
+		Task task = this.project.task('coveralls', type: CoverallsTask)
+
+		// set mocked logger
+		Logger logger = task.logger = Mockito.mock Logger
+
+		// dummy cobertura coverage report
+		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
+
+		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
+		task.project = this.project
+
+		task.project.extensions.coveralls.sendToCoveralls = false
+		task.coverallsAction()
+
+		Mockito.verify(logger, Mockito.never()).info 'HTTP/1.1 200 OK'
+	}
+
+	@Test
+	void testMainSaveFile() {
+		Task task = this.project.task('coveralls', type: CoverallsTask)
+
+		// set mocked logger
+		Logger logger = task.logger = Mockito.mock Logger
+
+		// dummy cobertura coverage report
+		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
+
+		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
+		task.project = this.project
+
+		task.project.extensions.coveralls.sendToCoveralls = false
+		task.project.extensions.coveralls.saveAsFile = true
+		task.coverallsAction()
+
+		Mockito.verify(logger).info 'Saving output to file: ' + task.project.extensions.coveralls.saveFilePath
+
+		assertTrue(new File(task.project.extensions.coveralls.saveFilePath).exists())
+	}
+
+	@Test
+	void testMainSaveFileError() {
+		Task task = this.project.task('coveralls', type: CoverallsTask)
+
+		// set mocked logger
+		Logger logger = task.logger = Mockito.mock Logger
+
+		// dummy cobertura coverage report
+		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
+
+		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
+		task.project = this.project
+
+		task.project.extensions.coveralls.sendToCoveralls = false
+		task.project.extensions.coveralls.saveAsFile = true
+		task.project.extensions.coveralls.saveFilePath = "..."
+
+		try {
+			task.coverallsAction()
+		} catch (FileNotFoundException e) {
+			// Expected
+		}
+
+		Mockito.verify(logger).error 'Failed to write JSON file to ...'
+	}
 }

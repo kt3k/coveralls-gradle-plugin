@@ -8,6 +8,8 @@ class CoverallsPluginExtension {
 	/** the flag to save JSON string as file */
 	Boolean saveAsFile = false
 
+	Boolean sendToCoveralls = true
+
 	/** the JSON file path */
 	String saveFilePath = 'build/coveralls/report.json'
 
