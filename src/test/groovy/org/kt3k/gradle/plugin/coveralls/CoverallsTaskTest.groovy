@@ -259,7 +259,7 @@ class CoverallsTaskTest {
 
 		task.project.extensions.coveralls.sendToCoveralls = false
 		task.project.extensions.coveralls.saveAsFile = true
-		task.project.extensions.coveralls.saveFilePath = "..."
+		task.project.extensions.coveralls.saveFilePath = "."
 
 		try {
 			task.coverallsAction()
@@ -267,6 +267,6 @@ class CoverallsTaskTest {
 			// Expected
 		}
 
-		Mockito.verify(logger).error 'Failed to write JSON file to ...'
+		Mockito.verify(logger).error 'Failed to write JSON file to .'
 	}
 }
