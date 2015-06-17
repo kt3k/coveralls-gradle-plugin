@@ -1,5 +1,6 @@
 package org.kt3k.gradle.plugin.coveralls
 
+import groovy.json.JsonOutput
 import groovyx.net.http.HTTPBuilder
 import org.apache.http.entity.ContentType
 import org.apache.http.entity.mime.MultipartEntityBuilder
@@ -53,6 +54,19 @@ class CoverallsTask extends DefaultTask {
 				this.logger.error resp.getAllHeaders().toString()
 				System.out << reader
 			}
+		}
+	}
+
+	void saveJsonToFile(String json, String saveFilePath) {
+		try {
+			File reportFile = new File(saveFilePath)
+			if (reportFile.getParentFile()) {
+				reportFile.getParentFile().mkdirs()
+			}
+			reportFile.withWriter { it << JsonOutput.prettyPrint(json) }
+		} catch (IOException e) {
+			this.logger.error 'Failed to write JSON file to ' + saveFilePath
+			throw e
 		}
 	}
 
@@ -129,7 +143,14 @@ class CoverallsTask extends DefaultTask {
 		String json = rep.toJson()
 		this.logger.info json
 
-		postJsonToUrl json, coveralls.apiEndpoint
+		if (coveralls.saveAsFile) {
+			this.logger.info 'Saving output to file: ' + coveralls.saveFilePath
+			saveJsonToFile json, coveralls.saveFilePath
+		}
+
+		if (coveralls.sendToCoveralls) {
+			postJsonToUrl json, coveralls.apiEndpoint
+		}
 	}
 
 }
