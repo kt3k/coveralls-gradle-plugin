@@ -47,9 +47,6 @@ language: java
 jdk:
 - oraclejdk7
 
-env:
-- TERM=dumb
-
 after_success:
 - ./gradlew cobertura coveralls
 ```
@@ -94,9 +91,6 @@ language: java
 
 jdk:
 - oraclejdk7
-
-env:
-- TERM=dumb
 
 after_success:
 - ./gradlew jacocoTestReport coveralls
