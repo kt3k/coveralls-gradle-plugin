@@ -4,15 +4,6 @@
 
 > Send coverage data to coveralls.io.
 
-## News
-
-- We dropped gradle 1.x support at the plugin version 2.0.0. If you need to use the plugin with gradle 1.x, please see [v1.0.2](https://github.com/kt3k/coveralls-gradle-plugin/tree/v1.0.2) or [v0.6.1](https://github.com/kt3k/coveralls-gradle-plugin/tree/v0.6.1).
-(2014/08/01)
-
-- The ID of the plugin has been changed from `coveralls` to `com.github.kt3k.coveralls` according to [the guidelines of gradle plugin](http://plugins.gradle.org/submit).
-Please see the examples below for details.
-(2014/07/21)
-
 ## Usage
 
 ### Use with *cobertura* reporter
@@ -168,6 +159,11 @@ If you have `COVERALLS_REPO_TOKEN` set and you're using Travis-CI not Travis-Pro
 
 MIT License ( Yoshiya Hinosawa )
 
+## Note
+
+- The ID of the plugin has been changed from `coveralls` to `com.github.kt3k.coveralls` according to [the guidelines of gradle plugin](http://plugins.gradle.org/submit).
+Please see the examples below for details.
+(2014/07/21)
 
 ## Release History
 
