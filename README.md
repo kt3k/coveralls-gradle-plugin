@@ -120,7 +120,6 @@ If you configure coveralls "task" (not the extension object), you need to write 
 ```
 tasks.coveralls {
   dependsOn 'check'
-  onlyIf { isCI }
 }
 ```
 
