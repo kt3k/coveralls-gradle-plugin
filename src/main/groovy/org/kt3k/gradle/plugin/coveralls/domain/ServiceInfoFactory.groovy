@@ -68,6 +68,18 @@ class ServiceInfoFactory {
                                 'branch'          : env.get('SNAP_BRANCH'),
                                 'commit_sha'      : env.get('SNAP_COMMIT')]
                 )
+            } else if (envIsBitrise(env)) {
+                return new ServiceInfo(
+                        serviceName: 'bitrise',
+                        serviceNumber: env.get('BITRISE_BUILD_NUMBER'),
+                        serviceBuildUrl: env.get('BITRISE_BUILD_URL'),
+                        serviceBranch: env.get('BITRISE_GIT_BRANCH'),
+                        servicePullRequest: env.get('BITRISE_PULL_REQUEST'),
+                        repoToken: env.get('COVERALLS_REPO_TOKEN'),
+                        environment: [
+                                'branch'    : env.get('BITRISE_GIT_BRANCH'),
+                                'commit_sha': env.get('BITRISE_GIT_COMMIT')]
+                )
             } else {
                 return new ServiceInfo(
                         serviceName: env['CI_NAME'] ?: 'other',
@@ -108,6 +120,10 @@ class ServiceInfoFactory {
 
     private static boolean envIsSnap(Map<String, String> env) {
         env.get('SNAP_CI') == 'true'
+    }
+
+    private static boolean envIsBitrise(Map<String, String> env) {
+        env.get('BITRISE_BUILD_URL') != null
     }
 
     private static boolean repoTokenIsSet(Map<String, String> env) {
