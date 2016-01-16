@@ -109,6 +109,28 @@ class ServiceInfoFactoryTest {
     }
 
     @Test
+    void testCreateFromEnvVarBitrise() {
+        // test the case of bitrise
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                BITRISE_BUILD_NUMBER: "123456789",
+                BITRISE_BUILD_URL: "https://www.bitrise.io/build/1234567890abcdef",
+                BITRISE_GIT_BRANCH: "branchX",
+                BITRISE_GIT_COMMIT: "231asdfadsf424",
+                BITRISE_PULL_REQUEST: "11",
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+        )
+
+        assertEquals 'bitrise', serviceInfo.serviceName
+        assertEquals '123456789', serviceInfo.serviceNumber
+        assertEquals 'branchX', serviceInfo.serviceBranch
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+        assertEquals '11', serviceInfo.servicePullRequest
+
+        assertEquals 'branchX', serviceInfo.environment['branch']
+        assertEquals '231asdfadsf424', serviceInfo.environment['commit_sha']
+    }
+
+    @Test
     void testCreateFromEnvVarJenkinsNonPullRequest() {
         // test the case of travis-pro
         ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
