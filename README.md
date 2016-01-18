@@ -11,18 +11,9 @@
 Add the following lines to build.gradle:
 
 ```groovy
-apply plugin: 'cobertura'
-apply plugin: 'com.github.kt3k.coveralls'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.5.0'
-    }
+plugins {
+    id "net.saliman.cobertura" version "2.3.0"
+    id "com.github.kt3k.coveralls" version "2.5.0"
 }
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
@@ -36,7 +27,7 @@ An example `.travis.yml` looks like following:
 language: java
 
 jdk:
-- oraclejdk7
+- oraclejdk8
 
 after_success:
 - ./gradlew cobertura coveralls
@@ -53,17 +44,9 @@ cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
 Add the following lines to build.gradle:
 
 ```groovy
-apply plugin: 'jacoco'
-apply plugin: 'com.github.kt3k.coveralls'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
-    }
+plugins {
+    id "jacoco"
+    id "com.github.kt3k.coveralls" version "2.5.0"
 }
 
 jacocoTestReport {
@@ -72,7 +55,6 @@ jacocoTestReport {
         html.enabled = true
     }
 }
-
 ```
 
 An example `.travis.yml` looks like following:
@@ -81,7 +63,7 @@ An example `.travis.yml` looks like following:
 language: java
 
 jdk:
-- oraclejdk7
+- oraclejdk8
 
 after_success:
 - ./gradlew jacocoTestReport coveralls

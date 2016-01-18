@@ -4,7 +4,7 @@ files:
   gradle.properties: version=%.%.%
   README.md:
   - coveralls-gradle-plugin v%.%.%
-  - org.kt3k.gradle.plugin:coveralls-gradle-plugin:%.%.%
+  - 'id "com.github.kt3k.coveralls" version "%.%.%"'
   build.gradle:
   - name = '%.%.%'
   - vcsTag = 'v%.%.%'
