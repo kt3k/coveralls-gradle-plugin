@@ -1,13 +1,13 @@
-// build.gradle
-
-apply plugin: 'groovy'
-apply plugin: 'maven'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'signing'
-apply plugin: 'cobertura'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'maven-publish'
+plugins {
+    id "groovy"
+    id "maven"
+    id "eclipse"
+    id "idea"
+    id "signing"
+    id "maven-publish"
+    id "net.saliman.cobertura" version "2.3.0"
+    id "com.jfrog.bintray" version "1.4"
+}
 
 repositories {
     mavenCentral()
@@ -25,21 +25,6 @@ dependencies {
     testCompile 'org.mockito:mockito-all:1.9.5'
     testCompile 'com.github.tomakehurst:wiremock:1.18'
 }
-
-buildscript {
-    repositories {
-
-        mavenCentral()
-        jcenter()
-
-    }
-
-    dependencies {
-        classpath 'net.saliman:gradle-cobertura-plugin:2.2.4'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.5'
-    }
-}
-
 
 task groovydocJar(type: Jar, dependsOn: groovydoc) {
     classifier = 'javadoc'
