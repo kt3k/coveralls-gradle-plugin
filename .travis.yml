@@ -4,6 +4,7 @@ language: groovy
 
 jdk:
 - oraclejdk7
+- oraclejdk8
 
 after_success:
 - ./gradlew cobertura
