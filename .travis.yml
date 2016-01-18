@@ -5,9 +5,6 @@ language: groovy
 jdk:
 - oraclejdk7
 
-env:
-- TERM=dumb
-
 after_success:
 - ./gradlew cobertura
 - ./coveralls.groovy
