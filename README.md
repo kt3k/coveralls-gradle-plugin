@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v2.4.0
+# coveralls-gradle-plugin v2.5.0
 
 [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.svg?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.svg)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
@@ -21,7 +21,7 @@ buildscript {
 
     dependencies {
         classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // cobertura plugin
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.4.0'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.5.0'
     }
 }
 
@@ -168,6 +168,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2016-01-18   v2.5.0   Add Bitrise CI support. ([#50](https://github.com/kt3k/coveralls-gradle-plugin/pull/50))
  * 2015-05-10   v2.4.0   Improved Travis CI support. ([#40](https://github.com/kt3k/coveralls-gradle-plugin/pull/40))
  * 2015-02-10   v2.3.1   Improved Snap CI support. ([#36](https://github.com/kt3k/coveralls-gradle-plugin/pull/36))
  * 2015-02-10   v2.3.0   [Snap CI](https://snap-ci.com/) support. ([#35](https://github.com/kt3k/coveralls-gradle-plugin/pull/35))
