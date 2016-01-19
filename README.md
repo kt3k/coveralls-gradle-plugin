@@ -148,6 +148,13 @@ MIT License ( Yoshiya Hinosawa )
 Please see the examples below for details.
 (2014/07/21)
 
+## See also
+
+- https://codecov.io/
+  - An alternative web service to coveralls.
+    - Better API design, which accepts any of major formats.
+    - Nice browser extensions - You can see coverage information in GitHub UI.
+
 ## Release History
 
  * 2016-01-18   v2.5.0   Add Bitrise CI support. ([#50](https://github.com/kt3k/coveralls-gradle-plugin/pull/50))
