@@ -28,6 +28,7 @@ class ServiceInfoFactory {
                         serviceName: 'circleci',
                         serviceNumber: env.get('CIRCLE_BUILD_NUM'),
                         repoToken: env.get('COVERALLS_REPO_TOKEN'),
+                        servicePullRequest: env.get('CI_PULL_REQUEST'),
                         environment: [
                                 'circleci_build_num': env.get('CIRCLE_BUILD_NUM'),
                                 'branch'            : env.get('CIRCLE_BRANCH'),
