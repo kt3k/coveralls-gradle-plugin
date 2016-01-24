@@ -72,14 +72,14 @@ class ServiceInfoFactoryTest {
                 CIRCLECI: 'true',
                 CIRCLE_BUILD_NUM: '12345678',
                 COVERALLS_REPO_TOKEN: 'ABCDEF',
-                CI_PULL_REQUEST: 'pullrequest111',
+                CI_PULL_REQUEST: 'https://github.com/kt3k/coveralls-gradle-plugin/pull/51',
                 CIRCLE_BRANCH: 'branchX',
                 CIRCLE_SHA1: '231asdfadsf424')
 
         assertEquals 'circleci', serviceInfo.serviceName
         assertEquals '12345678', serviceInfo.serviceNumber
         assertEquals 'ABCDEF', serviceInfo.repoToken
-        assertEquals 'pullrequest111', serviceInfo.servicePullRequest
+        assertEquals '51', serviceInfo.servicePullRequest
         assertEquals 'branchX', serviceInfo.environment['branch']
         assertEquals '231asdfadsf424', serviceInfo.environment['commit_sha']
         assertEquals '12345678', serviceInfo.environment['circleci_build_num']

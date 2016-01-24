@@ -24,11 +24,19 @@ class ServiceInfoFactory {
                                 'travis_pull_request': env.get('TRAVIS_PULL_REQUEST')]
                 )
             } else if (envIsCircleci(env)) {
+                String prId = env.get('CI_PULL_REQUEST')
+                if (prId != null) {
+                   // CircleCI CI_PULL_REQUEST is the full URL, so extract just the PR number
+                   int lastSlashIdx = prId.lastIndexOf('/')
+                   if (lastSlashIdx > -1 && lastSlashIdx + 1 < prId.length()) {
+                       prId = prId.substring(lastSlashIdx + 1)
+                   }
+                }
                 return new ServiceInfo(
                         serviceName: 'circleci',
                         serviceNumber: env.get('CIRCLE_BUILD_NUM'),
                         repoToken: env.get('COVERALLS_REPO_TOKEN'),
-                        servicePullRequest: env.get('CI_PULL_REQUEST'),
+                        servicePullRequest: prId,
                         environment: [
                                 'circleci_build_num': env.get('CIRCLE_BUILD_NUM'),
                                 'branch'            : env.get('CIRCLE_BRANCH'),
