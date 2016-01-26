@@ -7,8 +7,7 @@ jdk:
 - oraclejdk8
 
 after_success:
-- ./gradlew cobertura
-- ./coveralls.groovy
+- ./gradlew check jacocoTestReport coveralls
 
 after_failure:
 - ./gradlew clean check --debug
