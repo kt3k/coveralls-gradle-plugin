@@ -5,9 +5,13 @@ plugins {
     id "idea"
     id "signing"
     id "maven-publish"
-    id "net.saliman.cobertura" version "2.3.0"
+    id "jacoco"
     id "com.jfrog.bintray" version "1.4"
+    id "com.github.kt3k.coveralls" version "2.5.0"
 }
+
+group 'com.github.kt3k.coveralls'
+version '2.6.0'
 
 repositories {
     mavenCentral()
@@ -26,17 +30,21 @@ dependencies {
     testCompile 'com.github.tomakehurst:wiremock:1.18'
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
 task groovydocJar(type: Jar, dependsOn: groovydoc) {
     classifier = 'javadoc'
     from 'build/docs/groovydoc'
 }
 
-
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
-
 
 artifacts {
     archives jar
@@ -44,7 +52,6 @@ artifacts {
     archives groovydocJar
     archives sourcesJar
 }
-
 
 // sign archives if signatory exists
 if (signing.signatory) {
@@ -110,10 +117,6 @@ uploadArchives {
         }
     }
 }
-
-cobertura.coverageFormats = ['html', 'xml']
-cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
-
 
 // MavenPublication settings
 publishing {
