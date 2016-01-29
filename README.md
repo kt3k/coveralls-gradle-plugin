@@ -157,6 +157,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2016-01-29   v2.6.1   Improved CircleCI support. ([#52](https://github.com/kt3k/coveralls-gradle-plugin/pull/52))
  * 2016-01-22   v2.6.0   Improved CircleCI support. ([#51](https://github.com/kt3k/coveralls-gradle-plugin/pull/51))
  * 2016-01-18   v2.5.0   Added Bitrise CI support. ([#50](https://github.com/kt3k/coveralls-gradle-plugin/pull/50))
  * 2015-05-10   v2.4.0   Improved Travis CI support. ([#40](https://github.com/kt3k/coveralls-gradle-plugin/pull/40))
