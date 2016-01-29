@@ -10,7 +10,7 @@ plugins {
     id "com.github.kt3k.coveralls" version "2.5.0"
 }
 
-group 'com.github.kt3k.coveralls'
+group 'org.kt3k.gradle.plugin'
 version '2.6.2'
 
 repositories {
