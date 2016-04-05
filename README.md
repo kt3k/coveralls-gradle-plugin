@@ -12,8 +12,8 @@ Add the following lines to build.gradle:
 
 ```groovy
 plugins {
-    id "net.saliman.cobertura" version "2.3.0"
-    id "com.github.kt3k.coveralls" version "2.6.3"
+    id 'net.saliman.cobertura' version '2.3.1'
+    id 'com.github.kt3k.coveralls' version '2.6.3'
 }
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
@@ -45,8 +45,8 @@ Add the following lines to build.gradle:
 
 ```groovy
 plugins {
-    id "jacoco"
-    id "com.github.kt3k.coveralls" version "2.5.0"
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.6.3'
 }
 
 jacocoTestReport {
