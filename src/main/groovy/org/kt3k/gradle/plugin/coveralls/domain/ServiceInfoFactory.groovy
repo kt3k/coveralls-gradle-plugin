@@ -110,7 +110,7 @@ class ServiceInfoFactory {
             if (envIsTravis(env)) {
                 return new ServiceInfo(serviceName: 'travis-ci', serviceJobId: env.get('TRAVIS_JOB_ID'))
             }else {
-                logger.error 'no COVERALL_REPO_TOKEN environmental variable found'
+                logger.error 'no COVERALLS_REPO_TOKEN environmental variable found'
             }
         }
 
