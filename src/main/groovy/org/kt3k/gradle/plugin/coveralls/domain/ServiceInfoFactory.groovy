@@ -1,5 +1,8 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
+import org.gradle.api.logging.Logger
+import org.gradle.api.logging.Logging
+
 /**
  * ServiceInfoFactory is factory class of ServiceInfo.
  */
@@ -12,6 +15,9 @@ class ServiceInfoFactory {
      * @return service information of current environment
      */
     public static ServiceInfo createFromEnvVar(Map<String, String> env) {
+
+        /** the logger */
+        Logger logger = Logging.getLogger('coveralls-logger')
 
         if (repoTokenIsSet(env)) {
             if (envIsTravis(env)) {
@@ -103,6 +109,8 @@ class ServiceInfoFactory {
         } else {
             if (envIsTravis(env)) {
                 return new ServiceInfo(serviceName: 'travis-ci', serviceJobId: env.get('TRAVIS_JOB_ID'))
+            }else {
+                logger.error 'no COVERALLS_REPO_TOKEN environmental variable found'
             }
         }
 
