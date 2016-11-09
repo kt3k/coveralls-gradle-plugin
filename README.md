@@ -133,6 +133,12 @@ If you need to customize something or support a different CI service, you can co
 
 If you have `COVERALLS_REPO_TOKEN` set and you're using Travis-CI not Travis-Pro, you need to set `CI_NAME=travis-ci`.
 
+### HTTPS proxy settings
+You can set https proxy if needed.
+Environment variables to configure:
+- `https.proxyHost`
+- `https.proxyPort` (default value is **443**)
+
 ## Examples
 
 - https://github.com/strawjs/straw-android
