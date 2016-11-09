@@ -10,7 +10,7 @@ class ProxyInfoFactory {
 		Logger logger = Logging.getLogger('coveralls-logger')
 		if (httpsProxySet(env)) {
 			def host = env.get('https.proxyHost')
-			def port = env.getOrDefault('https.proxyPort', "443").toInteger()
+			def port = env.get('https.proxyPort', "443").toInteger()
 			logger.info 'Using HTTPS proxy $host:$port'
 			return new ProxyInfo(
 					httpsProxyHost: host,
