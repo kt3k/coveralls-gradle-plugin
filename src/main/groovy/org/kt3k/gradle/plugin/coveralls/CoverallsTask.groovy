@@ -38,7 +38,7 @@ class CoverallsTask extends DefaultTask {
 	void postJsonToUrl(String json, String url) {
 
 		HTTPBuilder http = new HTTPBuilder(url)
-
+		setProxy(http)
 		http.request(POST) { req ->
 
 			req.entity = MultipartEntityBuilder.create().addBinaryBody('json_file', json.getBytes('UTF-8'), ContentType.APPLICATION_JSON, 'json_file').build()
@@ -54,6 +54,13 @@ class CoverallsTask extends DefaultTask {
 				this.logger.error resp.getAllHeaders().toString()
 				System.out << reader
 			}
+		}
+	}
+
+	private setProxy(HTTPBuilder http) {
+		def proxyInfo = ProxyInfoFactory.createFromEnvVar this.env
+		if (proxyInfo) {
+			http.setProxy(proxyInfo.httpsProxyHost, proxyInfo.httpsProxyPort, "https")
 		}
 	}
 
