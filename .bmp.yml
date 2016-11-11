@@ -1,9 +1,10 @@
 ---
-version: 2.6.3
+version: 2.7.0
+commit: 'chore(version): bump to v%.%.%'
 files:
   README.md:
   - coveralls-gradle-plugin v%.%.%
-  - id "com.github.kt3k.coveralls" version "%.%.%"
+  - id 'com.github.kt3k.coveralls' version '%.%.%'
   build.gradle:
   - name = '%.%.%'
   - vcsTag = 'v%.%.%'
