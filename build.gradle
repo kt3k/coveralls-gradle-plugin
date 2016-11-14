@@ -30,6 +30,16 @@ dependencies {
     testCompile 'com.github.tomakehurst:wiremock:1.18'
 }
 
+tasks.withType(JavaCompile) {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
+
+tasks.withType(GroovyCompile) {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
+
 jacocoTestReport {
     reports {
         xml.enabled true
