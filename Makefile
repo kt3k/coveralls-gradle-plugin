@@ -8,6 +8,7 @@ release-github:
 release-snapshot:
 	MVN_REPO=https://oss.sonatype.org/content/repositories/snapshots/ ./gradlew clean uploadArchives
 
+# Note: use jdk 1.7 when you release
 release-maven:
 	MVN_REPO=https://oss.sonatype.org/service/local/staging/deploy/maven2/ ./gradlew clean uploadArchives
 
