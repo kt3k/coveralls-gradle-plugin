@@ -53,8 +53,9 @@ class CoverallsTaskTest {
 		Logger logger = task.logger = Mockito.mock Logger
 
 		// set nonexistent report file paths
-		this.project.extensions.coveralls.coberturaReportPath = 'foo/bar.xml'
-		this.project.extensions.coveralls.jacocoReportPath = 'baz/bar.xml'
+		this.project.extensions.coveralls.coberturaReportPath = 'none/cobertura.xml'
+		this.project.extensions.coveralls.jacocoReportPath = 'none/jacoco.xml'
+		this.project.extensions.coveralls.pitReportPath = 'none/pit.xml'
 
 		String projDir = this.project.projectDir.path
 
@@ -62,7 +63,11 @@ class CoverallsTaskTest {
 
 		task.coverallsAction()
 
-		Mockito.verify(logger).error 'No report file available: ' + [projDir + separatorChar + 'foo' + separatorChar + 'bar.xml', projDir + separatorChar + 'baz' + separatorChar + 'bar.xml']
+		Mockito.verify(logger).error 'No report file available: ' + [
+			projDir + separatorChar + 'none' + separatorChar + 'cobertura.xml',
+			projDir + separatorChar + 'none' + separatorChar + 'jacoco.xml',
+			projDir + separatorChar + 'none' + separatorChar + 'pit.xml',
+		]
 	}
 
 	@Rule
