@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mutations>
+  <mutation detected="true" status="KILLED">
+    <sourceFile>BankAccount.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.BankAccount</mutatedClass>
+    <mutatedMethod>decrease</mutatedMethod>
+    <methodDescription>(Ljava/lang/Integer;)V</methodDescription>
+    <lineNumber>19</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.MathMutator</mutator>
+    <index>11</index>
+    <killingTest>org.kt3k.bankaccount.TransferContextTest.testTransfer(org.kt3k.bankaccount.TransferContextTest)</killingTest>
+    <description>Replaced integer subtraction with addition</description>
+  </mutation>
+  <mutation detected="true" status="KILLED">
+    <sourceFile>BankAccount.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.BankAccount</mutatedClass>
+    <mutatedMethod>getBalance</mutatedMethod>
+    <methodDescription>()Ljava/lang/Integer;</methodDescription>
+    <lineNumber>23</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator</mutator>
+    <index>5</index>
+    <killingTest>org.kt3k.bankaccount.TransferContextTest.testTransfer(org.kt3k.bankaccount.TransferContextTest)</killingTest>
+    <description>mutated return of Object value for org/kt3k/bankaccount/BankAccount::getBalance to ( if (x != null) null else throw new RuntimeException )</description>
+  </mutation>
+  <mutation detected="false" status="NO_COVERAGE">
+    <sourceFile>BankAccount.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.BankAccount</mutatedClass>
+    <mutatedMethod>getId</mutatedMethod>
+    <methodDescription>()Ljava/lang/String;</methodDescription>
+    <lineNumber>27</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator</mutator>
+    <index>5</index>
+    <killingTest/>
+    <description>mutated return of Object value for org/kt3k/bankaccount/BankAccount::getId to ( if (x != null) null else throw new RuntimeException )</description>
+  </mutation>
+  <mutation detected="true" status="KILLED">
+    <sourceFile>BankAccount.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.BankAccount</mutatedClass>
+    <mutatedMethod>increase</mutatedMethod>
+    <methodDescription>(Ljava/lang/Integer;)V</methodDescription>
+    <lineNumber>15</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.MathMutator</mutator>
+    <index>11</index>
+    <killingTest>org.kt3k.bankaccount.TransferContextTest.testTransfer(org.kt3k.bankaccount.TransferContextTest)</killingTest>
+    <description>Replaced integer addition with subtraction</description>
+  </mutation>
+  <mutation detected="true" status="KILLED">
+    <sourceFile>TransferContext.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.TransferContext$BankAccountSender</mutatedClass>
+    <mutatedMethod>send</mutatedMethod>
+    <methodDescription>(Ljava/lang/Integer;Lorg/kt3k/bankaccount/TransferContext$BankAccountReceiver;)V</methodDescription>
+    <lineNumber>22</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator</mutator>
+    <index>6</index>
+    <killingTest>org.kt3k.bankaccount.TransferContextTest.testTransfer(org.kt3k.bankaccount.TransferContextTest)</killingTest>
+    <description>removed call to org/kt3k/bankaccount/BankAccount::decrease</description>
+  </mutation>
+  <mutation detected="true" status="KILLED">
+    <sourceFile>TransferContext.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.TransferContext$BankAccountSender</mutatedClass>
+    <mutatedMethod>send</mutatedMethod>
+    <methodDescription>(Ljava/lang/Integer;Lorg/kt3k/bankaccount/TransferContext$BankAccountReceiver;)V</methodDescription>
+    <lineNumber>24</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator</mutator>
+    <index>11</index>
+    <killingTest>org.kt3k.bankaccount.TransferContextTest.testTransfer(org.kt3k.bankaccount.TransferContextTest)</killingTest>
+    <description>removed call to org/kt3k/bankaccount/TransferContext$BankAccountReceiver::onReceive</description>
+  </mutation>
+  <mutation detected="true" status="KILLED">
+    <sourceFile>TransferContext.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.TransferContext</mutatedClass>
+    <mutatedMethod>transfer</mutatedMethod>
+    <methodDescription>(Ljava/lang/Integer;)V</methodDescription>
+    <lineNumber>42</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator</mutator>
+    <index>8</index>
+    <killingTest>org.kt3k.bankaccount.TransferContextTest.testTransfer(org.kt3k.bankaccount.TransferContextTest)</killingTest>
+    <description>removed call to org/kt3k/bankaccount/TransferContext$BankAccountSender::send</description>
+  </mutation>
+  <mutation detected="true" status="KILLED">
+    <sourceFile>TransferContext.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.TransferContext$BankAccountReceiver</mutatedClass>
+    <mutatedMethod>onReceive</mutatedMethod>
+    <methodDescription>(Ljava/lang/Integer;)V</methodDescription>
+    <lineNumber>37</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator</mutator>
+    <index>6</index>
+    <killingTest>org.kt3k.bankaccount.TransferContextTest.testTransfer(org.kt3k.bankaccount.TransferContextTest)</killingTest>
+    <description>removed call to org/kt3k/bankaccount/BankAccount::increase</description>
+  </mutation>
+</mutations>

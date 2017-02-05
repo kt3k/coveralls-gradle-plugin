@@ -69,6 +69,40 @@ after_success:
 - ./gradlew jacocoTestReport coveralls
 ```
 
+### Use with [*pitest*](https://github.com/szpak/gradle-pitest-plugin) plugin
+
+Add the following lines to build.gradle:
+
+```groovy
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.11'
+    }
+}
+
+apply plugin: 'info.solidsoft.pitest'
+
+pitest {
+    timestampedReports = false
+    outputFormats = ['XML']
+}
+```
+
+An example `.travis.yml` looks like following:
+
+```yaml
+language: java
+
+jdk:
+- oraclejdk8
+
+after_success:
+- ./gradlew pitest coveralls
+```
+
 ### Use with Travis-CI Pro & Coveralls Pro
 
 When using Travis-CI Pro, you must provide your Coveralls Pro repo token in the

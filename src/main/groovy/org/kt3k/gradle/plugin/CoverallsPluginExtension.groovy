@@ -22,6 +22,9 @@ class CoverallsPluginExtension {
 	/** Cobertura report path */
 	Object coberturaReportPath = 'build/reports/cobertura/coverage.xml'
 
+	/** PIT report path */
+	Object pitReportPath = 'build/reports/pitest/mutations.xml'
+
 	/**
 	 * Additional source directories
 	 */
