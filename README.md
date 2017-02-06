@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v2.7.1
+# coveralls-gradle-plugin v2.8.0
 
 [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.svg?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.svg)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
@@ -13,7 +13,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id 'net.saliman.cobertura' version '2.3.1'
-    id 'com.github.kt3k.coveralls' version '2.7.1'
+    id 'com.github.kt3k.coveralls' version '2.8.0'
 }
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
@@ -197,6 +197,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2017-02-06   v2.8.0   Added [PIT](http://pitest.org/) support. ([#71](https://github.com/kt3k/coveralls-gradle-plugin/pull/71))
  * 2016-11-14   v2.7.1   Recover Java 7 support. (v2.7.0 doesn't work with Java 8)
  * 2016-11-11   v2.7.0   Added HTTPS proxy settings. ([#67](https://github.com/kt3k/coveralls-gradle-plugin/pull/67))
  * 2016-01-29   v2.6.3   Recover Java 7 support. (v2.6.0 and v2.6.1 don't work with Java 8)
