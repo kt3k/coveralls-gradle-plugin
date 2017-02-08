@@ -88,4 +88,15 @@
     <killingTest>org.kt3k.bankaccount.TransferContextTest.testTransfer(org.kt3k.bankaccount.TransferContextTest)</killingTest>
     <description>removed call to org/kt3k/bankaccount/BankAccount::increase</description>
   </mutation>
+  <mutation detected='true' status='TIMED_OUT'>
+    <sourceFile>TransferContext.java</sourceFile>
+    <mutatedClass>org.kt3k.bankaccount.TransferContext$BankAccountReceiver</mutatedClass>
+    <mutatedMethod>onReceive</mutatedMethod>
+    <methodDescription>(Ljava/lang/Integer;)V</methodDescription>
+    <lineNumber>37</lineNumber>
+    <mutator>org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator</mutator>
+    <index>24</index>
+    <killingTest/>
+    <description>removed call to org/kt3k/bankaccount/BankAccount::increase</description>
+  </mutation>
 </mutations>
