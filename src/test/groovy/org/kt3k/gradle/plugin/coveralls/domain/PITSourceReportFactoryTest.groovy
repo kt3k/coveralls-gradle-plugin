@@ -33,9 +33,11 @@ class PITSourceReportFactoryTest {
 
 		assertEquals 'src/test/fixture/org/kt3k/bankaccount/BankAccount.java', reports[0].name
 		assertEquals 30, reports[0].coverage.size()
-		assertEquals 4, reports[0].coverage.findAll{ it != null }.sum()
+		assertEquals 4, reports[0].coverage.findAll{ it != null }.size()
+		assertEquals 3, reports[0].coverage.findAll{ it != null }.sum()
 		assertEquals 'src/test/fixture/org/kt3k/bankaccount/TransferContext.java', reports[1].name
 		assertEquals 45, reports[1].coverage.size()
+		assertEquals 4, reports[1].coverage.findAll{ it != null }.size()
 		assertEquals 4, reports[1].coverage.findAll{ it != null }.sum()
 	}
 
