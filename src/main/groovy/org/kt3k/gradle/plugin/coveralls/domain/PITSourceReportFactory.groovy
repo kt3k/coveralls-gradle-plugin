@@ -30,6 +30,17 @@ class PITSourceReportFactory implements SourceReportFactory {
         Map<String, Map<Integer, Integer>> hitsPerLineMapPerFile = [:]
 
         mutations.mutation.each() { mutation ->
+            def status = mutation.@status
+            Integer hit
+            if (status == 'KILLED') {
+                hit = 1
+            } else if (status == 'LIVED' || status == 'NO_COVERAGE') {
+                hit = 0
+            } else {
+                // Leave null for lines that could not be mutated.
+                return
+            }
+
             // PIT reports only the source file's base name, which might not be
             // unique. Assume the source file's directory can be derived from
             // the package name.
@@ -43,10 +54,11 @@ class PITSourceReportFactory implements SourceReportFactory {
             }
             def packageName = matcher.group(0)
             def filename = packageName.replace('.', File.separator) + mutation.sourceFile.text()
+
             def hitsPerLine = hitsPerLineMapPerFile.get(filename, [:])
             Integer lineNumber = mutation.lineNumber.text().toInteger() - 1
             Integer hits = hitsPerLine.get(lineNumber, 0)
-            hitsPerLine[lineNumber] = hits + 1
+            hitsPerLine[lineNumber] = hits + hit
         }
 
         List<SourceReport> reports = new ArrayList<SourceReport>()
