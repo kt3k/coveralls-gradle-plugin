@@ -83,6 +83,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.github.kt3k.coveralls' version '2.8.1'
+}
+
 apply plugin: 'info.solidsoft.pitest'
 
 pitest {
