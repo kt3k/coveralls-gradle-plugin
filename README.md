@@ -74,20 +74,10 @@ after_success:
 Add the following lines to build.gradle:
 
 ```groovy
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.11'
-    }
-}
-
 plugins {
+    id "info.solidsoft.pitest" version '1.1.11'
     id 'com.github.kt3k.coveralls' version '2.8.1'
 }
-
-apply plugin: 'info.solidsoft.pitest'
 
 pitest {
     timestampedReports = false
