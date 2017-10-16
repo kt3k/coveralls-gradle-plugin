@@ -63,7 +63,7 @@ class ServiceInfoFactory {
                 )
 
                 if (envIsJenkinsPullRequest(env)) {
-                    serviceInfo.servicePullRequest = env.get('ghprbPullLink');
+                    serviceInfo.servicePullRequest = env.get('ghprbPullId');
                     environment.commit_sha = env.get('ghprbActualCommit')
                 } else {
                     environment.commit_sha = env.get('GIT_COMMIT')
