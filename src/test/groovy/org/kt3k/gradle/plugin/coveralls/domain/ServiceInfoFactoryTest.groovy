@@ -159,7 +159,7 @@ class ServiceInfoFactoryTest {
                 COVERALLS_REPO_TOKEN: 'ABCDEF',
                 GIT_BRANCH: 'branchX',
                 GIT_COMMIT: '231asdfadsf424',
-                ghprbPullLink: 'def',
+                ghprbPullId: '170',
                 ghprbActualCommit: '424fsdafdsa132')
 
         assertEquals 'jenkins', serviceInfo.serviceName
@@ -168,7 +168,7 @@ class ServiceInfoFactoryTest {
         assertEquals 'branchX', serviceInfo.environment['branch']
         assertEquals '424fsdafdsa132', serviceInfo.environment['commit_sha']
         assertEquals '12345678', serviceInfo.environment['jenkins_build_num']
-        assertEquals 'def', serviceInfo.servicePullRequest
+        assertEquals '170', serviceInfo.servicePullRequest
     }
 
     @Test
