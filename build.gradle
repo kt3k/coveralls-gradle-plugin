@@ -11,7 +11,7 @@ plugins {
 }
 
 group 'org.kt3k.gradle.plugin'
-version '2.8.1'
+version '2.8.2'
 
 repositories {
     mavenCentral()
@@ -159,8 +159,8 @@ bintray {
         labels = ['coveralls', 'coverage']
         publicDownloadNumbers = true
         version {
-            name = '2.8.1'
-            vcsTag = 'v2.8.1'
+            name = '2.8.2'
+            vcsTag = 'v2.8.2'
             attributes = [
                 'gradle-plugin': 'com.github.kt3k.coveralls:org.kt3k.gradle.plugin:coveralls-gradle-plugin'
             ]
