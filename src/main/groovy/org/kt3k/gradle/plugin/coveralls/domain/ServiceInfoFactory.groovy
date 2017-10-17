@@ -63,7 +63,7 @@ class ServiceInfoFactory {
                 )
 
                 if (envIsJenkinsPullRequest(env)) {
-                    serviceInfo.servicePullRequest = env.get('ghprbPullLink');
+                    serviceInfo.servicePullRequest = env.get('ghprbPullId');
                     environment.commit_sha = env.get('ghprbActualCommit')
                 } else {
                     environment.commit_sha = env.get('GIT_COMMIT')
@@ -124,7 +124,7 @@ class ServiceInfoFactory {
     }
 
     private static boolean envIsJenkinsPullRequest(Map<String, String> env) {
-        env.get('ghprbPullLink') != null
+        env.get('ghprbPullId') != null
     }
 
     private static boolean envIsTravis(Map<String, String> env) {
