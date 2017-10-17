@@ -124,7 +124,7 @@ class ServiceInfoFactory {
     }
 
     private static boolean envIsJenkinsPullRequest(Map<String, String> env) {
-        env.get('ghprbPullLink') != null
+        env.get('ghprbPullId') != null
     }
 
     private static boolean envIsTravis(Map<String, String> env) {
