@@ -1,9 +1,6 @@
-# .travis.yml of coveralls-gradle-plugin
-
 language: groovy
 
 jdk:
-- oraclejdk7
 - oraclejdk8
 
 after_success:
