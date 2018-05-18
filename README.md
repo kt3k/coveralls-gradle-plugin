@@ -117,7 +117,7 @@ env:
     - secure: <encrypted string here>
 ```
 
-### Use with mutli-project build
+### Use with multi-project build
 
 This plugin only handles one project per build. You need to merge coverage report before coveralls plugin take it.
 
