@@ -121,7 +121,7 @@ env:
 
 This plugin only handles one project per build. You need to merge coverage report before coveralls plugin take it.
 
-See example: https://github.com/ben-manes/caffeine/blob/master/build.gradle
+See example: https://github.com/ben-manes/caffeine/blob/v2.6.2/build.gradle#L133
 
 ### Configuring coveralls "task"
 
