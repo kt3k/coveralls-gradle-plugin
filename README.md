@@ -69,6 +69,13 @@ after_success:
 - ./gradlew jacocoTestReport coveralls
 ```
 
+Configuration Options
+```
+coveralls {
+    jacocoReportPath 'build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml'
+}
+```
+
 ### Use with [*pitest*](https://github.com/szpak/gradle-pitest-plugin) plugin
 
 Add the following lines to build.gradle:
