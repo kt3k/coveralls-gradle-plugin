@@ -3,6 +3,9 @@ language: groovy
 jdk:
 - oraclejdk8
 
+script:
+- ./gradlew -Dscan=true build
+
 after_success:
 - ./gradlew check jacocoTestReport coveralls
 
