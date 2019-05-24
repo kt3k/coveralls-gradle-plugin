@@ -1,10 +1,8 @@
 # gradle build dir
 build/*
-!build/gradle
 
 # gradle local dir
 .gradle
-.gradletasknamecache
 
 # eclipse files
 .settings

@@ -2,8 +2,6 @@ plugins {
     id "com.gradle.build-scan" version "2.3"
     id "groovy"
     id "maven"
-    id "eclipse"
-    id "idea"
     id "signing"
     id "maven-publish"
     id "jacoco"
