@@ -1,13 +1,10 @@
 plugins {
     id "com.gradle.build-scan" version "2.3"
+    id "com.gradle.plugin-publish" version "0.10.1"
+    id "java-gradle-plugin"
     id "groovy"
-    id "maven"
-    id "eclipse"
-    id "idea"
-    id "signing"
-    id "maven-publish"
     id "jacoco"
-    id "com.jfrog.bintray" version "1.4"
+    id "com.jfrog.bintray" version "1.8.4"
     id "com.github.kt3k.coveralls" version "2.5.0"
 }
 
@@ -20,7 +17,7 @@ group 'org.kt3k.gradle.plugin'
 version '2.8.2'
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -64,113 +61,28 @@ task sourcesJar(type: Jar) {
 
 artifacts {
     archives jar
-
     archives groovydocJar
     archives sourcesJar
 }
 
-// sign archives if signatory exists
-if (signing.signatory) {
-
-    signing {
-        sign configurations.archives
+gradlePlugin {
+  plugins {
+    coverallsPlugin {
+      id = 'com.github.kt3k.coveralls'
+      implementationClass = 'org.kt3k.gradle.plugin.CoverallsPlugin'
     }
-
+  }
 }
 
+pluginBundle {
+  website = 'http://github.com/kt3k/coveralls-gradle-plugin'
+  vcsUrl = 'https://github.com/kt3k/coveralls-gradle-plugin.git'
+  description = 'Send coverage data to coveralls.io'
+  tags = ['coverage', 'coveralls']
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-
-            // sign pom if signatory exists
-            if (signing.signatory) {
-                beforeDeployment {
-                    signing.signPom(it)
-                }
-            }
-
-            repository(url: System.getenv('MVN_REPO')) {
-
-                // set authentication info if sonatypeUsername property is set
-                if (project.hasProperty('sonatype.username')) {
-                    authentication userName: project.'sonatype.username', password: project.'sonatype.password'
-                }
-            }
-
-            // additional pom settings (for maven central requirement)
-            pom.project {
-
-                name 'Gradle Coveralls Plugin'
-                description 'This plugin helps to upload coverage data to Coveralls'
-                url 'https://github.com/kt3k/coveralls-gradle-plugin'
-
-                scm {
-                    url 'scm:git@github.com:kt3k/coveralls-gradle-plugin.git'
-                    connection 'scm:git@github.com:kt3k/coveralls-gradle-plugin.git'
-                    developerConnection 'scm:git@github.com:kt3k/coveralls-gradle-plugin.git'
-                }
-
-                licenses {
-                    license {
-                        name 'MIT License'
-                        url 'https://raw.github.com/kt3k/coveralls-gradle-plugin/master/LICENSE'
-                        distribution 'repo'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'kt3k'
-                        name 'Yoshiya Hinosawa'
-                    }
-                    developer {
-                        id 'gitu'
-                        name 'Florian Schrag'
-                    }
-                }
-            }
-        }
+  plugins {
+    coverallsPlugin {
+      displayName = 'Coveralls Gradle plugin'
     }
-}
-
-// MavenPublication settings
-publishing {
-    publications {
-        plugin(MavenPublication) {
-            from components.java
-        }
-    }
-}
-
-
-bintray {
-
-    if (project.hasProperty('bintray.username')) {
-        // these two should be defined out of the repository, for example, in ~/.gradle/gradle.properties
-        user = project.'bintray.username'
-        key = project.'bintray.apiKey'
-    }
-
-    publications = ['plugin']
-
-    pkg {
-        repo = 'gradle-plugins'
-        name = 'coveralls-gradle-plugin'
-        desc = 'Send coverage data to coveralls.io.'
-        websiteUrl = 'https://github.com/kt3k/coveralls-gradle-plugin'
-        issueTrackerUrl = 'https://github.com/kt3k/coveralls-gradle-plugin/issues'
-        vcsUrl = 'https://github.com/kt3k/coveralls-gradle-plugin.git'
-        licenses = ['MIT']
-        labels = ['coveralls', 'coverage']
-        publicDownloadNumbers = true
-        version {
-            name = '2.8.2'
-            vcsTag = 'v2.8.2'
-            attributes = [
-                'gradle-plugin': 'com.github.kt3k.coveralls:org.kt3k.gradle.plugin:coveralls-gradle-plugin'
-            ]
-        }
-    }
-
+  }
 }
