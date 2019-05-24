@@ -2,6 +2,7 @@ language: groovy
 
 jdk:
 - oraclejdk8
+- oraclejdk11
 
 script:
 - ./gradlew -Dscan=true build
