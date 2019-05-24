@@ -89,7 +89,6 @@ class CoverallsTaskTest {
 		task.postJsonToUrl '{}', 'http://localhost:8089/abc'
 
 		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
-		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')).withRequestBody(matching('^.*$')))
 
@@ -112,7 +111,6 @@ class CoverallsTaskTest {
 		task.postJsonToUrl '{}', 'http://localhost:8089/abc'
 
 		Mockito.verify(logger).error 'HTTP/1.1 404 Not Found'
-		Mockito.verify(logger).error '[Content-Type: text/plain, Content-Length: 9, Server: Jetty(6.1.25)]'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')).withRequestBody(matching('.*')))
 
@@ -135,13 +133,12 @@ class CoverallsTaskTest {
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
 
 		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
-		task.project = this.project
 		task.project.extensions.coveralls.apiEndpoint = 'http://localhost:8089/abc'
 
 		task.coverallsAction()
 
 		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
-		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
+		Mockito.verify(logger).info 'Report file: src/test/fixture/coverage.xml'
 
 		WireMock.verify(postRequestedFor(urlMatching('/abc')))
 
@@ -158,7 +155,6 @@ class CoverallsTaskTest {
 		task.sourceReportFactoryMap['src/test/fixture/coverage_without_source_files.xml'] = new CoberturaSourceReportFactory()
 
 		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
-		task.project = this.project
 		task.project.extensions.coveralls.apiEndpoint = 'http://localhost:8089/abc'
 
 		task.coverallsAction()
@@ -190,7 +186,6 @@ class CoverallsTaskTest {
 
 		// set travis env variables and repo token (this lead to Travis-pro report)
 		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123', COVERALLS_REPO_TOKEN: 'abc123xyz']
-		task.project = this.project
 		task.project.extensions.coveralls.apiEndpoint = 'http://localhost:8089/abc'
 
 		task.coverallsAction()
@@ -201,7 +196,6 @@ class CoverallsTaskTest {
 		Mockito.verify(logger).warn 'repo token: present (not shown for security)'
 
 		Mockito.verify(logger).info 'HTTP/1.1 200 OK'
-		Mockito.verify(logger).info '[Content-Type: text/plain, Content-Length: 12, Server: Jetty(6.1.25)]'
 
 		// verify api interaction
 		WireMock.verify(postRequestedFor(urlMatching('/abc')))
@@ -219,7 +213,6 @@ class CoverallsTaskTest {
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
 
 		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
-		task.project = this.project
 
 		task.project.extensions.coveralls.sendToCoveralls = false
 		task.coverallsAction()
@@ -238,7 +231,6 @@ class CoverallsTaskTest {
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
 
 		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
-		task.project = this.project
 
 		task.project.extensions.coveralls.sendToCoveralls = false
 		task.project.extensions.coveralls.saveAsFile = true
@@ -260,7 +252,6 @@ class CoverallsTaskTest {
 		task.sourceReportFactoryMap['src/test/fixture/coverage.xml'] = new CoberturaSourceReportFactory()
 
 		task.env = [TRAVIS: 'true', TRAVIS_JOB_ID: '123']
-		task.project = this.project
 
 		task.project.extensions.coveralls.sendToCoveralls = false
 		task.project.extensions.coveralls.saveAsFile = true
