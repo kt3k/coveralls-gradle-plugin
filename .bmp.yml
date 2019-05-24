@@ -1,5 +1,5 @@
 ---
-version: 2.8.2
+version: 2.8.3
 commit: 'chore(version): bump to v%.%.%'
 files:
   README.md:
@@ -9,3 +9,5 @@ files:
   - name = '%.%.%'
   - vcsTag = 'v%.%.%'
   - version '%.%.%'
+  gradle.properties:
+  - VERSION_NAME=%.%.%
