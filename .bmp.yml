@@ -9,3 +9,5 @@ files:
   - name = '%.%.%'
   - vcsTag = 'v%.%.%'
   - version '%.%.%'
+  gradle.properties:
+  - VERSION_NAME=%.%.%
