@@ -1,7 +1,9 @@
-language: groovy
+language: java
+dist: trusty
 
 jdk:
 - oraclejdk8
+- oraclejdk11
 
 script:
 - ./gradlew -Dscan=true build
