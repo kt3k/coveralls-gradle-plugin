@@ -3,7 +3,8 @@ plugins {
     id "groovy"
     id "com.vanniktech.maven.publish" version "0.8.0"
     id "jacoco"
-    id "com.jfrog.bintray" version "1.4"
+    id "java-gradle-plugin"
+    id "com.gradle.plugin-publish" version "0.10.1"
     id "com.github.kt3k.coveralls" version "2.5.0"
 }
 
@@ -41,34 +42,26 @@ jacocoTestReport {
     }
 }
 
-bintray {
-
-    if (project.hasProperty('bintray.username')) {
-        // these two should be defined out of the repository, for example, in ~/.gradle/gradle.properties
-        user = project.'bintray.username'
-        key = project.'bintray.apiKey'
+gradlePlugin {
+  plugins {
+    coverallsPlugin {
+      id = 'com.github.kt3k.coveralls'
+      implementationClass = 'org.kt3k.gradle.plugin.CoverallsPlugin'
     }
+  }
+}
 
-    publications = ['plugin']
+pluginBundle {
+  website = 'http://github.com/kt3k/coveralls-gradle-plugin/'
+  vcsUrl = 'https://github.com/kt3k/coveralls-gradle-plugin.git'
+  description = 'Send coverage data to coveralls.io'
+  tags = ['coverage', 'coveralls']
 
-    pkg {
-        repo = 'gradle-plugins'
-        name = 'coveralls-gradle-plugin'
-        desc = 'Send coverage data to coveralls.io.'
-        websiteUrl = 'https://github.com/kt3k/coveralls-gradle-plugin'
-        issueTrackerUrl = 'https://github.com/kt3k/coveralls-gradle-plugin/issues'
-        vcsUrl = 'https://github.com/kt3k/coveralls-gradle-plugin.git'
-        licenses = ['MIT']
-        labels = ['coveralls', 'coverage']
-        publicDownloadNumbers = true
-        version {
-            name = '2.8.3'
-            vcsTag = 'v2.8.3'
-            attributes = [
-                'gradle-plugin': 'com.github.kt3k.coveralls:org.kt3k.gradle.plugin:coveralls-gradle-plugin'
-            ]
-        }
+  plugins {
+    coverallsPlugin {
+      displayName = 'Coveralls Gradle Plugin'
     }
+  }
 }
 
 buildScan {

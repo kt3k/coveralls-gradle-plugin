@@ -6,8 +6,6 @@ files:
   - coveralls-gradle-plugin v%.%.%
   - id 'com.github.kt3k.coveralls' version '%.%.%'
   build.gradle:
-  - name = '%.%.%'
-  - vcsTag = 'v%.%.%'
   - version '%.%.%'
   gradle.properties:
   - VERSION_NAME=%.%.%
