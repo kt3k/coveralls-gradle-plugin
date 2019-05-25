@@ -2,8 +2,8 @@
 release-maven:
 	./gradlew clean uploadArchives
 
-# Note release-portal needs to be excuted after `uploadArchives` without cleaning build
-# because publishPlugins task is unable to create .asc signature files.
+# When release to portal, we need to comment out com.vanniktech.maven.publish plugin
+# in build.gradle
 .PHONY: relase-portal
 release-portal:
-	./gradlew publishPlugins
+	./gradlew clean publishPlugins
