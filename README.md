@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v2.8.3
+# coveralls-gradle-plugin v2.8.4
 
 [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.svg?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.svg)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
@@ -13,7 +13,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id 'net.saliman.cobertura' version '2.3.1'
-    id 'com.github.kt3k.coveralls' version '2.8.3'
+    id 'com.github.kt3k.coveralls' version '2.8.4'
 }
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
@@ -46,7 +46,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id 'jacoco'
-    id 'com.github.kt3k.coveralls' version '2.8.2'
+    id 'com.github.kt3k.coveralls' version '2.8.4'
 }
 
 jacocoTestReport {
@@ -83,7 +83,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id "info.solidsoft.pitest" version '1.1.11'
-    id 'com.github.kt3k.coveralls' version '2.8.2'
+    id 'com.github.kt3k.coveralls' version '2.8.4'
 }
 
 pitest {
@@ -198,6 +198,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2019-05-25   v2.8.4   Maintainance update (refactored).
  * 2017-10-17   v2.8.2   Fixed PR ID in Jenkins. ([#79](https://github.com/kt3k/coveralls-gradle-plugin/pull/79))
  * 2017-02-08   v2.8.1   Fixed PIT report. ([#73](https://github.com/kt3k/coveralls-gradle-plugin/pull/73))
  * 2017-02-06   v2.8.0   Added [PIT](http://pitest.org/) support. ([#71](https://github.com/kt3k/coveralls-gradle-plugin/pull/71))
