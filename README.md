@@ -27,7 +27,7 @@ An example `.travis.yml` looks like following:
 language: java
 
 jdk:
-- oraclejdk8
+- oraclejdk11
 
 after_success:
 - ./gradlew cobertura coveralls
@@ -63,7 +63,7 @@ An example `.travis.yml` looks like following:
 language: java
 
 jdk:
-- oraclejdk8
+- oraclejdk11
 
 after_success:
 - ./gradlew jacocoTestReport coveralls
@@ -98,7 +98,7 @@ An example `.travis.yml` looks like following:
 language: java
 
 jdk:
-- oraclejdk8
+- oraclejdk11
 
 after_success:
 - ./gradlew pitest coveralls
