@@ -203,4 +203,52 @@ class ServiceInfoFactoryTest {
                 repoToken: 'ABCDEF')
     }
 
+    @Test
+    void testCreateFromEnvVarGitHubActionBranch() {
+        // test the case of github-actions
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+                GITHUB_WORKFLOW: 'Java CI',
+                GITHUB_WORKSPACE: '/home/runner/work/ci/ci',
+                GITHUB_EVENT_NAME: 'push',
+                GITHUB_ACTIONS: 'true',
+                GITHUB_EVENT_PATH: '/home/runner/work/_temp/_github_workflow/event.json',
+                GITHUB_ACTION: 'run',
+                GITHUB_ACTOR: 'musketyr',
+                GITHUB_REF: 'refs/heads/master',
+                GITHUB_REPOSITORY: 'agorapulse/ci',
+                GITHUB_SHA: '8eee24aac46ace5cd156d351062dfce68e57e49e'
+        )
+
+        assertEquals 'github-actions', serviceInfo.serviceName
+        assertEquals "https://github.com/agorapulse/ci/commit/8eee24aac46ace5cd156d351062dfce68e57e49e/checks", serviceInfo.serviceBuildUrl
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+        assertEquals 'master', serviceInfo.environment['branch']
+        assertEquals '8eee24aac46ace5cd156d351062dfce68e57e49e', serviceInfo.environment['commit_sha']
+    }
+
+    @Test
+    void testCreateFromEnvVarGitHubActionPullRequest() {
+        // test the case of github-actions
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+                GITHUB_WORKFLOW: 'Java CI',
+                GITHUB_WORKSPACE: '/home/runner/work/ci/ci',
+                GITHUB_EVENT_NAME: 'pull_request',
+                GITHUB_ACTIONS: 'true',
+                GITHUB_EVENT_PATH: '/home/runner/work/_temp/_github_workflow/event.json',
+                GITHUB_ACTION: 'run',
+                GITHUB_ACTOR: 'musketyr',
+                GITHUB_REF: 'refs/pull/1/merge',
+                GITHUB_REPOSITORY: 'agorapulse/ci',
+                GITHUB_SHA: '8eee24aac46ace5cd156d351062dfce68e57e49e'
+        )
+
+        assertEquals 'github-actions', serviceInfo.serviceName
+        assertEquals "https://github.com/agorapulse/ci/commit/8eee24aac46ace5cd156d351062dfce68e57e49e/checks", serviceInfo.serviceBuildUrl
+        assertEquals '1', serviceInfo.servicePullRequest
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+        assertEquals '8eee24aac46ace5cd156d351062dfce68e57e49e', serviceInfo.environment['commit_sha']
+    }
+
 }

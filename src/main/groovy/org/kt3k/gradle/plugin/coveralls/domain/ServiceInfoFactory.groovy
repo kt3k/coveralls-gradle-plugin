@@ -3,10 +3,16 @@ package org.kt3k.gradle.plugin.coveralls.domain
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
 
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 /**
  * ServiceInfoFactory is factory class of ServiceInfo.
  */
 class ServiceInfoFactory {
+
+    private static final Pattern GITHUB_ACTIONS_PULL_REQUEST_PATTERN = Pattern.compile("refs/pull/(\\d+)/merge")
+    private static final Pattern GITHUB_ACTIONS_BRANCH_PATTERN = Pattern.compile("refs/.*?/(.*)")
 
     /**
      * Create ServiceInfo instance from environmental variables.
@@ -95,6 +101,33 @@ class ServiceInfoFactory {
                                 'branch'    : env.get('BITRISE_GIT_BRANCH'),
                                 'commit_sha': env.get('BITRISE_GIT_COMMIT')]
                 )
+            } else if (envIsGithubActions(env)) {
+                String ref = env.get('GITHUB_REF')
+
+                Matcher pullRequestMatcher = GITHUB_ACTIONS_PULL_REQUEST_PATTERN.matcher(ref)
+                String prId = null
+                if (pullRequestMatcher.matches()) {
+                    prId = pullRequestMatcher.group(1)
+                }
+
+                Matcher branchOrTagMatcher = GITHUB_ACTIONS_BRANCH_PATTERN.matcher(ref)
+                String branchOrTag = prId ? null : ref
+                if (branchOrTagMatcher.matches()) {
+                    branchOrTag = branchOrTagMatcher.group(1)
+                }
+
+                return new ServiceInfo(
+                    serviceName: 'github-actions',
+                    servicePullRequest: prId,
+                    serviceBranch: branchOrTag,
+                    serviceBuildUrl: "https://github.com/${env.get('GITHUB_REPOSITORY')}/commit/${env.get('GITHUB_SHA')}/checks",
+                    repoToken: env.get('COVERALLS_REPO_TOKEN'),
+
+                    environment: [
+                        'branch'            : branchOrTag,
+                        'commit_sha'        : env.get('GITHUB_SHA')
+                    ]
+                )
             } else {
                 return new ServiceInfo(
                         serviceName: env['CI_NAME'] ?: 'other',
@@ -141,6 +174,10 @@ class ServiceInfoFactory {
 
     private static boolean envIsBitrise(Map<String, String> env) {
         env.get('BITRISE_BUILD_URL') != null
+    }
+
+    private static boolean envIsGithubActions(Map<String, String> env) {
+        env.get('GITHUB_ACTIONS') != null
     }
 
     private static boolean repoTokenIsSet(Map<String, String> env) {
