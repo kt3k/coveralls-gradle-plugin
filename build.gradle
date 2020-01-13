@@ -68,3 +68,7 @@ buildScan {
     termsOfServiceUrl   = 'https://gradle.com/terms-of-service'
     termsOfServiceAgree = 'yes'
 }
+
+test {
+    inputs.dir "$projectDir/src/test/fixture"
+}
