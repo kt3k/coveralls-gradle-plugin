@@ -30,6 +30,7 @@ class ServiceInfoFactory {
                 return new ServiceInfo(
                         serviceName: env.get('CI_NAME') ?: 'travis-pro',
                         serviceJobId: env.get('TRAVIS_JOB_ID'),
+                        serviceBranch: env.get('TRAVIS_BRANCH'),
                         repoToken: env.get('COVERALLS_REPO_TOKEN'),
                         environment: [
                                 'travis_job_id'      : env.get('TRAVIS_JOB_ID'),
