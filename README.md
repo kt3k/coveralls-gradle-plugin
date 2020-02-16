@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v2.9.0
+# coveralls-gradle-plugin v2.10.0
 
 [![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.svg?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.svg)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
@@ -13,7 +13,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id 'net.saliman.cobertura' version '2.3.1'
-    id 'com.github.kt3k.coveralls' version '2.9.0'
+    id 'com.github.kt3k.coveralls' version '2.10.0'
 }
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
@@ -198,6 +198,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2020-02-16   v2.10.0  Add branch detection. ([#102](https://github.com/kt3k/coveralls-gradle-plugin/pull/102))
  * 2019-12-11   v2.9.0   Add GitHub Actions support. ([#99](https://github.com/kt3k/coveralls-gradle-plugin/pull/99))
  * 2019-05-25   v2.8.4   Maintainance update (refactored).
  * 2017-10-17   v2.8.2   Fixed PR ID in Jenkins. ([#79](https://github.com/kt3k/coveralls-gradle-plugin/pull/79))
