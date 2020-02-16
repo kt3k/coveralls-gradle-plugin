@@ -30,7 +30,8 @@ class ServiceInfoFactoryTest {
                 TRAVIS: 'true',
                 TRAVIS_JOB_ID: '12345678',
                 COVERALLS_REPO_TOKEN: 'ABCDEF',
-                TRAVIS_PULL_REQUEST: '3232')
+                TRAVIS_PULL_REQUEST: '3232',
+                TRAVIS_BRANCH: 'branchX')
 
         assertEquals 'travis-ci', serviceInfo.serviceName
         assertEquals '12345678', serviceInfo.serviceJobId
@@ -38,6 +39,7 @@ class ServiceInfoFactoryTest {
 
         assertEquals '12345678', serviceInfo.environment['travis_job_id']
         assertEquals '3232', serviceInfo.environment['travis_pull_request']
+        assertEquals 'branchX', serviceInfo.environment['branch']
     }
 
     @Test
@@ -54,7 +56,8 @@ class ServiceInfoFactoryTest {
                 TRAVIS: 'true',
                 TRAVIS_JOB_ID: '12345678',
                 COVERALLS_REPO_TOKEN: 'ABCDEF',
-                TRAVIS_PULL_REQUEST: '3232')
+                TRAVIS_PULL_REQUEST: '3232',
+                TRAVIS_BRANCH: 'branchX')
 
         assertEquals 'travis-pro', serviceInfo.serviceName
         assertEquals '12345678', serviceInfo.serviceJobId
@@ -62,6 +65,7 @@ class ServiceInfoFactoryTest {
 
         assertEquals '12345678', serviceInfo.environment['travis_job_id']
         assertEquals '3232', serviceInfo.environment['travis_pull_request']
+        assertEquals 'branchX', serviceInfo.environment['branch']
     }
 
 

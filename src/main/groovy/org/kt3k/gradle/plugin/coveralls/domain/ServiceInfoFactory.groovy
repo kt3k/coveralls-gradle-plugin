@@ -30,10 +30,12 @@ class ServiceInfoFactory {
                 return new ServiceInfo(
                         serviceName: env.get('CI_NAME') ?: 'travis-pro',
                         serviceJobId: env.get('TRAVIS_JOB_ID'),
+                        serviceBranch: env.get('TRAVIS_BRANCH'),
                         repoToken: env.get('COVERALLS_REPO_TOKEN'),
                         environment: [
                                 'travis_job_id'      : env.get('TRAVIS_JOB_ID'),
-                                'travis_pull_request': env.get('TRAVIS_PULL_REQUEST')]
+                                'travis_pull_request': env.get('TRAVIS_PULL_REQUEST'),
+                                'branch'             : env.get('TRAVIS_BRANCH')]
                 )
             } else if (envIsCircleci(env)) {
                 String prId = env.get('CI_PULL_REQUEST')
