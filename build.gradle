@@ -19,7 +19,7 @@ dependencies {
     implementation localGroovy()
     implementation gradleApi()
     implementation 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
-    implementation 'org.apache.httpcomponents:httpmime:4.3'
+    implementation 'org.apache.httpcomponents:httpmime:4.5.11'
     implementation 'org.eclipse.jgit:org.eclipse.jgit:5.5.1.201910021850-r'
     testImplementation 'junit:junit:4.11'
     testImplementation 'org.mockito:mockito-all:1.9.5'
