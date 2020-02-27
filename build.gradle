@@ -2,7 +2,6 @@ plugins {
     id "java-gradle-plugin"
     id "com.gradle.build-scan" version "2.3"
     id "groovy"
-    id "com.vanniktech.maven.publish" version "0.8.0"
     id "jacoco"
     id "com.gradle.plugin-publish" version "0.10.1"
     id "com.github.kt3k.coveralls" version "2.5.0"
