@@ -144,7 +144,7 @@ class JacocoSourceReportFactoryTest {
 	@Test
 	public void testCreateReportForKotlinProject() throws Exception {
 		// test with single (not multi) project jacoco report
-		List<SourceReport> reports = new JacocoSourceReportFactory().createReportList(
+		List<SourceReport> reports = JacocoSourceReportFactory.createReportList(
 			'org.kt3k.gradle.plugin',
 			[new File('src/test/fixture/srcKotlin')],
 			new File('src/test/fixture/jacocoTestReport.xml')
