@@ -15,7 +15,9 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 
 		List<File> targetSrcDirs = createTargetSrcDirs(project)
 
-		return createReportList(targetSrcDirs.sort(), jacocoReportFile)
+		String kotlinRootPackage = project.extensions.coveralls.kotlinRootPackage.trim()
+
+		return createReportList(kotlinRootPackage, targetSrcDirs.sort(), jacocoReportFile)
 
 	}
 
@@ -52,9 +54,12 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 		return project.extensions.coveralls.sourceDirs + targetSrcDirs.sort()
 	}
 
-	static List<SourceReport> createReportList(List<File> srcDirs, File jacocoReportFile) {
+	static List<SourceReport> createReportList(String kotlinRootPackage, List<File> srcDirs, File jacocoReportFile) {
 		// create parser
 		XmlParser parser = new XmlParserFactory().xmlParser
+
+		// transform to path
+		kotlinRootPackage = kotlinRootPackage.replace('.', '/')
 
 		// parse
 		Node report = parser.parse(jacocoReportFile)
@@ -84,6 +89,10 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 		// find actual source files
 		// and create the list of SourceReport instances
 		a.each { String filename, Map<Integer, Integer> cov ->
+
+			if (!kotlinRootPackage.isEmpty()) {
+				filename = filename.replaceFirst("^${kotlinRootPackage}/", "")
+			}
 
 			File sourceFile = srcDirs.collect { new File(it, filename) }.find { it.exists() }
 

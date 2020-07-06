@@ -34,7 +34,7 @@ class JacocoSourceReportFactoryTest {
 	@Test
 	public void testCreateReport() throws Exception {
 		// test with single (not multi) project jacoco report
-		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/test/fixture')], new File('src/test/fixture/jacocoTestReport.xml'))
+		List<SourceReport> reports = JacocoSourceReportFactory.createReportList('', [new File('src/test/fixture')], new File('src/test/fixture/jacocoTestReport.xml'))
 
 		assertNotNull reports
 
@@ -55,7 +55,7 @@ class JacocoSourceReportFactoryTest {
 	@Test
 	public void testCreateReportWithMultiProjectReport() {
 		// test with multi-project jacoco report
-		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/test/fixture')], new File('src/test/fixture/jacocoReportWithMultipleGroups.xml'))
+		List<SourceReport> reports = JacocoSourceReportFactory.createReportList('', [new File('src/test/fixture')], new File('src/test/fixture/jacocoReportWithMultipleGroups.xml'))
 
 		assertNotNull reports
 
@@ -140,4 +140,23 @@ class JacocoSourceReportFactoryTest {
 			assertTrue it.absolutePath.endsWith("src" + separatorChar + "main" + separatorChar + "java") || it.absolutePath.endsWith('src' + separatorChar + 'main' + separatorChar + 'scala')
 		}
 	}
+
+	@Test
+	public void testCreateReportForKotlinProject() throws Exception {
+		// test with single (not multi) project jacoco report
+		List<SourceReport> reports = new JacocoSourceReportFactory().createReportList(
+			'org.kt3k.gradle.plugin',
+			[new File('src/test/fixture/srcKotlin')],
+			new File('src/test/fixture/jacocoTestReport.xml')
+        )
+
+		assertNotNull reports
+
+		assertEquals 1, reports.size()
+
+		// sort reports for assertion
+		reports.sort { it.name }
+
+		assertEquals 'src/test/fixture/srcKotlin/CoverallsPlugin.groovy', reports[0].name
+    }
 }
