@@ -10,6 +10,7 @@ import org.gradle.api.plugins.GroovyPlugin
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.scala.ScalaPlugin
 import org.gradle.testfixtures.ProjectBuilder
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.junit.Test
 import org.junit.Before
 import org.kt3k.gradle.plugin.CoverallsPluginExtension
@@ -148,7 +149,7 @@ class JacocoSourceReportFactoryTest {
 			'org.kt3k.gradle.plugin',
 			[new File('src/test/fixture/srcKotlin')],
 			new File('src/test/fixture/jacocoTestReport.xml')
-        )
+		)
 
 		assertNotNull reports
 
@@ -158,5 +159,16 @@ class JacocoSourceReportFactoryTest {
 		reports.sort { it.name }
 
 		assertEquals 'src/test/fixture/srcKotlin/CoverallsPlugin.groovy', reports[0].name
-    }
+	}
+
+	@Test
+	public void testCreateReportForKotlinProject2() throws Exception {
+		project.plugins.apply(KotlinPluginWrapper)
+
+		List<File> srcDirs = JacocoSourceReportFactory.createTargetSrcDirs(project)
+
+		srcDirs.each {
+			assertTrue it.absolutePath.endsWith("src" + separatorChar + "main" + separatorChar + "java") || it.absolutePath.endsWith('src' + separatorChar + 'main' + separatorChar + 'kotlin')
+		}
+	}
 }
