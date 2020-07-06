@@ -16,6 +16,9 @@ class CoverallsPluginExtension {
 	/** API endpoint of Coveralls */
 	String apiEndpoint = 'https://coveralls.io/api/v1/jobs'
 
+	/** Kotlin root package */
+	String kotlinRootPackage = ''
+
 	/** Jacoco report path */
 	Object jacocoReportPath = 'build/reports/jacoco/test/jacocoTestReport.xml'
 
