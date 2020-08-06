@@ -1,18 +1,16 @@
 package org.kt3k.gradle.plugin.coveralls.domain
 
-import com.android.build.gradle.BasePlugin
-import com.android.build.gradle.DummyAndroidPlugin
-import com.android.build.gradle.DummyExtendedAndroidPlugin
-import com.android.build.gradle.DummyExtendedPlugin
-import com.android.build.gradle.DummyPlugin
+import com.android.build.gradle.*
 import org.gradle.api.Project
 import org.gradle.api.plugins.GroovyPlugin
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.scala.ScalaPlugin
 import org.gradle.testfixtures.ProjectBuilder
-import org.junit.Test
 import org.junit.Before
+import org.junit.Test
 import org.kt3k.gradle.plugin.CoverallsPluginExtension
+
+import java.nio.file.Paths
 
 import static java.io.File.separatorChar
 import static org.junit.Assert.*
@@ -34,7 +32,7 @@ class JacocoSourceReportFactoryTest {
 	@Test
 	public void testCreateReport() throws Exception {
 		// test with single (not multi) project jacoco report
-		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/test/fixture')], new File('src/test/fixture/jacocoTestReport.xml'))
+		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/test/fixture')], new File('src/test/fixture/jacocoTestReport.xml'), Paths.get("."))
 
 		assertNotNull reports
 
@@ -55,7 +53,7 @@ class JacocoSourceReportFactoryTest {
 	@Test
 	public void testCreateReportWithMultiProjectReport() {
 		// test with multi-project jacoco report
-		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/test/fixture')], new File('src/test/fixture/jacocoReportWithMultipleGroups.xml'))
+		List<SourceReport> reports = JacocoSourceReportFactory.createReportList([new File('src/test/fixture')], new File('src/test/fixture/jacocoReportWithMultipleGroups.xml'), Paths.get("."))
 
 		assertNotNull reports
 

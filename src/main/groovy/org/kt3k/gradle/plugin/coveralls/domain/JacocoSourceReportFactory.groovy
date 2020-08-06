@@ -5,6 +5,8 @@ import org.gradle.api.plugins.GroovyPlugin
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.scala.ScalaPlugin
 
+import java.nio.file.Path
+
 /**
  * Factory class of SourceReport for JaCoCo report file.
  */
@@ -15,7 +17,7 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 
 		List<File> targetSrcDirs = createTargetSrcDirs(project)
 
-		return createReportList(targetSrcDirs.sort(), jacocoReportFile)
+		return createReportList(targetSrcDirs.sort(), jacocoReportFile, project.projectDir.toPath())
 
 	}
 
@@ -52,7 +54,7 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 		return project.extensions.coveralls.sourceDirs + targetSrcDirs.sort()
 	}
 
-	static List<SourceReport> createReportList(List<File> srcDirs, File jacocoReportFile) {
+	static List<SourceReport> createReportList(List<File> srcDirs, File jacocoReportFile, Path basePath) {
 		// create parser
 		XmlParser parser = new XmlParserFactory().xmlParser
 
@@ -99,8 +101,7 @@ class JacocoSourceReportFactory implements SourceReportFactory {
 				r[line] = hits
 			}
 
-			// Compute relative path from . via https://gist.github.com/ysb33r/5804364
-			String relPath = new File('.').toURI().relativize( sourceFile.toURI() ).toString()
+			String relPath = basePath.toAbsolutePath().relativize(sourceFile.toPath().toAbsolutePath()).toString();
 			reports.add new SourceReport(relPath, source, r)
 		}
 
