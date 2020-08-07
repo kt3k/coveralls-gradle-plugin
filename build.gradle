@@ -8,7 +8,7 @@ plugins {
 }
 
 group 'org.kt3k.gradle.plugin'
-version '2.10.1'
+version '2.10.2'
 
 repositories {
     jcenter()

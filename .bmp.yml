@@ -1,5 +1,5 @@
 ---
-version: 2.10.1
+version: 2.10.2
 commit: 'chore(version): bump to v%.%.%'
 files:
   README.md:
