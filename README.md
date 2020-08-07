@@ -198,6 +198,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2020-08-07   v2.10.2  Fix path handling of JaCoCo report. ([#108](https://github.com/kt3k/coveralls-gradle-plugin/pull/108))
  * 2020-02-28   v2.10.1  Upgrade httpmime dependency. ([#104](https://github.com/kt3k/coveralls-gradle-plugin/pull/104))
  * 2020-02-16   v2.10.0  Add branch detection. ([#102](https://github.com/kt3k/coveralls-gradle-plugin/pull/102))
  * 2019-12-11   v2.9.0   Add GitHub Actions support. ([#99](https://github.com/kt3k/coveralls-gradle-plugin/pull/99))
