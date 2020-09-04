@@ -148,6 +148,7 @@ The following CI services should *automatically* work:
  - [CircleCI](https://circleci.com/)
  - [Jenkins CI](http://jenkins-ci.org/)
  - [Bitrise CI](https://bitrise.io/)
+ - [Buildkite](https://buildkite.com)
 
 If you need to customize something or support a different CI service, you can configure environment variables:
 
@@ -165,6 +166,7 @@ If you need to customize something or support a different CI service, you can co
  * Jenkins: `jenkins`
  * Snap CI: `snapci`
  * Bitrise CI: `bitrise`
+ * Buildkite: `buildkite`
 
 If you have `COVERALLS_REPO_TOKEN` set and you're using Travis-CI not Travis-Pro, you need to set `CI_NAME=travis-ci`.
 

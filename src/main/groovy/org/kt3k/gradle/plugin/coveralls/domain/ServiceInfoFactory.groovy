@@ -130,6 +130,21 @@ class ServiceInfoFactory {
                         'commit_sha'        : env.get('GITHUB_SHA')
                     ]
                 )
+            } else if (envIsBuildkite(env)) {
+                return new ServiceInfo(
+                        serviceName: 'buildkite',
+                        serviceNumber: env.get('BUILDKITE_BUILD_NUMBER'),
+                        serviceBuildUrl: env.get('BUILDKITE_BUILD_URL'),
+                        serviceBranch: env.get('BUILDKITE_BRANCH'),
+                        servicePullRequest: env.get('BUILDKITE_PULL_REQUEST') == 'false' ? null : env.get('BUILDKITE_PULL_REQUEST'),
+                        serviceJobId: env.get('BUILDKITE_BUILD_ID'),
+                        repoToken: env.get('COVERALLS_REPO_TOKEN'),
+
+                        environment: [
+                                'branch'    : env.get('BUILDKITE_BRANCH'),
+                                'commit_sha': env.get('BUILDKITE_COMMIT')
+                        ]
+                )
             } else {
                 return new ServiceInfo(
                         serviceName: env['CI_NAME'] ?: 'other',
@@ -180,6 +195,10 @@ class ServiceInfoFactory {
 
     private static boolean envIsGithubActions(Map<String, String> env) {
         env.get('GITHUB_ACTIONS') != null
+    }
+
+    private static boolean envIsBuildkite(Map<String, String> env) {
+        env.get('BUILDKITE') == 'true'
     }
 
     private static boolean repoTokenIsSet(Map<String, String> env) {
