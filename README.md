@@ -200,6 +200,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2020-09-04   v2.11.0  Add Buildkite support. ([#109](https://github.com/kt3k/coveralls-gradle-plugin/pull/109))
  * 2020-08-07   v2.10.2  Fix path handling of JaCoCo report. ([#108](https://github.com/kt3k/coveralls-gradle-plugin/pull/108))
  * 2020-02-28   v2.10.1  Upgrade httpmime dependency. ([#104](https://github.com/kt3k/coveralls-gradle-plugin/pull/104))
  * 2020-02-16   v2.10.0  Add branch detection. ([#102](https://github.com/kt3k/coveralls-gradle-plugin/pull/102))
