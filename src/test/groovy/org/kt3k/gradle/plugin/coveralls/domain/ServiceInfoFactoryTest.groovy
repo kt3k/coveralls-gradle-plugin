@@ -137,6 +137,32 @@ class ServiceInfoFactoryTest {
     }
 
     @Test
+    void testCreateFromEnvVarBuildkite() {
+        // test the case of buildkite
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+                BUILDKITE: "true",
+                BUILDKITE_BUILD_NUMBER: "123",
+                BUILDKITE_BUILD_URL: "https://buildkite.com/your-org/your-repo/builds/123",
+                BUILDKITE_BUILD_ID: "58b195c0-94aa-43ba-ae43-00b93c29a8b7",
+                BUILDKITE_BRANCH: "branchX",
+                BUILDKITE_COMMIT: "231asdfadsf424",
+                BUILDKITE_PULL_REQUEST: "11",
+                COVERALLS_REPO_TOKEN: 'ABCDEF',
+        )
+
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+        assertEquals 'buildkite', serviceInfo.serviceName
+        assertEquals '123', serviceInfo.serviceNumber
+        assertEquals 'https://buildkite.com/your-org/your-repo/builds/123', serviceInfo.serviceBuildUrl
+        assertEquals 'branchX', serviceInfo.serviceBranch
+        assertEquals '11', serviceInfo.servicePullRequest
+        assertEquals '58b195c0-94aa-43ba-ae43-00b93c29a8b7', serviceInfo.serviceJobId
+
+        assertEquals 'branchX', serviceInfo.environment['branch']
+        assertEquals '231asdfadsf424', serviceInfo.environment['commit_sha']
+    }
+
+    @Test
     void testCreateFromEnvVarJenkinsNonPullRequest() {
         // test the case of travis-pro
         ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
