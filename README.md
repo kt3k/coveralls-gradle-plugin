@@ -12,7 +12,7 @@ Add the following lines to build.gradle:
 
 ```groovy
 plugins {
-    id 'net.saliman.cobertura' version '2.3.1'
+    id 'net.saliman.cobertura' version '4.0.0'
     id 'com.github.kt3k.coveralls' version '2.10.2'
 }
 
@@ -82,7 +82,7 @@ Add the following lines to build.gradle:
 
 ```groovy
 plugins {
-    id "info.solidsoft.pitest" version '1.1.11'
+    id "info.solidsoft.pitest" version '1.6.0'
     id 'com.github.kt3k.coveralls' version '2.8.4'
 }
 
