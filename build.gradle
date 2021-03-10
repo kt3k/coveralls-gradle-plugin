@@ -7,6 +7,8 @@ plugins {
     id "com.github.kt3k.coveralls" version "2.5.0"
 }
 
+apply from: 'gradle/funcTest.gradle'
+
 group 'org.kt3k.gradle.plugin'
 version '2.10.2'
 
@@ -23,6 +25,8 @@ dependencies {
     testImplementation 'junit:junit:4.11'
     testImplementation 'org.mockito:mockito-all:1.9.5'
     testImplementation 'com.github.tomakehurst:wiremock:2.23.2'
+
+    functionalTestImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
 }
 
 tasks.withType(JavaCompile) {
@@ -42,6 +46,7 @@ jacocoTestReport {
 }
 
 gradlePlugin {
+  testSourceSets sourceSets.functionalTest
   plugins {
     coverallsPlugin {
       id = 'com.github.kt3k.coveralls'

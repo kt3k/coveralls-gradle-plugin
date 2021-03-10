@@ -7,9 +7,21 @@ import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.gradle.api.DefaultTask
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
 import org.kt3k.gradle.plugin.CoverallsPluginExtension
-import org.kt3k.gradle.plugin.coveralls.domain.*
+import org.kt3k.gradle.plugin.coveralls.domain.CoberturaSourceReportFactory
+import org.kt3k.gradle.plugin.coveralls.domain.GitInfo
+import org.kt3k.gradle.plugin.coveralls.domain.GitInfoFactory
+import org.kt3k.gradle.plugin.coveralls.domain.JacocoSourceReportFactory
+import org.kt3k.gradle.plugin.coveralls.domain.PITSourceReportFactory
+import org.kt3k.gradle.plugin.coveralls.domain.ProxyInfoFactory
+import org.kt3k.gradle.plugin.coveralls.domain.Report
+import org.kt3k.gradle.plugin.coveralls.domain.ServiceInfo
+import org.kt3k.gradle.plugin.coveralls.domain.ServiceInfoFactory
+import org.kt3k.gradle.plugin.coveralls.domain.SourceReport
+import org.kt3k.gradle.plugin.coveralls.domain.SourceReportFactory
 
 import static groovyx.net.http.Method.POST
 
@@ -19,12 +31,15 @@ import static groovyx.net.http.Method.POST
 class CoverallsTask extends DefaultTask {
 
 	/** environmental variable */
+	@Input
 	Map<String, String> env = [:]
 
 	/** the logger */
+	@Internal
 	Logger logger = Logging.getLogger('coveralls-logger')
 
 	/** source report factory mapping */
+	@Internal
 	Map<String, SourceReportFactory> sourceReportFactoryMap = [:]
 
 
