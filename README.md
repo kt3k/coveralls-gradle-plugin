@@ -1,6 +1,7 @@
 # coveralls-gradle-plugin v2.10.2
 
-[![Build Status](https://travis-ci.org/kt3k/coveralls-gradle-plugin.svg?branch=master)](https://travis-ci.org/kt3k/coveralls-gradle-plugin) [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.svg)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
+[![Java CI](https://github.com/kt3k/coveralls-gradle-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/coveralls-gradle-plugin/actions/workflows/ci.yml)
+ [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.svg)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
 
 > Send coverage data to coveralls.io.
 
