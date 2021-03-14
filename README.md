@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v2.10.2
+# coveralls-gradle-plugin v2.11.0
 
 [![Java CI](https://github.com/kt3k/coveralls-gradle-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/coveralls-gradle-plugin/actions/workflows/ci.yml)
  [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.svg)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
@@ -14,7 +14,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id 'net.saliman.cobertura' version '4.0.0'
-    id 'com.github.kt3k.coveralls' version '2.10.2'
+    id 'com.github.kt3k.coveralls' version '2.11.0'
 }
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
