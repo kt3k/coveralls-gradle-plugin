@@ -41,12 +41,12 @@ class JacocoSourceReportFactoryTest {
 		// sort reports for assertion
 		reports.sort { it.name }
 
-		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
-		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/Application.groovy', reports[1].name
-		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/Report.groovy', reports[2].name
-		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo.groovy', reports[3].name
-		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory.groovy', reports[4].name
-		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[5].name
+		assertEquals '../src/test/fixture/org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
+		assertEquals '../src/test/fixture/org/kt3k/gradle/plugin/coveralls/Application.groovy', reports[1].name
+		assertEquals '../src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/Report.groovy', reports[2].name
+		assertEquals '../src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/ServiceInfo.groovy', reports[3].name
+		assertEquals '../src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/ServiceInfoFactory.groovy', reports[4].name
+		assertEquals '../src/test/fixture/org/kt3k/gradle/plugin/coveralls/domain/SourceReport.groovy', reports[5].name
 	}
 
 
@@ -62,8 +62,8 @@ class JacocoSourceReportFactoryTest {
 		// sort reports for assertion
 		reports.sort { it.name }
 
-		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
-		assertEquals 'src/test/fixture/org/kt3k/gradle/plugin/coveralls/Application.groovy', reports[1].name
+		assertEquals '../src/test/fixture/org/kt3k/gradle/plugin/CoverallsPlugin.groovy', reports[0].name
+		assertEquals '../src/test/fixture/org/kt3k/gradle/plugin/coveralls/Application.groovy', reports[1].name
 	}
 
 
