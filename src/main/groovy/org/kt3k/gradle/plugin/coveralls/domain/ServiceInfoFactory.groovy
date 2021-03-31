@@ -130,6 +130,17 @@ class ServiceInfoFactory {
                         'commit_sha'        : env.get('GITHUB_SHA')
                     ]
                 )
+            } else if (envIsDrone(env)) {
+                return new ServiceInfo(
+                    serviceName: 'drone',
+                    serviceNumber: env.get('DRONE_BUILD_NUMBER'),
+                    serviceBranch: env.get('DRONE_BRANCH'),
+                    repoToken: env.get('COVERALLS_REPO_TOKEN'),
+                    servicePullRequest: env.get('DRONE_PULL_REQUEST'),
+                    environment: [
+                        'branch'    : env.get('DRONE_BRANCH'),
+                        'commit_sha': env.get('DRONE_COMMIT_SHA')]
+                )
             } else {
                 return new ServiceInfo(
                         serviceName: env['CI_NAME'] ?: 'other',
@@ -181,6 +192,11 @@ class ServiceInfoFactory {
     private static boolean envIsGithubActions(Map<String, String> env) {
         env.get('GITHUB_ACTIONS') != null
     }
+
+    private static boolean envIsDrone(Map<String, String> env) {
+        env.get('DRONE') != null
+    }
+
 
     private static boolean repoTokenIsSet(Map<String, String> env) {
         env.get('COVERALLS_REPO_TOKEN') != null
