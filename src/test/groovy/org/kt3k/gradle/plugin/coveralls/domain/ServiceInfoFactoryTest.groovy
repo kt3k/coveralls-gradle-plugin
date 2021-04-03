@@ -255,4 +255,26 @@ class ServiceInfoFactoryTest {
         assertEquals '8eee24aac46ace5cd156d351062dfce68e57e49e', serviceInfo.environment['commit_sha']
     }
 
+    @Test
+    void testCreateFromEnvVarDrone() {
+        // test the case of drone
+        ServiceInfo serviceInfo = ServiceInfoFactory.createFromEnvVar(
+            DRONE: "true",
+            DRONE_BUILD_NUMBER: "123456789",
+            DRONE_BRANCH: "branchX",
+            DRONE_PULL_REQUEST: "11",
+            DRONE_COMMIT_SHA: "231asdfadsf424",
+            COVERALLS_REPO_TOKEN: 'ABCDEF'
+        )
+
+        assertEquals 'drone', serviceInfo.serviceName
+        assertEquals '123456789', serviceInfo.serviceNumber
+        assertEquals 'branchX', serviceInfo.serviceBranch
+        assertEquals 'ABCDEF', serviceInfo.repoToken
+        assertEquals '11', serviceInfo.servicePullRequest
+
+        assertEquals 'branchX', serviceInfo.environment['branch']
+        assertEquals '231asdfadsf424', serviceInfo.environment['commit_sha']
+    }
+
 }
