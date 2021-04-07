@@ -1,4 +1,4 @@
-# coveralls-gradle-plugin v2.11.0
+# coveralls-gradle-plugin v2.12.0
 
 [![Java CI](https://github.com/kt3k/coveralls-gradle-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/coveralls-gradle-plugin/actions/workflows/ci.yml)
  [![Coverage Status](https://coveralls.io/repos/kt3k/coveralls-gradle-plugin/badge.svg)](https://coveralls.io/r/kt3k/coveralls-gradle-plugin)
@@ -14,7 +14,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id 'net.saliman.cobertura' version '4.0.0'
-    id 'com.github.kt3k.coveralls' version '2.11.0'
+    id 'com.github.kt3k.coveralls' version '2.12.0'
 }
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
@@ -199,6 +199,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2021-04-07   v2.12.0  Added Drone support. ([#111](https://github.com/kt3k/coveralls-gradle-plugin/pull/111))
  * 2020-08-07   v2.10.2  Fix path handling of JaCoCo report. ([#108](https://github.com/kt3k/coveralls-gradle-plugin/pull/108))
  * 2020-02-28   v2.10.1  Upgrade httpmime dependency. ([#104](https://github.com/kt3k/coveralls-gradle-plugin/pull/104))
  * 2020-02-16   v2.10.0  Add branch detection. ([#102](https://github.com/kt3k/coveralls-gradle-plugin/pull/102))
