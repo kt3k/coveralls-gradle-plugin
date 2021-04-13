@@ -47,7 +47,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id 'jacoco'
-    id 'com.github.kt3k.coveralls' version '2.8.4'
+    id 'com.github.kt3k.coveralls' version '2.12.0'
 }
 
 jacocoTestReport {
@@ -84,7 +84,7 @@ Add the following lines to build.gradle:
 ```groovy
 plugins {
     id "info.solidsoft.pitest" version '1.6.0'
-    id 'com.github.kt3k.coveralls' version '2.8.4'
+    id 'com.github.kt3k.coveralls' version '2.12.0'
 }
 
 pitest {
