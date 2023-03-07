@@ -199,6 +199,7 @@ Please see the examples below for details.
 
 ## Release History
 
+ * 2023-03-07   v2.12.2  Better error message. ([#114](https://github.com/kt3k/coveralls-gradle-plugin/pull/114))
  * 2021-04-07   v2.12.0  Added Drone support. ([#111](https://github.com/kt3k/coveralls-gradle-plugin/pull/111))
  * 2020-08-07   v2.10.2  Fix path handling of JaCoCo report. ([#108](https://github.com/kt3k/coveralls-gradle-plugin/pull/108))
  * 2020-02-28   v2.10.1  Upgrade httpmime dependency. ([#104](https://github.com/kt3k/coveralls-gradle-plugin/pull/104))
