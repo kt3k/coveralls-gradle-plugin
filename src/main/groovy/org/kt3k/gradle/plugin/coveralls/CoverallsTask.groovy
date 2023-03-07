@@ -119,7 +119,7 @@ class CoverallsTask extends DefaultTask {
 			this.logger.warn 'repo token: null'
 		} else if (serviceInfo.repoToken.isEmpty()) {
 			this.logger.warn 'repo token is the empty string'
-		} else
+		} else {
 			this.logger.warn 'repo token: present (not shown for security)'
 		}
 
