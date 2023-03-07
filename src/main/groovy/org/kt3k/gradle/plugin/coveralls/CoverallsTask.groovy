@@ -115,10 +115,12 @@ class CoverallsTask extends DefaultTask {
 
 		this.logger.warn 'service name: ' + serviceInfo.serviceName
 		this.logger.warn 'service job id: ' + serviceInfo.serviceJobId
-		if (serviceInfo.repoToken != null) {
-			this.logger.warn 'repo token: present (not shown for security)'
-		} else {
+		if (serviceInfo.repoToken == null) {
 			this.logger.warn 'repo token: null'
+		} else if (serviceInfo.repoToken.isEmpty()) {
+			this.logger.warn 'repo token is the empty string'
+		} else
+			this.logger.warn 'repo token: present (not shown for security)'
 		}
 
 
