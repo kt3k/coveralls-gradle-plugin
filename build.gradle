@@ -9,7 +9,7 @@ plugins {
 apply from: 'gradle/funcTest.gradle'
 
 group 'org.kt3k.gradle.plugin'
-version '2.12.1'
+version '2.12.2'
 
 repositories {
     jcenter()
