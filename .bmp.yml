@@ -1,11 +1,8 @@
----
-version: 2.12.0
+version: 2.12.1
 commit: 'chore(version): bump to v%.%.%'
 files:
   README.md:
-  - coveralls-gradle-plugin v%.%.%
-  - id 'com.github.kt3k.coveralls' version '%.%.%'
-  build.gradle:
-  - version '%.%.%'
-  gradle.properties:
-  - VERSION_NAME=%.%.%
+    - coveralls-gradle-plugin v%.%.%
+    - id 'com.github.kt3k.coveralls' version '%.%.%'
+  build.gradle: version '%.%.%'
+  gradle.properties: VERSION_NAME=%.%.%
